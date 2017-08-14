@@ -7,14 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7726DB291F34BE4600FEF380 /* Format.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7726DB281F34BE4600FEF380 /* Format.swift */; };
+		7728F69E1F344106006DB104 /* AnswerSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7728F69D1F344106006DB104 /* AnswerSheet.swift */; };
 		778311B81F2B81D200657895 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 778311B71F2B81D200657895 /* AppDelegate.swift */; };
-		778311BA1F2B81D200657895 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 778311B91F2B81D200657895 /* ViewController.swift */; };
+		778311BA1F2B81D200657895 /* FormatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 778311B91F2B81D200657895 /* FormatViewController.swift */; };
 		778311BD1F2B81D200657895 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 778311BB1F2B81D200657895 /* Main.storyboard */; };
 		778311C01F2B81D200657895 /* MarkSheet.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 778311BE1F2B81D200657895 /* MarkSheet.xcdatamodeld */; };
 		778311C21F2B81D200657895 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 778311C11F2B81D200657895 /* Assets.xcassets */; };
 		778311C51F2B81D200657895 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 778311C31F2B81D200657895 /* LaunchScreen.storyboard */; };
 		778311D01F2B81D200657895 /* MarkSheetTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 778311CF1F2B81D200657895 /* MarkSheetTests.swift */; };
 		778311DB1F2B81D200657895 /* MarkSheetUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 778311DA1F2B81D200657895 /* MarkSheetUITests.swift */; };
+		77A39E991F3B46BB001CEA76 /* MakeFormatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A39E981F3B46BB001CEA76 /* MakeFormatViewController.swift */; };
+		77A39E9B1F3DF0E4001CEA76 /* DoneCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A39E9A1F3DF0E4001CEA76 /* DoneCell.swift */; };
+		77ED56421F303D13009FB039 /* AnswerSheetListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77ED56411F303D13009FB039 /* AnswerSheetListViewController.swift */; };
+		77ED56441F30B94F009FB039 /* AnswerSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77ED56431F30B94F009FB039 /* AnswerSheetViewController.swift */; };
+		77ED56461F30BF84009FB039 /* QuestionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77ED56451F30BF83009FB039 /* QuestionCell.swift */; };
+		77ED56481F30E5FC009FB039 /* OptionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77ED56471F30E5FC009FB039 /* OptionCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,9 +43,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7726DB281F34BE4600FEF380 /* Format.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Format.swift; sourceTree = "<group>"; };
+		7728F69D1F344106006DB104 /* AnswerSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerSheet.swift; sourceTree = "<group>"; };
 		778311B41F2B81D200657895 /* MarkSheet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MarkSheet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		778311B71F2B81D200657895 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		778311B91F2B81D200657895 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		778311B91F2B81D200657895 /* FormatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormatViewController.swift; sourceTree = "<group>"; };
 		778311BC1F2B81D200657895 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		778311BF1F2B81D200657895 /* MarkSheet.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MarkSheet.xcdatamodel; sourceTree = "<group>"; };
 		778311C11F2B81D200657895 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -49,6 +59,12 @@
 		778311D61F2B81D200657895 /* MarkSheetUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MarkSheetUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		778311DA1F2B81D200657895 /* MarkSheetUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkSheetUITests.swift; sourceTree = "<group>"; };
 		778311DC1F2B81D200657895 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		77A39E981F3B46BB001CEA76 /* MakeFormatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeFormatViewController.swift; sourceTree = "<group>"; };
+		77A39E9A1F3DF0E4001CEA76 /* DoneCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoneCell.swift; sourceTree = "<group>"; };
+		77ED56411F303D13009FB039 /* AnswerSheetListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerSheetListViewController.swift; sourceTree = "<group>"; };
+		77ED56431F30B94F009FB039 /* AnswerSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerSheetViewController.swift; sourceTree = "<group>"; };
+		77ED56451F30BF83009FB039 /* QuestionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionCell.swift; sourceTree = "<group>"; };
+		77ED56471F30E5FC009FB039 /* OptionCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,12 +116,20 @@
 			isa = PBXGroup;
 			children = (
 				778311B71F2B81D200657895 /* AppDelegate.swift */,
-				778311B91F2B81D200657895 /* ViewController.swift */,
+				778311B91F2B81D200657895 /* FormatViewController.swift */,
+				77ED56411F303D13009FB039 /* AnswerSheetListViewController.swift */,
+				77ED56431F30B94F009FB039 /* AnswerSheetViewController.swift */,
+				77ED56451F30BF83009FB039 /* QuestionCell.swift */,
+				77A39E9A1F3DF0E4001CEA76 /* DoneCell.swift */,
+				77ED56471F30E5FC009FB039 /* OptionCollectionViewCell.swift */,
+				77A39E981F3B46BB001CEA76 /* MakeFormatViewController.swift */,
 				778311BB1F2B81D200657895 /* Main.storyboard */,
 				778311C11F2B81D200657895 /* Assets.xcassets */,
 				778311C31F2B81D200657895 /* LaunchScreen.storyboard */,
 				778311C61F2B81D200657895 /* Info.plist */,
 				778311BE1F2B81D200657895 /* MarkSheet.xcdatamodeld */,
+				7728F69D1F344106006DB104 /* AnswerSheet.swift */,
+				7726DB281F34BE4600FEF380 /* Format.swift */,
 			);
 			path = MarkSheet;
 			sourceTree = "<group>";
@@ -259,9 +283,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				778311BA1F2B81D200657895 /* ViewController.swift in Sources */,
+				77A39E9B1F3DF0E4001CEA76 /* DoneCell.swift in Sources */,
+				77ED56441F30B94F009FB039 /* AnswerSheetViewController.swift in Sources */,
+				778311BA1F2B81D200657895 /* FormatViewController.swift in Sources */,
+				77ED56481F30E5FC009FB039 /* OptionCollectionViewCell.swift in Sources */,
+				77A39E991F3B46BB001CEA76 /* MakeFormatViewController.swift in Sources */,
+				77ED56461F30BF84009FB039 /* QuestionCell.swift in Sources */,
 				778311B81F2B81D200657895 /* AppDelegate.swift in Sources */,
+				7726DB291F34BE4600FEF380 /* Format.swift in Sources */,
+				77ED56421F303D13009FB039 /* AnswerSheetListViewController.swift in Sources */,
 				778311C01F2B81D200657895 /* MarkSheet.xcdatamodeld in Sources */,
+				7728F69E1F344106006DB104 /* AnswerSheet.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -362,7 +394,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -411,7 +443,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -528,6 +560,7 @@
 				778311E11F2B81D200657895 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		778311E21F2B81D200657895 /* Build configuration list for PBXNativeTarget "MarkSheetTests" */ = {
 			isa = XCConfigurationList;
@@ -536,6 +569,7 @@
 				778311E41F2B81D200657895 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		778311E51F2B81D200657895 /* Build configuration list for PBXNativeTarget "MarkSheetUITests" */ = {
 			isa = XCConfigurationList;
@@ -544,6 +578,7 @@
 				778311E71F2B81D200657895 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

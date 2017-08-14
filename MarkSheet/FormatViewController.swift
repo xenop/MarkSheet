@@ -61,16 +61,26 @@ class FormatViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
     }
-
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            let format:Format? = formats?[indexPath.row]
+    
+    override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        
+        let deleteAction = UITableViewRowAction(style: .normal, title: "Delete") { (rowAction, indexPath) in
+            let format:Format? = self.formats?[indexPath.row]
             let context = format?.managedObjectContext
             context?.delete(format!)
-            formats?.remove(at: indexPath.row)
+            self.formats?.remove(at: indexPath.row)
             try! context?.save()
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
+        
+        let editAction = UITableViewRowAction(style: .normal, title: "Edit") { (rowAction, indexPath) in
+            // TODO: editAction
+        }
+        editAction.backgroundColor = .gray
+
+        deleteAction.backgroundColor = .red
+        
+        return [deleteAction, editAction]
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

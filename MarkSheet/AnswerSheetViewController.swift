@@ -27,6 +27,7 @@ class AnswerSheetViewController: UITableViewController, QuestionCellDelegate, Do
             navigationItem.rightBarButtonItem = barButton
         }
         barTitle = title!
+        navigationController?.navigationBar.topItem?.title = ""
     }
 
     @objc func pushButton(sender: Any) {

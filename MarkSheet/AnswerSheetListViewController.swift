@@ -32,6 +32,7 @@ class AnswerSheetListViewController: UITableViewController {
                                         target: self,
                                         action: #selector(self.pushButton(sender:)))
         navigationItem.rightBarButtonItem = barButton
+        navigationController?.navigationBar.topItem?.title = ""
     }
 
     @objc func pushButton(sender: Any) {

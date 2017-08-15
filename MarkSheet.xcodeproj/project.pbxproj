@@ -17,6 +17,7 @@
 		778311C51F2B81D200657895 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 778311C31F2B81D200657895 /* LaunchScreen.storyboard */; };
 		778311D01F2B81D200657895 /* MarkSheetTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 778311CF1F2B81D200657895 /* MarkSheetTests.swift */; };
 		778311DB1F2B81D200657895 /* MarkSheetUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 778311DA1F2B81D200657895 /* MarkSheetUITests.swift */; };
+		778D69111F4325FD003401F7 /* BorderLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 778D69101F4325FD003401F7 /* BorderLabel.swift */; };
 		77A39E991F3B46BB001CEA76 /* MakeFormatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A39E981F3B46BB001CEA76 /* MakeFormatViewController.swift */; };
 		77A39E9B1F3DF0E4001CEA76 /* DoneCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A39E9A1F3DF0E4001CEA76 /* DoneCell.swift */; };
 		77ED56421F303D13009FB039 /* AnswerSheetListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77ED56411F303D13009FB039 /* AnswerSheetListViewController.swift */; };
@@ -59,6 +60,7 @@
 		778311D61F2B81D200657895 /* MarkSheetUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MarkSheetUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		778311DA1F2B81D200657895 /* MarkSheetUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkSheetUITests.swift; sourceTree = "<group>"; };
 		778311DC1F2B81D200657895 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		778D69101F4325FD003401F7 /* BorderLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorderLabel.swift; sourceTree = "<group>"; };
 		77A39E981F3B46BB001CEA76 /* MakeFormatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeFormatViewController.swift; sourceTree = "<group>"; };
 		77A39E9A1F3DF0E4001CEA76 /* DoneCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoneCell.swift; sourceTree = "<group>"; };
 		77ED56411F303D13009FB039 /* AnswerSheetListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerSheetListViewController.swift; sourceTree = "<group>"; };
@@ -124,6 +126,7 @@
 				77ED56471F30E5FC009FB039 /* OptionCollectionViewCell.swift */,
 				77A39E981F3B46BB001CEA76 /* MakeFormatViewController.swift */,
 				778311BB1F2B81D200657895 /* Main.storyboard */,
+				778D69101F4325FD003401F7 /* BorderLabel.swift */,
 				778311C11F2B81D200657895 /* Assets.xcassets */,
 				778311C31F2B81D200657895 /* LaunchScreen.storyboard */,
 				778311C61F2B81D200657895 /* Info.plist */,
@@ -293,6 +296,7 @@
 				7726DB291F34BE4600FEF380 /* Format.swift in Sources */,
 				77ED56421F303D13009FB039 /* AnswerSheetListViewController.swift in Sources */,
 				778311C01F2B81D200657895 /* MarkSheet.xcdatamodeld in Sources */,
+				778D69111F4325FD003401F7 /* BorderLabel.swift in Sources */,
 				7728F69E1F344106006DB104 /* AnswerSheet.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

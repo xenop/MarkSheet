@@ -16,21 +16,21 @@ enum MarkState {
 }
 
 class OptionCollectionViewCell: UICollectionViewCell {
-    @IBOutlet var label:UILabel?
+    @IBOutlet var label:BorderLabel?
     var markState:MarkState = MarkState.noMark {
         didSet {
             switch(markState) {
             case .noMark:
-                backgroundColor = UIColor.clear
+                label?.backgroundColor = UIColor.clear
                 isSelected = false
             case .marked:
-                backgroundColor = UIColor.lightGray
+                label?.backgroundColor = UIColor.lightGray
                 isSelected = true
             case .correct:
-                backgroundColor = UIColor.green
+                label?.backgroundColor = UIColor.green
                 isSelected = true
             case .wrong:
-                backgroundColor = UIColor.red
+                label?.backgroundColor = UIColor.red
             }
         }
     }

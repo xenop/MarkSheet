@@ -11,7 +11,11 @@ import CoreData
 
 class AnswerSheetListViewController: UITableViewController {
 
-    var format:Format? = nil
+    var format:Format? = nil {
+        didSet {
+            title = format?.name
+        }
+    }
     var answerSheetList:[AnswerSheet] {
         get {
             if let answer_sheet:NSSet = format?.answer_sheet {

@@ -9,7 +9,12 @@
 import UIKit
 
 class AnswerSheetViewController: UITableViewController, QuestionCellDelegate, DoneCellDelegate {
-    var answerSheet:AnswerSheet? = nil
+    var answerSheet:AnswerSheet? = nil {
+        didSet {
+            title = answerSheet?.name
+        }
+    }
+    
     var numberOfQuestions:Int = 0
     var numberOfOptions:Int = 0
     var scoreMode = false

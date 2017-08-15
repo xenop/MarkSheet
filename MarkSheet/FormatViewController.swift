@@ -23,9 +23,8 @@ class FormatViewController: UITableViewController {
         let entityDiscription = NSEntityDescription.entity(forEntityName:"Format", in: managedObjectContext);
         let fetchRequest:NSFetchRequest<Format> = Format.fetchRequest() as! NSFetchRequest<Format>
         fetchRequest.entity = entityDiscription;
-//        let predicate = NSPredicate(format: "%K = %d", "name", "ss")
-//        fetchRequest.predicate = predicate
-        // TODO:sort
+        let sortDescriptor = NSSortDescriptor(key:"name", ascending:true)
+        fetchRequest.sortDescriptors = [sortDescriptor]
         
         formats = try! managedObjectContext.fetch(fetchRequest)
         

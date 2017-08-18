@@ -13,6 +13,7 @@ class FormatViewController: UITableViewController {
     
     var formats:[Format]? = nil
     var selectedFormat:Format? = nil
+    var isEditMode:Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -73,7 +74,9 @@ class FormatViewController: UITableViewController {
         }
         
         let editAction = UITableViewRowAction(style: .normal, title: "Edit") { (rowAction, indexPath) in
-            // TODO: editAction
+            self.selectedFormat = self.formats![indexPath.row]
+            self.isEditMode = true
+            self.performSegue(withIdentifier: "DisplayMakeFormatView", sender: self)
         }
         editAction.backgroundColor = .gray
 
@@ -86,6 +89,12 @@ class FormatViewController: UITableViewController {
         if segue.identifier == "DisplayAnswerSheetListView" {
             let destinationVC = segue.destination as! AnswerSheetListViewController
             destinationVC.format = selectedFormat
+        } else if segue.identifier == "DisplayMakeFormatView" && isEditMode {
+            let nc = segue.destination as! UINavigationController
+            let destinationVC = nc.topViewController as! MakeFormatViewController
+            destinationVC.format = selectedFormat
+            
+            isEditMode = false
         }
     }
 }

@@ -21,20 +21,21 @@ class MakeFormatViewController: UITableViewController, UITextFieldDelegate {
                                         target: self,
                                         action: #selector(self.cancel(sender:)))
         navigationItem.leftBarButtonItem = barButton
-        
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        let managedObjectContext:NSManagedObjectContext = appDelegate.persistentContainer.viewContext
-        let managedObject: AnyObject =
-            NSEntityDescription.insertNewObject(forEntityName: "Format", into: managedObjectContext)
-        format = managedObject as? Format
-        
-        let answerSheetManagedObject: AnyObject =
-            NSEntityDescription.insertNewObject(forEntityName: "AnswerSheet", into: managedObjectContext)
-        let answerSheet = answerSheetManagedObject as! AnswerSheet
-        answerSheet.setDefaultName()
-        format?.number_of_options = 4
-        format?.number_of_questions = 50
-        format?.addToAnswer_sheet(answerSheet)
+        if format == nil {
+            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+            let managedObjectContext:NSManagedObjectContext = appDelegate.persistentContainer.viewContext
+            let managedObject: AnyObject =
+                NSEntityDescription.insertNewObject(forEntityName: "Format", into: managedObjectContext)
+            format = managedObject as? Format
+            
+            let answerSheetManagedObject: AnyObject =
+                NSEntityDescription.insertNewObject(forEntityName: "AnswerSheet", into: managedObjectContext)
+            let answerSheet = answerSheetManagedObject as! AnswerSheet
+            answerSheet.setDefaultName()
+            format?.number_of_options = 4
+            format?.number_of_questions = 50
+            format?.addToAnswer_sheet(answerSheet)
+        }
     }
     
     @objc func cancel(sender: Any) {
@@ -46,22 +47,19 @@ class MakeFormatViewController: UITableViewController, UITextFieldDelegate {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = super.tableView(tableView, cellForRowAt: indexPath)
-        // TODO:編集画面なら初期値設定
-//        var identifier:String
-//        switch (indexPath.row) {
-//        case 0:
-//            identifier = "nameCell"
-//        case 1:
-//            identifier = "numberOfOptionsCell"
-//        case 2:
-//            identifier = "numberOfQuestionsCell"
-//        case 3:
-//            identifier = "enterAnswerCell"
-//        default:
-//            assert(false, "unexpected row")
-//            identifier = "nameCell"
-//        }
-//        let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath)
+        if indexPath.row == 0 {
+            if let textField = cell.viewWithTag(10) as? UITextField {
+                textField.text = format?.name
+            }
+        } else if indexPath.row == 1 {
+            if let label = cell.viewWithTag(11) as? UILabel {
+                label.text = String.init(describing:(format?.number_of_options)!)
+            }
+        } else if indexPath.row == 2 {
+            if let label = cell.viewWithTag(12) as? UILabel {
+                label.text = String.init(describing:(format?.number_of_questions)!)
+            }
+        }
         return cell
     }
     

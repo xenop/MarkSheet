@@ -30,11 +30,11 @@ class FormatViewController: UITableViewController {
         
         let barButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.add,
                                         target: self,
-                                        action: #selector(self.pushButton(sender:)))
+                                        action: #selector(self.didPushAddButton(sender:)))
         navigationItem.rightBarButtonItem = barButton
     }
 
-    @objc func pushButton(sender: Any) {
+    @objc func didPushAddButton(sender: Any) {
         self.performSegue(withIdentifier: "DisplayMakeFormatView", sender: self)
     }
     

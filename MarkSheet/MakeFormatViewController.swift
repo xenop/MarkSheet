@@ -13,7 +13,7 @@ class MakeFormatViewController: UITableViewController, UITextFieldDelegate {
 
     @IBOutlet var nameTextField:UITextField?
     var format:Format? = nil
-    var isEditMode:Bool = false
+    var editFormat:Format? = nil
     var completionHandler: (()->Void)?
     
     override func viewDidLoad() {
@@ -23,12 +23,13 @@ class MakeFormatViewController: UITableViewController, UITextFieldDelegate {
                                         target: self,
                                         action: #selector(self.cancel(sender:)))
         navigationItem.leftBarButtonItem = barButton
-        if !isEditMode {
-            let appDelegate = UIApplication.shared.delegate as! AppDelegate
-            let managedObjectContext:NSManagedObjectContext = appDelegate.persistentContainer.viewContext
-            let managedObject: AnyObject =
-                NSEntityDescription.insertNewObject(forEntityName: "Format", into: managedObjectContext)
-            format = managedObject as? Format
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let managedObjectContext:NSManagedObjectContext = appDelegate.persistentContainer.viewContext
+        let managedObject: AnyObject =
+            NSEntityDescription.insertNewObject(forEntityName: "Format", into: managedObjectContext)
+        format = managedObject as? Format
+
+        if editFormat == nil {
             format?.number_of_options = 4
             format?.number_of_questions = 50
             format?.answers = Array(0..<50).map { $0 * 0 }
@@ -39,6 +40,12 @@ class MakeFormatViewController: UITableViewController, UITextFieldDelegate {
             answerSheet.setDefaultName()
             answerSheet.mark = Array(0..<50).map { $0 * 0 }
             format?.addToAnswer_sheet(answerSheet)
+        } else {
+            format?.name = editFormat!.name
+            format?.number_of_options = editFormat!.number_of_options
+            format?.number_of_questions = editFormat!.number_of_questions
+            format?.answers = editFormat!.answers
+            format?.answer_sheet = editFormat!.answer_sheet
         }
     }
     
@@ -77,6 +84,7 @@ class MakeFormatViewController: UITableViewController, UITextFieldDelegate {
         format?.name = nameTextField?.text
         destinationVC.enterAnswerMode = true
         let answerSheet:AnswerSheet = format?.answer_sheet?.anyObject() as! AnswerSheet
+        // FIXME:編集時にはsheetが0の可能性があるので対策を考える
         destinationVC.answerSheet = answerSheet
         destinationVC.completionHandler = completionHandler
     }

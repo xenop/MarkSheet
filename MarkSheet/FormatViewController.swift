@@ -108,8 +108,7 @@ class FormatViewController: UITableViewController {
             let nc = segue.destination as! UINavigationController
             let destinationVC = nc.topViewController as! MakeFormatViewController
             if isEditMode {
-                destinationVC.format = selectedFormat
-                destinationVC.isEditMode = isEditMode
+                destinationVC.editFormat = selectedFormat
                 isEditMode = false
             }
             destinationVC.completionHandler = {

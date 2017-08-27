@@ -68,12 +68,24 @@ class FormatViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         
         let deleteAction = UITableViewRowAction(style: .normal, title: "Delete") { (rowAction, indexPath) in
-            let format:Format? = self.formats?[indexPath.row]
-            let context = format?.managedObjectContext
-            context?.delete(format!)
-            self.formats?.remove(at: indexPath.row)
-            try! context?.save()
-            tableView.deleteRows(at: [indexPath], with: .fade)
+            let alert = UIAlertController(title:"", message: "Are you sure to Delete?", preferredStyle: UIAlertControllerStyle.alert)
+            let delete = UIAlertAction(title: "Delete", style: UIAlertActionStyle.default, handler: {
+                (action: UIAlertAction!) in
+                let format:Format? = self.formats?[indexPath.row]
+                let context = format?.managedObjectContext
+                context?.delete(format!)
+                self.formats?.remove(at: indexPath.row)
+                try! context?.save()
+                tableView.deleteRows(at: [indexPath], with: .fade)
+            })
+            let cancel = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel, handler: {
+                (action: UIAlertAction!) in
+            })
+
+            alert.addAction(delete)
+            alert.addAction(cancel)
+
+            self.present(alert, animated: true, completion: nil)
         }
         
         let editAction = UITableViewRowAction(style: .normal, title: "Edit") { (rowAction, indexPath) in

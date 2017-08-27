@@ -29,13 +29,15 @@ class MakeFormatViewController: UITableViewController, UITextFieldDelegate {
             let managedObject: AnyObject =
                 NSEntityDescription.insertNewObject(forEntityName: "Format", into: managedObjectContext)
             format = managedObject as? Format
-            
+            format?.number_of_options = 4
+            format?.number_of_questions = 50
+            format?.answers = Array(0..<50).map { $0 * 0 }
+
             let answerSheetManagedObject: AnyObject =
                 NSEntityDescription.insertNewObject(forEntityName: "AnswerSheet", into: managedObjectContext)
             let answerSheet = answerSheetManagedObject as! AnswerSheet
             answerSheet.setDefaultName()
-            format?.number_of_options = 4
-            format?.number_of_questions = 50
+            answerSheet.mark = Array(0..<50).map { $0 * 0 }
             format?.addToAnswer_sheet(answerSheet)
         }
     }
@@ -73,12 +75,8 @@ class MakeFormatViewController: UITableViewController, UITextFieldDelegate {
         
         // TODO:遷移ではなく入力終了時に設定
         format?.name = nameTextField?.text
-        format?.number_of_options = 4
-        format?.number_of_questions = 50
-        format?.answers = Array(0..<50).map { $0 * 0 }
-        let answerSheet:AnswerSheet = format?.answer_sheet?.anyObject() as! AnswerSheet
-        answerSheet.mark = Array(0..<50).map { $0 * 0 }
         destinationVC.enterAnswerMode = true
+        let answerSheet:AnswerSheet = format?.answer_sheet?.anyObject() as! AnswerSheet
         destinationVC.answerSheet = answerSheet
         destinationVC.completionHandler = completionHandler
     }

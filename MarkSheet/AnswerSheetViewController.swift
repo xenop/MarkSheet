@@ -18,7 +18,7 @@ class AnswerSheetViewController: UITableViewController, QuestionCellDelegate, Do
             title = answerSheet?.name
         }
     }
-    
+    var format:Format? = nil
     var numberOfQuestions:Int = 0
     var numberOfOptions:Int = 0
     var scoreMode = false
@@ -28,8 +28,8 @@ class AnswerSheetViewController: UITableViewController, QuestionCellDelegate, Do
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        numberOfQuestions = Int(answerSheet?.format?.number_of_questions ?? 0)
-        numberOfOptions = Int(answerSheet?.format?.number_of_options ?? 0)
+        numberOfQuestions = Int(format?.number_of_questions ?? 0)
+        numberOfOptions = Int(format?.number_of_options ?? 0)
         if !enterAnswerMode {
             let barButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.done,
                                             target: self,
@@ -43,7 +43,7 @@ class AnswerSheetViewController: UITableViewController, QuestionCellDelegate, Do
     @objc func pushButton(sender: Any) {
         scoreMode = !scoreMode
         if scoreMode {
-            let answers = answerSheet?.format?.answers!
+            let answers = format?.answers!
             let mark = answerSheet?.mark!
             if answers!.count == mark!.count {
                 var score = 0
@@ -82,9 +82,9 @@ class AnswerSheetViewController: UITableViewController, QuestionCellDelegate, Do
         cell.numberOfOption = numberOfOptions
         cell.textLabel?.text = "\(indexPath.row + 1)"
         if enterAnswerMode {
-            cell.mark = (answerSheet?.format?.answers![indexPath.row])!
+            cell.mark = (format?.answers![indexPath.row])!
         } else {
-            cell.answer = (answerSheet?.format?.answers![indexPath.row])!
+            cell.answer = (format?.answers![indexPath.row])!
             cell.mark = (answerSheet?.mark![indexPath.row])!
         }
         cell.delegate = self
@@ -95,7 +95,7 @@ class AnswerSheetViewController: UITableViewController, QuestionCellDelegate, Do
         let indexPath = tableView.indexPath(for: cell)
         if let row = indexPath?.row {
             if enterAnswerMode {
-                answerSheet?.format?.answers![row] = cell.mark
+                format?.answers![row] = cell.mark
             } else {
                 answerSheet?.mark![row] = cell.mark
                 let context = answerSheet?.managedObjectContext
@@ -107,7 +107,7 @@ class AnswerSheetViewController: UITableViewController, QuestionCellDelegate, Do
     func doneCellDidPush(cell: DoneCell) {
         // TODO:空チェック
         var answerFilled = true
-        answerSheet?.format?.answers!.forEach({ (answer) in
+        format?.answers!.forEach({ (answer) in
             if answer == 0 {
                 answerFilled = false
             }

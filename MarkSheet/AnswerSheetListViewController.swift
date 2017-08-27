@@ -114,6 +114,7 @@ class AnswerSheetListViewController: UITableViewController {
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let destinationVC = segue.destination as! AnswerSheetViewController
+        destinationVC.format = format
         destinationVC.answerSheet = selectedAnswerSheet
     }
 }

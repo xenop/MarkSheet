@@ -39,9 +39,6 @@ class MakeFormatViewController: UITableViewController, UITextFieldDelegate {
     }
     
     @objc func cancel(sender: Any) {
-        let context = format?.managedObjectContext
-        context?.delete(format!)
-        try! context?.save()
         dismiss(animated: true, completion: nil)
     }
     

@@ -13,6 +13,7 @@ class MakeFormatViewController: UITableViewController, UITextFieldDelegate {
 
     @IBOutlet var nameTextField:UITextField?
     var format:Format? = nil
+    var isEditMode:Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,7 +22,7 @@ class MakeFormatViewController: UITableViewController, UITextFieldDelegate {
                                         target: self,
                                         action: #selector(self.cancel(sender:)))
         navigationItem.leftBarButtonItem = barButton
-        if format == nil {
+        if !isEditMode {
             let appDelegate = UIApplication.shared.delegate as! AppDelegate
             let managedObjectContext:NSManagedObjectContext = appDelegate.persistentContainer.viewContext
             let managedObject: AnyObject =

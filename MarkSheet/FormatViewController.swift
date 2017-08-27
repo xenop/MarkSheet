@@ -89,12 +89,15 @@ class FormatViewController: UITableViewController {
         if segue.identifier == "DisplayAnswerSheetListView" {
             let destinationVC = segue.destination as! AnswerSheetListViewController
             destinationVC.format = selectedFormat
-        } else if segue.identifier == "DisplayMakeFormatView" && isEditMode {
+        } else if segue.identifier == "DisplayMakeFormatView" {
             let nc = segue.destination as! UINavigationController
             let destinationVC = nc.topViewController as! MakeFormatViewController
-            destinationVC.format = selectedFormat
-            
-            isEditMode = false
+            if isEditMode {
+                // TODO:dismiss modalのdelegate渡す
+                destinationVC.format = selectedFormat
+                destinationVC.isEditMode = isEditMode
+                isEditMode = false
+            }
         }
     }
 }

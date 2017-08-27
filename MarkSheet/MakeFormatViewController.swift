@@ -14,6 +14,7 @@ class MakeFormatViewController: UITableViewController, UITextFieldDelegate {
     @IBOutlet var nameTextField:UITextField?
     var format:Format? = nil
     var isEditMode:Bool = false
+    var completionHandler: (()->Void)?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -79,6 +80,7 @@ class MakeFormatViewController: UITableViewController, UITextFieldDelegate {
         answerSheet.mark = Array(0..<50).map { $0 * 0 }
         destinationVC.enterAnswerMode = true
         destinationVC.answerSheet = answerSheet
+        destinationVC.completionHandler = completionHandler
     }
     
     public func textFieldDidEndEditing(_ textField: UITextField) {

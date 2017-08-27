@@ -20,6 +20,7 @@ class AnswerSheetViewController: UITableViewController, QuestionCellDelegate, Do
     var scoreMode = false
     var barTitle = ""
     var enterAnswerMode = false
+    var completionHandler: (()->Void)?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -127,8 +128,7 @@ class AnswerSheetViewController: UITableViewController, QuestionCellDelegate, Do
 //        } else {
             let context = answerSheet?.format?.managedObjectContext
             try! context?.save()
-            dismiss(animated: true, completion: nil)
-        // TODO:元画面リロード
+            dismiss(animated: true, completion: completionHandler)
 //        }
     }
 }

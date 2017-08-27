@@ -17,7 +17,18 @@ class FormatViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        let barButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.add,
+                                        target: self,
+                                        action: #selector(self.didPushAddButton(sender:)))
+        navigationItem.rightBarButtonItem = barButton
+        loadData()
+    }
+
+    @objc func didPushAddButton(sender: Any) {
+        self.performSegue(withIdentifier: "DisplayMakeFormatView", sender: self)
+    }
+    
+    func loadData() {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let managedObjectContext:NSManagedObjectContext = appDelegate.persistentContainer.viewContext
         
@@ -28,15 +39,7 @@ class FormatViewController: UITableViewController {
         fetchRequest.sortDescriptors = [sortDescriptor]
         
         formats = try! managedObjectContext.fetch(fetchRequest)
-        
-        let barButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.add,
-                                        target: self,
-                                        action: #selector(self.didPushAddButton(sender:)))
-        navigationItem.rightBarButtonItem = barButton
-    }
-
-    @objc func didPushAddButton(sender: Any) {
-        self.performSegue(withIdentifier: "DisplayMakeFormatView", sender: self)
+        tableView.reloadData()
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -93,10 +96,12 @@ class FormatViewController: UITableViewController {
             let nc = segue.destination as! UINavigationController
             let destinationVC = nc.topViewController as! MakeFormatViewController
             if isEditMode {
-                // TODO:dismiss modalのdelegate渡す
                 destinationVC.format = selectedFormat
                 destinationVC.isEditMode = isEditMode
                 isEditMode = false
+            }
+            destinationVC.completionHandler = {
+                self.loadData()
             }
         }
     }

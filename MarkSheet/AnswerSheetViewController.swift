@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol AnswerSheetViewControllerDelegate {
+    func didSetAnswer() ->Void
+}
+
 class AnswerSheetViewController: UITableViewController, QuestionCellDelegate, DoneCellDelegate {
     var answerSheet:AnswerSheet? = nil {
         didSet {
@@ -20,7 +24,7 @@ class AnswerSheetViewController: UITableViewController, QuestionCellDelegate, Do
     var scoreMode = false
     var barTitle = ""
     var enterAnswerMode = false
-    var completionHandler: (()->Void)?
+    var delegate:AnswerSheetViewControllerDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -126,9 +130,8 @@ class AnswerSheetViewController: UITableViewController, QuestionCellDelegate, Do
 //
 //            present(alert, animated: true, completion: nil)
 //        } else {
-            let context = answerSheet?.format?.managedObjectContext
-            try! context?.save()
-            dismiss(animated: true, completion: completionHandler)
+            self.delegate?.didSetAnswer()
+            dismiss(animated: true, completion: nil)
 //        }
     }
 }

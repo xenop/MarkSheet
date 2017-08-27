@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class MakeFormatViewController: UITableViewController, UITextFieldDelegate {
+class MakeFormatViewController: UITableViewController, UITextFieldDelegate, AnswerSheetViewControllerDelegate {
 
     @IBOutlet var nameTextField:UITextField?
     var format:Format? = nil
@@ -86,10 +86,20 @@ class MakeFormatViewController: UITableViewController, UITextFieldDelegate {
         let answerSheet:AnswerSheet = format?.answer_sheet?.anyObject() as! AnswerSheet
         // FIXME:編集時にはsheetが0の可能性があるので対策を考える
         destinationVC.answerSheet = answerSheet
-        destinationVC.completionHandler = completionHandler
+        destinationVC.delegate = self
     }
     
     public func textFieldDidEndEditing(_ textField: UITextField) {
         format?.name = nameTextField?.text
+    }
+    
+    func didSetAnswer() {
+        let context = format?.managedObjectContext
+        if editFormat != nil {
+            context?.delete(editFormat!)
+        }
+        try! context?.save()
+
+        completionHandler?()
     }
 }

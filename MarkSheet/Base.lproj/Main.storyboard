@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Format View Controller-->
+        <!--書式一覧-->
         <scene sceneID="nzf-kR-ynN">
             <objects>
-                <tableViewController id="gIN-pb-Ctw" customClass="FormatViewController" customModule="MarkSheet" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="gIN-pb-Ctw" userLabel="書式一覧" customClass="FormatViewController" customModule="MarkSheet" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="swF-8R-7hj">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -151,7 +151,13 @@
                             <outlet property="delegate" destination="Us2-tK-Z8z" id="D4P-ZN-g4e"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="6en-Re-xWD"/>
+                    <navigationItem key="navigationItem" id="6en-Re-xWD">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="Vqu-tb-Hfz">
+                            <connections>
+                                <action selector="cancelWithSender:" destination="Us2-tK-Z8z" id="7nP-eg-zbT"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="nameTextField" destination="ISs-HT-ceP" id="wgj-Ys-vlS"/>
                         <segue destination="eCM-MW-Ju0" kind="show" identifier="EnterAnswerSheetView" id="uMj-Yu-A9w"/>
@@ -161,10 +167,10 @@
             </objects>
             <point key="canvasLocation" x="644" y="458"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--ポップアップ-->
         <scene sceneID="rhC-bV-YWT">
             <objects>
-                <navigationController id="T8C-Jq-4kA" sceneMemberID="viewController">
+                <navigationController id="T8C-Jq-4kA" userLabel="ポップアップ" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="eUL-D1-PnG">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -314,10 +320,10 @@
             </objects>
             <point key="canvasLocation" x="1414" y="-217"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--ルート-->
         <scene sceneID="L7X-ms-MV3">
             <objects>
-                <navigationController id="3qv-BL-kOa" sceneMemberID="viewController">
+                <navigationController id="3qv-BL-kOa" userLabel="ルート" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="R91-rW-KOM">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -332,6 +338,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="56d-Wg-DYy"/>
+        <segue reference="uMj-Yu-A9w"/>
     </inferredMetricsTieBreakers>
 </document>

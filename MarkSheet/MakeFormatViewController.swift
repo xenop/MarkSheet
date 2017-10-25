@@ -12,6 +12,7 @@ import CoreData
 class MakeFormatViewController: UITableViewController, UITextFieldDelegate, AnswerSheetViewControllerDelegate {
 
     @IBOutlet var nameTextField:UITextField?
+    
     var format:Format? = nil
     var editFormat:Format? = nil
     var completionHandler: (()->Void)?
@@ -19,10 +20,6 @@ class MakeFormatViewController: UITableViewController, UITextFieldDelegate, Answ
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let barButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.cancel,
-                                        target: self,
-                                        action: #selector(self.cancel(sender:)))
-        navigationItem.leftBarButtonItem = barButton
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let managedObjectContext:NSManagedObjectContext = appDelegate.persistentContainer.viewContext
         let managedObject: AnyObject =
@@ -48,7 +45,7 @@ class MakeFormatViewController: UITableViewController, UITextFieldDelegate, Answ
         }
     }
     
-    @objc func cancel(sender: Any) {
+    @IBAction func cancel(sender: Any) {
         dismiss(animated: true, completion: nil)
     }
     

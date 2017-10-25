@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class MakeFormatViewController: UITableViewController, UITextFieldDelegate, AnswerSheetViewControllerDelegate {
+class MakeFormatViewController: UITableViewController, UITextFieldDelegate {
 
     @IBOutlet var nameTextField:UITextField?
     
@@ -50,7 +50,7 @@ class MakeFormatViewController: UITableViewController, UITextFieldDelegate, Answ
     }
     
     @IBAction func save(sender: Any) {
-        // TODO:save code
+        didSetAnswer()
         dismiss(animated: true, completion: nil)
     }
     
@@ -85,7 +85,6 @@ class MakeFormatViewController: UITableViewController, UITextFieldDelegate, Answ
         format?.name = nameTextField?.text
         destinationVC.enterAnswerMode = true
         destinationVC.format = format
-        destinationVC.delegate = self
     }
     
     public func textFieldDidEndEditing(_ textField: UITextField) {

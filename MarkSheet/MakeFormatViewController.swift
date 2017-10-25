@@ -46,11 +46,14 @@ class MakeFormatViewController: UITableViewController, UITextFieldDelegate {
     }
     
     @IBAction func cancel(sender: Any) {
+        let context = format?.managedObjectContext
+        context?.delete(format!)
         dismiss(animated: true, completion: nil)
     }
     
     @IBAction func save(sender: Any) {
-        didSetAnswer()
+        nameTextField?.resignFirstResponder()
+        saveModel()
         dismiss(animated: true, completion: nil)
     }
     
@@ -91,7 +94,7 @@ class MakeFormatViewController: UITableViewController, UITextFieldDelegate {
         format?.name = nameTextField?.text
     }
     
-    func didSetAnswer() {
+    func saveModel() {
         let context = format?.managedObjectContext
         if editFormat != nil {
             format?.answer_sheet = editFormat!.answer_sheet

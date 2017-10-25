@@ -49,6 +49,11 @@ class MakeFormatViewController: UITableViewController, UITextFieldDelegate, Answ
         dismiss(animated: true, completion: nil)
     }
     
+    @IBAction func save(sender: Any) {
+        // TODO:save code
+        dismiss(animated: true, completion: nil)
+    }
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = super.tableView(tableView, cellForRowAt: indexPath)
         if indexPath.row == 0 {

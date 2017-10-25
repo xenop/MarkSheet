@@ -157,6 +157,11 @@
                                 <action selector="cancelWithSender:" destination="Us2-tK-Z8z" id="7nP-eg-zbT"/>
                             </connections>
                         </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="vfB-NU-DqI">
+                            <connections>
+                                <action selector="saveWithSender:" destination="Us2-tK-Z8z" id="uiJ-M5-Izm"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="nameTextField" destination="ISs-HT-ceP" id="wgj-Ys-vlS"/>

@@ -117,6 +117,11 @@
 		778311B61F2B81D200657895 /* MarkSheet */ = {
 			isa = PBXGroup;
 			children = (
+				778311BB1F2B81D200657895 /* Main.storyboard */,
+				778311C31F2B81D200657895 /* LaunchScreen.storyboard */,
+				778311BE1F2B81D200657895 /* MarkSheet.xcdatamodeld */,
+				778311C61F2B81D200657895 /* Info.plist */,
+				778311C11F2B81D200657895 /* Assets.xcassets */,
 				778311B71F2B81D200657895 /* AppDelegate.swift */,
 				778311B91F2B81D200657895 /* FormatViewController.swift */,
 				77ED56411F303D13009FB039 /* AnswerSheetListViewController.swift */,
@@ -125,12 +130,7 @@
 				77A39E9A1F3DF0E4001CEA76 /* DoneCell.swift */,
 				77ED56471F30E5FC009FB039 /* OptionCollectionViewCell.swift */,
 				77A39E981F3B46BB001CEA76 /* MakeFormatViewController.swift */,
-				778311BB1F2B81D200657895 /* Main.storyboard */,
 				778D69101F4325FD003401F7 /* BorderLabel.swift */,
-				778311C11F2B81D200657895 /* Assets.xcassets */,
-				778311C31F2B81D200657895 /* LaunchScreen.storyboard */,
-				778311C61F2B81D200657895 /* Info.plist */,
-				778311BE1F2B81D200657895 /* MarkSheet.xcdatamodeld */,
 				7728F69D1F344106006DB104 /* AnswerSheet.swift */,
 				7726DB281F34BE4600FEF380 /* Format.swift */,
 			);

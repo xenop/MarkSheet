@@ -89,4 +89,30 @@ class AnswerSheetViewController: UITableViewController, QuestionCellDelegate {
             }
         }
     }
+    
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        // just show answer
+        var title:String!
+        if let answer = format?.answers![indexPath.row] {
+            if answer == 0 {
+                title = "undefined"
+            } else {
+                title = String(answer)
+            }
+        } else {
+            title = "undefined"
+        }
+        
+        let noAction = UITableViewRowAction(style: .normal, title: title) { (rowAction, indexPath) in
+            // do nothing
+        }
+        
+        noAction.backgroundColor = .red
+        
+        return [noAction]
+    }
 }

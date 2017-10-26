@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		7726DB291F34BE4600FEF380 /* Format.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7726DB281F34BE4600FEF380 /* Format.swift */; };
 		7728F69E1F344106006DB104 /* AnswerSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7728F69D1F344106006DB104 /* AnswerSheet.swift */; };
+		776B145D1FA2118C00D4C153 /* OptionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 776B145C1FA2118C00D4C153 /* OptionTableViewController.swift */; };
 		778311B81F2B81D200657895 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 778311B71F2B81D200657895 /* AppDelegate.swift */; };
 		778311BA1F2B81D200657895 /* FormatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 778311B91F2B81D200657895 /* FormatViewController.swift */; };
 		778311BD1F2B81D200657895 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 778311BB1F2B81D200657895 /* Main.storyboard */; };
@@ -45,6 +46,7 @@
 /* Begin PBXFileReference section */
 		7726DB281F34BE4600FEF380 /* Format.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Format.swift; sourceTree = "<group>"; };
 		7728F69D1F344106006DB104 /* AnswerSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerSheet.swift; sourceTree = "<group>"; };
+		776B145C1FA2118C00D4C153 /* OptionTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionTableViewController.swift; sourceTree = "<group>"; };
 		778311B41F2B81D200657895 /* MarkSheet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MarkSheet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		778311B71F2B81D200657895 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		778311B91F2B81D200657895 /* FormatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormatViewController.swift; sourceTree = "<group>"; };
@@ -127,6 +129,7 @@
 				77ED56451F30BF83009FB039 /* QuestionCell.swift */,
 				77ED56471F30E5FC009FB039 /* OptionCollectionViewCell.swift */,
 				77A39E981F3B46BB001CEA76 /* MakeFormatViewController.swift */,
+				776B145C1FA2118C00D4C153 /* OptionTableViewController.swift */,
 				778D69101F4325FD003401F7 /* BorderLabel.swift */,
 				7728F69D1F344106006DB104 /* AnswerSheet.swift */,
 				7726DB281F34BE4600FEF380 /* Format.swift */,
@@ -293,6 +296,7 @@
 				77ED56421F303D13009FB039 /* AnswerSheetListViewController.swift in Sources */,
 				778311C01F2B81D200657895 /* MarkSheet.xcdatamodeld in Sources */,
 				778D69111F4325FD003401F7 /* BorderLabel.swift in Sources */,
+				776B145D1FA2118C00D4C153 /* OptionTableViewController.swift in Sources */,
 				7728F69E1F344106006DB104 /* AnswerSheet.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

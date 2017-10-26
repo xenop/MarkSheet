@@ -82,12 +82,11 @@ class MakeFormatViewController: UITableViewController, UITextFieldDelegate {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let destinationVC = segue.destination as! AnswerSheetViewController
-        
-        // TODO:遷移ではなく入力終了時に設定
-        format?.name = nameTextField?.text
-        destinationVC.enterAnswerMode = true
-        destinationVC.format = format
+        nameTextField?.resignFirstResponder()
+
+        let vc = segue.destination as! AnswerSheetViewController
+        vc.enterAnswerMode = true
+        vc.format = format
     }
     
     public func textFieldDidEndEditing(_ textField: UITextField) {

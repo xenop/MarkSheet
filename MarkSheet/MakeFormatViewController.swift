@@ -45,6 +45,11 @@ class MakeFormatViewController: UITableViewController, UITextFieldDelegate {
         }
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        tableView.reloadData()
+    }
+    
     @IBAction func cancel(sender: Any) {
         let context = format?.managedObjectContext
         context?.delete(format!)
@@ -76,17 +81,29 @@ class MakeFormatViewController: UITableViewController, UITextFieldDelegate {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if indexPath.row == 3 {
+        switch indexPath.row {
+        case 1:
+            self.performSegue(withIdentifier: "ShowOption", sender: self)
+        case 2:
+            // TODO:performSegue
+            break
+        case 3:
             self.performSegue(withIdentifier: "EnterAnswerSheetView", sender: self)
+        default:
+            break // do nothing
         }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         nameTextField?.resignFirstResponder()
-
-        let vc = segue.destination as! AnswerSheetViewController
-        vc.enterAnswerMode = true
-        vc.format = format
+        if segue.identifier == "ShowOption" {
+            let vc = segue.destination as! OptionTableViewController
+            vc.format = format
+        } else if segue.identifier == "EnterAnswerSheetView" {
+            let vc = segue.destination as! AnswerSheetViewController
+            vc.enterAnswerMode = true
+            vc.format = format
+        }
     }
     
     public func textFieldDidEndEditing(_ textField: UITextField) {

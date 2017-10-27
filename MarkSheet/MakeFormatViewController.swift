@@ -87,7 +87,6 @@ class MakeFormatViewController: UITableViewController, UITextFieldDelegate {
             self.performSegue(withIdentifier: "ShowOption", sender: self)
         case 2:
             self.performSegue(withIdentifier: "ShowQuestion", sender: self)
-            break
         case 3:
             self.performSegue(withIdentifier: "EnterAnswerSheetView", sender: self)
         default:

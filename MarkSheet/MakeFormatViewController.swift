@@ -30,13 +30,6 @@ class MakeFormatViewController: UITableViewController, UITextFieldDelegate {
             format?.number_of_options = 4
             format?.number_of_questions = 50
             format?.answers = Array(0..<50).map { $0 * 0 }
-
-            let answerSheetManagedObject: AnyObject =
-                NSEntityDescription.insertNewObject(forEntityName: "AnswerSheet", into: managedObjectContext!)
-            let answerSheet = answerSheetManagedObject as! AnswerSheet
-            answerSheet.setDefaultName()
-            answerSheet.mark = Array(0..<50).map { $0 * 0 }
-            format?.addToAnswer_sheet(answerSheet)
         } else {
             // 編集時
             format?.name = editFormat!.name
@@ -115,7 +108,15 @@ class MakeFormatViewController: UITableViewController, UITextFieldDelegate {
     
     func saveModel() {
         let context = format?.managedObjectContext
-        if editFormat != nil {
+        if editFormat == nil {
+            let answerSheetManagedObject: AnyObject =
+                NSEntityDescription.insertNewObject(forEntityName: "AnswerSheet", into: managedObjectContext!)
+            let answerSheet = answerSheetManagedObject as! AnswerSheet
+            answerSheet.setDefaultName()
+            let numberOfQuestions:Int = Int((format?.number_of_questions)!)
+            answerSheet.mark = Array(0..<numberOfQuestions).map { $0 * 0 }
+            format?.addToAnswer_sheet(answerSheet)
+        } else {
             format?.answer_sheet = editFormat!.answer_sheet
             context?.delete(editFormat!)
         }

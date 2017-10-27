@@ -29,7 +29,6 @@ class MakeFormatViewController: UITableViewController, UITextFieldDelegate {
             // 新規作成
             format?.number_of_options = 4
             format?.number_of_questions = 50
-            format?.answers = Array(0..<50).map { $0 * 0 }
         } else {
             // 編集時
             format?.name = editFormat!.name
@@ -99,6 +98,7 @@ class MakeFormatViewController: UITableViewController, UITextFieldDelegate {
             let vc = segue.destination as! AnswerSheetViewController
             vc.enterAnswerMode = true
             vc.format = format
+            initAnswers()
         }
     }
     
@@ -109,13 +109,16 @@ class MakeFormatViewController: UITableViewController, UITextFieldDelegate {
     func saveModel() {
         let context = format?.managedObjectContext
         if editFormat == nil {
+            let numberOfQuestions:Int = Int((format?.number_of_questions)!)
+
             let answerSheetManagedObject: AnyObject =
                 NSEntityDescription.insertNewObject(forEntityName: "AnswerSheet", into: managedObjectContext!)
             let answerSheet = answerSheetManagedObject as! AnswerSheet
             answerSheet.setDefaultName()
-            let numberOfQuestions:Int = Int((format?.number_of_questions)!)
             answerSheet.mark = Array(0..<numberOfQuestions).map { $0 * 0 }
             format?.addToAnswer_sheet(answerSheet)
+            
+            initAnswers()
         } else {
             format?.answer_sheet = editFormat!.answer_sheet
             context?.delete(editFormat!)
@@ -123,5 +126,14 @@ class MakeFormatViewController: UITableViewController, UITextFieldDelegate {
         try! context?.save()
 
         completionHandler?()
+    }
+    
+    func initAnswers() {
+        let numberOfQuestions:Int = Int((format?.number_of_questions)!)
+        if format?.answers != nil && format?.answers?.count == numberOfQuestions {
+            return
+        }
+
+        format?.answers = Array(0..<numberOfQuestions).map { $0 * 0 }
     }
 }

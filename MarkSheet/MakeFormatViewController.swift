@@ -85,7 +85,7 @@ class MakeFormatViewController: UITableViewController, UITextFieldDelegate {
         case 1:
             self.performSegue(withIdentifier: "ShowOption", sender: self)
         case 2:
-            // TODO:performSegue
+            self.performSegue(withIdentifier: "ShowQuestion", sender: self)
             break
         case 3:
             self.performSegue(withIdentifier: "EnterAnswerSheetView", sender: self)
@@ -98,6 +98,9 @@ class MakeFormatViewController: UITableViewController, UITextFieldDelegate {
         nameTextField?.resignFirstResponder()
         if segue.identifier == "ShowOption" {
             let vc = segue.destination as! OptionTableViewController
+            vc.format = format
+        } else if segue.identifier == "ShowQuestion" {
+            let vc = segue.destination as! QuestionTableViewController
             vc.format = format
         } else if segue.identifier == "EnterAnswerSheetView" {
             let vc = segue.destination as! AnswerSheetViewController

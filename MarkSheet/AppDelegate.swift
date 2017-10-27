@@ -17,6 +17,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        let navController:UINavigationController =  self.window!.rootViewController as! UINavigationController
+        let formatVC:FormatViewController = navController.topViewController as! FormatViewController
+        formatVC.managedObjectContext = self.managedObjectContext
         return true
     }
 
@@ -73,6 +77,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return container
     }()
 
+    lazy var managedObjectContext: NSManagedObjectContext = {
+        return persistentContainer.viewContext
+    }()
+    
     // MARK: - Core Data Saving support
 
     func saveContext () {

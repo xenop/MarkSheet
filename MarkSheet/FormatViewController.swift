@@ -11,6 +11,7 @@ import CoreData
 
 class FormatViewController: UITableViewController {
     
+    var managedObjectContext:NSManagedObjectContext?
     var formats:[Format]? = nil
     var selectedFormat:Format? = nil
     var isEditMode:Bool = false
@@ -29,16 +30,13 @@ class FormatViewController: UITableViewController {
     }
     
     func loadData() {
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        let managedObjectContext:NSManagedObjectContext = appDelegate.persistentContainer.viewContext
-        
-        let entityDiscription = NSEntityDescription.entity(forEntityName:"Format", in: managedObjectContext);
+        let entityDiscription = NSEntityDescription.entity(forEntityName:"Format", in: managedObjectContext!)
         let fetchRequest:NSFetchRequest<Format> = Format.fetchRequest() as! NSFetchRequest<Format>
         fetchRequest.entity = entityDiscription;
         let sortDescriptor = NSSortDescriptor(key:"name", ascending:true)
         fetchRequest.sortDescriptors = [sortDescriptor]
         
-        formats = try! managedObjectContext.fetch(fetchRequest)
+        formats = try! managedObjectContext!.fetch(fetchRequest)
         tableView.reloadData()
     }
     
@@ -111,6 +109,7 @@ class FormatViewController: UITableViewController {
                 destinationVC.editFormat = selectedFormat
                 isEditMode = false
             }
+            destinationVC.managedObjectContext = managedObjectContext!
             destinationVC.completionHandler = {
                 self.loadData()
             }

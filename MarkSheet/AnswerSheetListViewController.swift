@@ -39,9 +39,7 @@ class AnswerSheetListViewController: UITableViewController {
     }
 
     @objc func pushButton(sender: Any) {
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        let managedObjectContext:NSManagedObjectContext = appDelegate.persistentContainer.viewContext
-        
+        let managedObjectContext:NSManagedObjectContext = (format?.managedObjectContext!)!
         let answerSheetManagedObject: AnyObject =
             NSEntityDescription.insertNewObject(forEntityName: "AnswerSheet", into: managedObjectContext)
         let answerSheet = answerSheetManagedObject as! AnswerSheet

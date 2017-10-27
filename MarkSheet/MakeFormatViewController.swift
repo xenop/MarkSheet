@@ -13,6 +13,7 @@ class MakeFormatViewController: UITableViewController, UITextFieldDelegate {
 
     @IBOutlet var nameTextField:UITextField?
     
+    var managedObjectContext:NSManagedObjectContext?
     var format:Format? = nil
     var editFormat:Format? = nil
     var completionHandler: (()->Void)?
@@ -20,24 +21,24 @@ class MakeFormatViewController: UITableViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        let managedObjectContext:NSManagedObjectContext = appDelegate.persistentContainer.viewContext
         let managedObject: AnyObject =
-            NSEntityDescription.insertNewObject(forEntityName: "Format", into: managedObjectContext)
+            NSEntityDescription.insertNewObject(forEntityName: "Format", into: managedObjectContext!)
         format = managedObject as? Format
 
         if editFormat == nil {
+            // 新規作成
             format?.number_of_options = 4
             format?.number_of_questions = 50
             format?.answers = Array(0..<50).map { $0 * 0 }
 
             let answerSheetManagedObject: AnyObject =
-                NSEntityDescription.insertNewObject(forEntityName: "AnswerSheet", into: managedObjectContext)
+                NSEntityDescription.insertNewObject(forEntityName: "AnswerSheet", into: managedObjectContext!)
             let answerSheet = answerSheetManagedObject as! AnswerSheet
             answerSheet.setDefaultName()
             answerSheet.mark = Array(0..<50).map { $0 * 0 }
             format?.addToAnswer_sheet(answerSheet)
         } else {
+            // 編集時
             format?.name = editFormat!.name
             format?.number_of_options = editFormat!.number_of_options
             format?.number_of_questions = editFormat!.number_of_questions

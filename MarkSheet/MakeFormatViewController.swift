@@ -76,14 +76,29 @@ class MakeFormatViewController: UITableViewController, UITextFieldDelegate {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch indexPath.row {
         case 1:
-            self.performSegue(withIdentifier: "ShowOption", sender: self)
+           fallthrough
         case 2:
+            if editFormat != nil {
+                showAlert()
+                tableView.deselectRow(at: indexPath, animated: true)
+                return
+            }
             self.performSegue(withIdentifier: "ShowQuestion", sender: self)
         case 3:
             self.performSegue(withIdentifier: "EnterAnswerSheetView", sender: self)
         default:
             break // do nothing
         }
+    }
+    
+    func showAlert() {
+        let alert = UIAlertController(title:"", message: "It can't be edited.", preferredStyle: UIAlertControllerStyle.alert)
+        let cancel = UIAlertAction(title: "Ok", style: UIAlertActionStyle.cancel, handler: {
+            (action: UIAlertAction!) in
+        })
+        
+        alert.addAction(cancel)
+        self.present(alert, animated: true, completion: nil)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

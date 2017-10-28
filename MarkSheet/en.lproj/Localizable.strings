@@ -1,0 +1,12 @@
+/* 
+  Localizable.strings
+  MarkSheet
+
+  Created by _ xenop on 2017/10/28.
+  Copyright © 2017年 xenop. All rights reserved.
+*/
+"confirm delete" = "Are you sure to delete?";
+"cancel" = "Cancel";
+"edit" = "Edit";
+"delete" = "Delete";
+"It can't be edited" = "It can't be edited";

@@ -65,9 +65,10 @@ class FormatViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         
-        let deleteAction = UITableViewRowAction(style: .normal, title: "Delete") { (rowAction, indexPath) in
-            let alert = UIAlertController(title:"", message: "Are you sure to Delete?", preferredStyle: UIAlertControllerStyle.alert)
-            let delete = UIAlertAction(title: "Delete", style: UIAlertActionStyle.default, handler: {
+        let deleteAction = UITableViewRowAction(style: .normal, title: NSLocalizedString("delete", comment: "")) { (rowAction, indexPath) in
+            let alert = UIAlertController(title:"", message: NSLocalizedString("confirm delete", comment: ""),
+                                          preferredStyle: UIAlertControllerStyle.alert)
+            let delete = UIAlertAction(title: NSLocalizedString("delete", comment: ""), style: UIAlertActionStyle.default, handler: {
                 (action: UIAlertAction!) in
                 let format:Format? = self.formats?[indexPath.row]
                 let context = format?.managedObjectContext
@@ -76,7 +77,7 @@ class FormatViewController: UITableViewController {
                 try! context?.save()
                 tableView.deleteRows(at: [indexPath], with: .fade)
             })
-            let cancel = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel, handler: {
+            let cancel = UIAlertAction(title: NSLocalizedString("cancel", comment: ""), style: UIAlertActionStyle.cancel, handler: {
                 (action: UIAlertAction!) in
             })
 
@@ -86,7 +87,7 @@ class FormatViewController: UITableViewController {
             self.present(alert, animated: true, completion: nil)
         }
         
-        let editAction = UITableViewRowAction(style: .normal, title: "Edit") { (rowAction, indexPath) in
+        let editAction = UITableViewRowAction(style: .normal, title: NSLocalizedString("edit", comment: "")) { (rowAction, indexPath) in
             self.selectedFormat = self.formats![indexPath.row]
             self.isEditMode = true
             self.performSegue(withIdentifier: "DisplayMakeFormatView", sender: self)

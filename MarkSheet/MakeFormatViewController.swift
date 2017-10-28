@@ -92,7 +92,7 @@ class MakeFormatViewController: UITableViewController, UITextFieldDelegate {
     }
     
     func showAlert() {
-        let alert = UIAlertController(title:"", message: "It can't be edited.", preferredStyle: UIAlertControllerStyle.alert)
+        let alert = UIAlertController(title:"", message: NSLocalizedString("It can't be edited", comment: ""), preferredStyle: UIAlertControllerStyle.alert)
         let cancel = UIAlertAction(title: "Ok", style: UIAlertActionStyle.cancel, handler: {
             (action: UIAlertAction!) in
         })

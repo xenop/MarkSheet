@@ -1,4 +1,6 @@
 /Pods/*
 /CoreDataGenerated/*
-/MarkSheet.xcodeproj/xcuserdata/*
+/MarkSheet.xcodeproj/xcuserdata/**
+/*.cer
+/*.mobileprovision
 

@@ -8,8 +8,12 @@
 
 import UIKit
 import CoreData
+import Crashlytics
+import AMPopTip
 
-class FormatViewController: UITableViewController {
+class FormatViewController: UITableViewController, EAIntroDelegate {
+    
+    var introView:EAIntroView? = nil
     
     var managedObjectContext:NSManagedObjectContext?
     var formats:[Format]? = nil
@@ -18,15 +22,64 @@ class FormatViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let barButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.add,
+        #if DEBUG
+            let leftBarButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.action,
+                                                target: self,
+                                                action: #selector(self.didPushDebugButton(sender:)))
+            navigationItem.leftBarButtonItem = leftBarButton
+        #endif
+        let rightBarButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.add,
                                         target: self,
                                         action: #selector(self.didPushAddButton(sender:)))
-        navigationItem.rightBarButtonItem = barButton
+        navigationItem.rightBarButtonItem = rightBarButton
         loadData()
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        // introとtipViewのフラグは別々に管理する
+        if UserDefaults.standard.bool(forKey: .introDidShow) == false {
+            FormatViewController.showIntro()
+            UserDefaults.standard.set(true, forKey: .introDidShow)
+        }
+        //        showTipView()
+    }
+    
+    func showTipView() {
+        let popTip = PopTip()
+        popTip.bubbleColor = .orange
+        popTip.offset = 3
+        popTip.bubbleOffset = 1
+        popTip.edgeMargin = 8
+
+        let item = self.navigationItem.rightBarButtonItem
+        let rightView = item?.value(forKey: "view") as! UIView
+        
+        // rightViewをそのまま渡すと、rightButton領域以外でのtapによるdismissが効かなくなるため、self.viewを渡す。
+        // それに伴い、座標も変換している
+        let frame:CGRect = rightView.convert(rightView.frame, to: self.view)
+        popTip.show(text: NSLocalizedString("popTip_format", comment: ""), direction: .down, maxWidth: 200, in: self.view, from: frame)
+    }
+    
+    static func showIntro() {
+        let page1:EAIntroPage = EAIntroPage.init(customViewFromNibNamed: "IntroPage")
+        let page2:EAIntroPage = EAIntroPage.init(customViewFromNibNamed: "IntroPage")
+        let page3:EAIntroPage = EAIntroPage.init(customViewFromNibNamed: "IntroPage")
+        ((page1.customView) as! IntroPage).initPage1()
+        ((page2.customView) as! IntroPage).initPage2()
+        ((page3.customView) as! IntroPage).initPage3()
+        
+        let window = UIApplication.shared.keyWindow
+        let intro:EAIntroView = EAIntroView(frame: window!.bounds, andPages:[page1, page2, page3])
+        intro.show(in:window, animateDuration:0.0)
+    }
+    
     @objc func didPushAddButton(sender: Any) {
         self.performSegue(withIdentifier: "DisplayMakeFormatView", sender: self)
+    }
+    
+    @objc func didPushDebugButton(sender: Any) {
+        self.performSegue(withIdentifier: "DebugView", sender: self)
     }
     
     func loadData() {
@@ -58,7 +111,7 @@ class FormatViewController: UITableViewController {
         selectedFormat = formats![indexPath.row]
         self.performSegue(withIdentifier: "DisplayAnswerSheetListView", sender: self)
     }
-    
+
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
     }

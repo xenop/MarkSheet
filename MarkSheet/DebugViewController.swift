@@ -10,11 +10,12 @@ import Foundation
 
 class DebugViewController: UITableViewController {
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-    
     @IBAction func close(sender: Any) {
         dismiss(animated: true, completion: nil)
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        FormatViewController.showIntro()
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }

@@ -10,3 +10,14 @@
 "edit" = "Edit";
 "delete" = "Delete";
 "It can't be edited" = "It can't be edited";
+
+"popTip_format" = "Let's make a format";
+
+"intro_page_title_1" = "Welcome!";
+"intro_page_description_1" = "This App allows you to create answer sheets.";
+
+"intro_page_title_2" = "Welcome!2";
+"intro_page_description_2" = "This App allows you to create answer sheets.2";
+
+"intro_page_title_3" = "Welcome!3";
+"intro_page_description_3" = "This App allows you to create answer sheets.3";

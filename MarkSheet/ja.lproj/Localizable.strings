@@ -10,3 +10,14 @@
 "edit" = "編集";
 "delete" = "削除";
 "It can't be edited" = "編集できません";
+
+"popTip_format" = "解答を作ってみましょう";
+
+"intro_page_title_1" = "ようこそ！";
+"intro_page_description_1" = "This App allows you to create answer sheets.";
+
+"intro_page_title_2" = "ようこそ！2";
+"intro_page_description_2" = "This App allows you to create answer sheets.2";
+
+"intro_page_title_3" = "ようこそ！3";
+"intro_page_description_3" = "This App allows you to create answer sheets.3";

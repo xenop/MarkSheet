@@ -7,3 +7,14 @@
 //
 
 import Foundation
+
+class DebugViewController: UITableViewController {
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
+    
+    @IBAction func close(sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
+}

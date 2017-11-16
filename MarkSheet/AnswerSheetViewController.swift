@@ -43,7 +43,7 @@ class AnswerSheetViewController: UITableViewController, QuestionCellDelegate {
             if answers!.count == mark!.count {
                 var score = 0
                 for i in 0..<answers!.count {
-                    if answers![i] == mark![i] {
+                    if answers![i] == mark![i] && mark![i] != 0 {
                         score += 1
                     }
                 }

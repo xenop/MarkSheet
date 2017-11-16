@@ -9,6 +9,8 @@
 import UIKit
 
 class AnswerSheetViewController: UITableViewController, QuestionCellDelegate {
+    @IBOutlet var rightButtonItem:UIBarButtonItem? = nil
+    
     var answerSheet:AnswerSheet? = nil {
         didSet {
             title = answerSheet?.name
@@ -25,17 +27,16 @@ class AnswerSheetViewController: UITableViewController, QuestionCellDelegate {
         super.viewDidLoad()
         numberOfQuestions = Int(format?.number_of_questions ?? 0)
         numberOfOptions = Int(format?.number_of_options ?? 0)
-        if !enterAnswerMode {
-            // 採点ボタン
-            let barButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.done,
-                                            target: self,
-                                            action: #selector(self.pushButton(sender:)))
-            navigationItem.rightBarButtonItem = barButton
+        rightButtonItem?.title = NSLocalizedString("score", comment: "")
+        if enterAnswerMode {
+            navigationItem.rightBarButtonItem = nil
+        } else {
+            navigationItem.rightBarButtonItem = rightButtonItem
         }
         barTitle = title!
     }
 
-    @objc func pushButton(sender: Any) {
+    @IBAction func pushRightButton(sender: Any) {
         scoreMode = !scoreMode
         if scoreMode {
             let answers = format?.answers!

@@ -81,7 +81,7 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="swF-8R-7hj">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="aLp-wI-O4h">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
@@ -587,7 +587,17 @@
                             <outlet property="delegate" destination="eCM-MW-Ju0" id="62d-aH-S0r"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="Title" id="1AU-Ns-3bw">
+                        <barButtonItem key="rightBarButtonItem" title="Item" id="Aod-H2-aan">
+                            <connections>
+                                <action selector="pushRightButtonWithSender:" destination="eCM-MW-Ju0" id="IE1-mz-u6u"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="rightButtonItem" destination="Aod-H2-aan" id="BTU-Og-TVU"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="985-WY-yc3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -611,6 +621,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="uMj-Yu-A9w"/>
+        <segue reference="56d-Wg-DYy"/>
     </inferredMetricsTieBreakers>
 </document>

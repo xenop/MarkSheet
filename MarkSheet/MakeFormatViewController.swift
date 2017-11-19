@@ -76,10 +76,15 @@ class MakeFormatViewController: UITableViewController, UITextFieldDelegate {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch indexPath.row {
         case 1:
-           fallthrough
+            if editFormat != nil {
+                showAlert(message: NSLocalizedString("It can't be edited", comment: ""))
+                tableView.deselectRow(at: indexPath, animated: true)
+                return
+            }
+            self.performSegue(withIdentifier: "ShowOption", sender: self)
         case 2:
             if editFormat != nil {
-                showAlert()
+                showAlert(message: NSLocalizedString("It can't be edited", comment: ""))
                 tableView.deselectRow(at: indexPath, animated: true)
                 return
             }
@@ -91,9 +96,9 @@ class MakeFormatViewController: UITableViewController, UITextFieldDelegate {
         }
     }
     
-    func showAlert() {
-        let alert = UIAlertController(title:"", message: NSLocalizedString("It can't be edited", comment: ""), preferredStyle: UIAlertControllerStyle.alert)
-        let cancel = UIAlertAction(title: "Ok", style: UIAlertActionStyle.cancel, handler: {
+    func showAlert(message: String) {
+        let alert = UIAlertController(title:"", message: message, preferredStyle: UIAlertControllerStyle.alert)
+        let cancel = UIAlertAction(title: "OK", style: UIAlertActionStyle.cancel, handler: {
             (action: UIAlertAction!) in
         })
         

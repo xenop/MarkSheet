@@ -10,7 +10,7 @@ import UIKit
 
 class AnswerSheetViewController: UITableViewController, QuestionCellDelegate {
     @IBOutlet var rightButtonItem:UIBarButtonItem? = nil
-    
+    var scoreLabel:UILabel? = nil
     var answerSheet:AnswerSheet? = nil {
         didSet {
             title = answerSheet?.name
@@ -20,9 +20,8 @@ class AnswerSheetViewController: UITableViewController, QuestionCellDelegate {
     var numberOfQuestions:Int = 0
     var numberOfOptions:Int = 0
     var scoreMode = false
-    var barTitle = ""
     var enterAnswerMode = false
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         numberOfQuestions = Int(format?.number_of_questions ?? 0)
@@ -33,12 +32,12 @@ class AnswerSheetViewController: UITableViewController, QuestionCellDelegate {
         } else {
             navigationItem.rightBarButtonItem = rightButtonItem
         }
-        barTitle = title!
     }
-
+    
     @IBAction func pushRightButton(sender: Any) {
         scoreMode = !scoreMode
         if scoreMode {
+            rightButtonItem?.title = NSLocalizedString("answer", comment: "")
             let answers = format?.answers!
             let mark = answerSheet?.mark!
             if answers!.count == mark!.count {
@@ -48,14 +47,21 @@ class AnswerSheetViewController: UITableViewController, QuestionCellDelegate {
                         score += 1
                     }
                 }
-                title = barTitle + " \(score)/\(answers!.count)"
-            } else {
-                title = barTitle
+                refreshFooterView()
+                scoreLabel!.text = " \(score)/\(answers!.count)"
             }
         } else {
-            title = barTitle
+            rightButtonItem?.title = NSLocalizedString("score", comment: "")
+            refreshFooterView()
         }
         tableView.reloadData()
+    }
+    
+    func refreshFooterView() {
+        UIView.setAnimationsEnabled(false)
+        tableView.beginUpdates()
+        tableView.endUpdates()
+        UIView.setAnimationsEnabled(true)
     }
     
     // MARK: - Table view data source
@@ -115,5 +121,23 @@ class AnswerSheetViewController: UITableViewController, QuestionCellDelegate {
         noAction.backgroundColor = .red
         
         return [noAction]
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return scoreMode ? 49 : 0
+    }
+    
+    override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        if scoreLabel == nil {
+            scoreLabel = UILabel()
+            scoreLabel!.backgroundColor = UIColor(white: 0.976, alpha: 1)
+            scoreLabel!.textAlignment = .center
+            
+            let topBorder = CALayer()
+            topBorder.frame = CGRect(x: 0, y: 0, width: tableView.frame.width, height: 1.0)
+            topBorder.backgroundColor = UIColor.lightGray.cgColor
+            scoreLabel!.layer.addSublayer(topBorder)
+        }
+        return scoreLabel
     }
 }

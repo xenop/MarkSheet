@@ -10,6 +10,8 @@
 "edit" = "編集";
 "delete" = "削除";
 "score" = "採点";
+"answer" = "解答";
+
 "It can't be edited" = "編集できません";
 
 "popTip_format" = "解答を作ってみましょう";

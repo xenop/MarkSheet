@@ -67,6 +67,9 @@ class QuestionCell: UITableViewCell, UICollectionViewDelegate, UICollectionViewD
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if scoreMode {
+            return
+        }
         for (_, cell) in collectionView.visibleCells.enumerated() {
             cell.isSelected = false
             (cell as! OptionCollectionViewCell).markState = .noMark

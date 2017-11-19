@@ -74,6 +74,8 @@ class AnswerSheetViewController: UITableViewController, QuestionCellDelegate {
         cell.scoreMode = scoreMode
         cell.numberOfOption = numberOfOptions
         cell.textLabel?.text = "\(indexPath.row + 1)"
+        cell.textLabel?.font = UIFont.systemFont(ofSize: 12)
+        
         if enterAnswerMode {
             cell.mark = (format?.answers![indexPath.row])!
         } else {

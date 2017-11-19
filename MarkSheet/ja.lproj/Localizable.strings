@@ -12,6 +12,7 @@
 "score" = "採点";
 "answer" = "解答";
 
+"name is empty" = "問題の名前を入力して下さい";
 "It can't be edited" = "編集できません";
 
 "popTip_format" = "解答を作ってみましょう";

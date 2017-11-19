@@ -12,8 +12,8 @@
 "score" = "Score";
 "answer" = "Answer";
 
+"name is empty" = "enter name";
 "It can't be edited" = "It can't be edited";
-
 
 "popTip_format" = "Let's make a format";
 

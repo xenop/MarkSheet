@@ -50,6 +50,10 @@ class MakeFormatViewController: UITableViewController, UITextFieldDelegate {
     }
     
     @IBAction func save(sender: Any) {
+        if nameTextField?.text?.count == 0 {
+            showAlert(message: NSLocalizedString("name is empty", comment: ""))
+            return
+        }
         nameTextField?.resignFirstResponder()
         saveModel()
         dismiss(animated: true, completion: nil)

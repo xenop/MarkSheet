@@ -117,7 +117,6 @@ class FormatViewController: UITableViewController, EAIntroDelegate {
     }
     
     override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-        
         let deleteAction = UITableViewRowAction(style: .normal, title: NSLocalizedString("delete", comment: "")) { (rowAction, indexPath) in
             let alert = UIAlertController(title:"", message: NSLocalizedString("confirm delete", comment: ""),
                                           preferredStyle: UIAlertControllerStyle.alert)
@@ -146,7 +145,6 @@ class FormatViewController: UITableViewController, EAIntroDelegate {
             self.performSegue(withIdentifier: "DisplayMakeFormatView", sender: self)
         }
         editAction.backgroundColor = .gray
-
         deleteAction.backgroundColor = .red
         
         return [deleteAction, editAction]

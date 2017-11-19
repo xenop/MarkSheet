@@ -560,27 +560,6 @@
                                     <outlet property="collectionView" destination="4Wf-iQ-mdj" id="lED-su-0Y2"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="doneCell" id="ekw-uS-MWe" customClass="DoneCell" customModule="MarkSheet" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="72" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ekw-uS-MWe" id="6HU-yA-WVw">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l91-rc-3ca">
-                                            <rect key="frame" x="156.5" y="7" width="62" height="30"/>
-                                            <state key="normal" title="入力完了"/>
-                                            <connections>
-                                                <action selector="buttonDidPush" destination="ekw-uS-MWe" eventType="touchUpInside" id="s5H-Bg-FDz"/>
-                                            </connections>
-                                        </button>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstItem="l91-rc-3ca" firstAttribute="centerY" secondItem="6HU-yA-WVw" secondAttribute="centerY" id="NR6-jt-HUi"/>
-                                        <constraint firstItem="l91-rc-3ca" firstAttribute="centerX" secondItem="6HU-yA-WVw" secondAttribute="centerX" id="Vqb-OO-2v9"/>
-                                    </constraints>
-                                </tableViewCellContentView>
-                            </tableViewCell>
                         </prototypes>
                         <connections>
                             <outlet property="dataSource" destination="eCM-MW-Ju0" id="tuG-18-o76"/>
@@ -621,6 +600,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="56d-Wg-DYy"/>
+        <segue reference="uMj-Yu-A9w"/>
     </inferredMetricsTieBreakers>
 </document>

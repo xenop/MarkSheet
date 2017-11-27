@@ -47,11 +47,13 @@ class AnswerSheetViewController: UITableViewController, QuestionCellDelegate {
                         score += 1
                     }
                 }
+                scoreLabel?.isHidden = false
                 refreshFooterView()
                 scoreLabel!.text = " \(score)/\(answers!.count)"
             }
         } else {
             rightButtonItem?.title = NSLocalizedString("score", comment: "")
+            scoreLabel?.isHidden = true
             refreshFooterView()
         }
         tableView.reloadData()

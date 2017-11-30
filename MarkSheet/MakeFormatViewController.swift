@@ -63,6 +63,8 @@ class MakeFormatViewController: UITableViewController, UITextFieldDelegate {
         let cell = super.tableView(tableView, cellForRowAt: indexPath)
         if indexPath.row == 0 {
             if let textField = cell.viewWithTag(10) as? UITextField {
+                let frame = textField.frame
+                textField.frame = CGRect(x: tableView.separatorInset.left, y: frame.minY, width: frame.width, height: frame.height)
                 textField.text = format?.name
             }
         } else if indexPath.row == 1 {

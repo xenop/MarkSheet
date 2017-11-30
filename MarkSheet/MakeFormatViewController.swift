@@ -51,7 +51,7 @@ class MakeFormatViewController: UITableViewController, UITextFieldDelegate {
     
     @IBAction func save(sender: Any) {
         if nameTextField?.text?.count == 0 {
-            showAlert(message: NSLocalizedString("name is empty", comment: ""))
+            showAlert(message: "name is empty".localized)
             return
         }
         nameTextField?.resignFirstResponder()
@@ -83,14 +83,14 @@ class MakeFormatViewController: UITableViewController, UITextFieldDelegate {
         switch indexPath.row {
         case 1:
             if editFormat != nil {
-                showAlert(message: NSLocalizedString("It can't be edited", comment: ""))
+                showAlert(message: "It can't be edited".localized)
                 tableView.deselectRow(at: indexPath, animated: true)
                 return
             }
             self.performSegue(withIdentifier: "ShowOption", sender: self)
         case 2:
             if editFormat != nil {
-                showAlert(message: NSLocalizedString("It can't be edited", comment: ""))
+                showAlert(message: "It can't be edited".localized)
                 tableView.deselectRow(at: indexPath, animated: true)
                 return
             }

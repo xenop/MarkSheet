@@ -26,7 +26,7 @@ class AnswerSheetViewController: UITableViewController, QuestionCellDelegate {
         super.viewDidLoad()
         numberOfQuestions = Int(format?.number_of_questions ?? 0)
         numberOfOptions = Int(format?.number_of_options ?? 0)
-        rightButtonItem?.title = NSLocalizedString("score", comment: "")
+        rightButtonItem?.title = "score".localized
         if enterAnswerMode {
             navigationItem.rightBarButtonItem = nil
         } else {
@@ -37,7 +37,7 @@ class AnswerSheetViewController: UITableViewController, QuestionCellDelegate {
     @IBAction func pushRightButton(sender: Any) {
         scoreMode = !scoreMode
         if scoreMode {
-            rightButtonItem?.title = NSLocalizedString("answer", comment: "")
+            rightButtonItem?.title = "answer".localized
             let answers = format?.answers!
             let mark = answerSheet?.mark!
             if answers!.count == mark!.count {
@@ -52,7 +52,7 @@ class AnswerSheetViewController: UITableViewController, QuestionCellDelegate {
                 scoreLabel!.text = " \(score)/\(answers!.count)"
             }
         } else {
-            rightButtonItem?.title = NSLocalizedString("score", comment: "")
+            rightButtonItem?.title = "score".localized
             scoreLabel?.isHidden = true
             refreshFooterView()
         }

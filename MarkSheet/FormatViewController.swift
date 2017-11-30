@@ -58,7 +58,7 @@ class FormatViewController: UITableViewController, EAIntroDelegate {
         // rightViewをそのまま渡すと、rightButton領域以外でのtapによるdismissが効かなくなるため、self.viewを渡す。
         // それに伴い、座標も変換している
         let frame:CGRect = rightView.convert(rightView.frame, to: self.view)
-        popTip.show(text: NSLocalizedString("popTip_format", comment: ""), direction: .down, maxWidth: 200, in: self.view, from: frame)
+        popTip.show(text: "popTip_format".localized, direction: .down, maxWidth: 200, in: self.view, from: frame)
     }
     
     static func showIntro() {
@@ -117,10 +117,10 @@ class FormatViewController: UITableViewController, EAIntroDelegate {
     }
     
     override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-        let deleteAction = UITableViewRowAction(style: .normal, title: NSLocalizedString("delete", comment: "")) { (rowAction, indexPath) in
-            let alert = UIAlertController(title:"", message: NSLocalizedString("confirm delete", comment: ""),
+        let deleteAction = UITableViewRowAction(style: .normal, title: "delete".localized) { (rowAction, indexPath) in
+            let alert = UIAlertController(title:"", message: "confirm delete".localized,
                                           preferredStyle: UIAlertControllerStyle.alert)
-            let delete = UIAlertAction(title: NSLocalizedString("delete", comment: ""), style: UIAlertActionStyle.default, handler: {
+            let delete = UIAlertAction(title: "delete".localized, style: UIAlertActionStyle.default, handler: {
                 (action: UIAlertAction!) in
                 let format:Format? = self.formats?[indexPath.row]
                 let context = format?.managedObjectContext
@@ -129,7 +129,7 @@ class FormatViewController: UITableViewController, EAIntroDelegate {
                 try! context?.save()
                 tableView.deleteRows(at: [indexPath], with: .fade)
             })
-            let cancel = UIAlertAction(title: NSLocalizedString("cancel", comment: ""), style: UIAlertActionStyle.cancel, handler: {
+            let cancel = UIAlertAction(title: "cancel".localized, style: UIAlertActionStyle.cancel, handler: {
                 (action: UIAlertAction!) in
             })
 
@@ -139,7 +139,7 @@ class FormatViewController: UITableViewController, EAIntroDelegate {
             self.present(alert, animated: true, completion: nil)
         }
         
-        let editAction = UITableViewRowAction(style: .normal, title: NSLocalizedString("edit", comment: "")) { (rowAction, indexPath) in
+        let editAction = UITableViewRowAction(style: .normal, title: "edit".localized) { (rowAction, indexPath) in
             self.selectedFormat = self.formats![indexPath.row]
             self.isEditMode = true
             self.performSegue(withIdentifier: "DisplayMakeFormatView", sender: self)

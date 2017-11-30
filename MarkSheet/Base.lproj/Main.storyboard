@@ -119,28 +119,24 @@
                         <sections>
                             <tableViewSection id="B1r-0J-FTu">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="nameCell" id="Mpk-6h-jTb">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="0.0" reuseIdentifier="nameCell" id="Mpk-6h-jTb">
                                         <rect key="frame" x="0.0" y="35" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Mpk-6h-jTb" id="2D5-or-NV9">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" tag="10" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="タイトル" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ISs-HT-ceP">
-                                                    <rect key="frame" x="14" y="13.5" width="347" height="17"/>
+                                                <textField opaque="NO" tag="10" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="タイトル" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ISs-HT-ceP">
+                                                    <rect key="frame" x="16" y="11" width="335" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <nil key="textColor"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                     <connections>
                                                         <outlet property="delegate" destination="Us2-tK-Z8z" id="R3x-CP-cMG"/>
                                                     </connections>
                                                 </textField>
                                             </subviews>
-                                            <constraints>
-                                                <constraint firstItem="ISs-HT-ceP" firstAttribute="centerY" secondItem="2D5-or-NV9" secondAttribute="centerY" id="9Ih-dn-2e9"/>
-                                                <constraint firstAttribute="trailing" secondItem="ISs-HT-ceP" secondAttribute="trailing" constant="14" id="G5z-HL-XDD"/>
-                                                <constraint firstItem="ISs-HT-ceP" firstAttribute="leading" secondItem="2D5-or-NV9" secondAttribute="leading" constant="14" id="sfI-aF-Vhl"/>
-                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="numberOfOptionsCell" textLabel="A5h-G5-jG0" detailTextLabel="V7U-mH-X5T" style="IBUITableViewCellStyleValue1" id="mVA-rj-gEU">

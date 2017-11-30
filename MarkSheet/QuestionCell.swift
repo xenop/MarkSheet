@@ -15,6 +15,7 @@ protocol QuestionCellDelegate {
 class QuestionCell: UITableViewCell, UICollectionViewDelegate, UICollectionViewDataSource {
     
     @IBOutlet var collectionView:UICollectionView?
+    @IBOutlet var collectionViewLeadingConstraint:NSLayoutConstraint?
     var numberOfOption:Int = 0
     var mark:Int = 0
     var answer:Int = 0
@@ -23,13 +24,7 @@ class QuestionCell: UITableViewCell, UICollectionViewDelegate, UICollectionViewD
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
         collectionView?.allowsMultipleSelection = false
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-        // Configure the view for the selected state
     }
 
     override func prepareForReuse() {
@@ -83,5 +78,9 @@ class QuestionCell: UITableViewCell, UICollectionViewDelegate, UICollectionViewD
             cell.markState = .marked
         }
         delegate?.questionCellDidMark(cell: self)
+    }
+    
+    func setLeading(constant: CGFloat) {
+        collectionViewLeadingConstraint?.constant = constant
     }
 }

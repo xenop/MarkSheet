@@ -75,6 +75,7 @@ class AnswerSheetViewController: UITableViewController, QuestionCellDelegate {
         let cell:QuestionCell = tableView.dequeueReusableCell(withIdentifier: "QuestionCell", for: indexPath) as! QuestionCell
         cell.scoreMode = scoreMode
         cell.numberOfOption = numberOfOptions
+        cell.setLeading(constant: 24 + tableView.separatorInset.left)
         cell.textLabel?.text = "\(indexPath.row + 1)"
         cell.textLabel?.font = UIFont.systemFont(ofSize: 12)
         

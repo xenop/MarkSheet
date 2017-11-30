@@ -571,6 +571,7 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="collectionView" destination="4Wf-iQ-mdj" id="lED-su-0Y2"/>
+                                    <outlet property="collectionViewLeadingConstraint" destination="f8E-QV-7Pr" id="5SX-Qr-QvC"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>

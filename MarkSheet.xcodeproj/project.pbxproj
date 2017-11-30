@@ -26,6 +26,7 @@
 		778594561FB56CBC0006A1AE /* DebugViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 778594551FB56CBC0006A1AE /* DebugViewController.swift */; };
 		778D69111F4325FD003401F7 /* BorderLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 778D69101F4325FD003401F7 /* BorderLabel.swift */; };
 		77A39E991F3B46BB001CEA76 /* MakeFormatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A39E981F3B46BB001CEA76 /* MakeFormatViewController.swift */; };
+		77AD0ED61FCFC4F300F9963E /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77AD0ED51FCFC4F300F9963E /* StringExtension.swift */; };
 		77ED56421F303D13009FB039 /* AnswerSheetListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77ED56411F303D13009FB039 /* AnswerSheetListViewController.swift */; };
 		77ED56441F30B94F009FB039 /* AnswerSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77ED56431F30B94F009FB039 /* AnswerSheetViewController.swift */; };
 		77ED56461F30BF84009FB039 /* QuestionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77ED56451F30BF83009FB039 /* QuestionCell.swift */; };
@@ -84,6 +85,7 @@
 		778594551FB56CBC0006A1AE /* DebugViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugViewController.swift; sourceTree = "<group>"; };
 		778D69101F4325FD003401F7 /* BorderLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorderLabel.swift; sourceTree = "<group>"; };
 		77A39E981F3B46BB001CEA76 /* MakeFormatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeFormatViewController.swift; sourceTree = "<group>"; };
+		77AD0ED51FCFC4F300F9963E /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		77ED56411F303D13009FB039 /* AnswerSheetListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerSheetListViewController.swift; sourceTree = "<group>"; };
 		77ED56431F30B94F009FB039 /* AnswerSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerSheetViewController.swift; sourceTree = "<group>"; };
 		77ED56451F30BF83009FB039 /* QuestionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionCell.swift; sourceTree = "<group>"; };
@@ -166,6 +168,7 @@
 				778311C61F2B81D200657895 /* Info.plist */,
 				778311C11F2B81D200657895 /* Assets.xcassets */,
 				7753CA641FB4045900C46E97 /* UserDefaultExtension.swift */,
+				77AD0ED51FCFC4F300F9963E /* StringExtension.swift */,
 				778594551FB56CBC0006A1AE /* DebugViewController.swift */,
 				776A7B2A1FA84E89004A0618 /* Bridging.h */,
 				775C1FA01FAEFD270056999B /* IntroPage.swift */,
@@ -538,6 +541,7 @@
 				7753CA651FB4045A00C46E97 /* UserDefaultExtension.swift in Sources */,
 				776B145F1FA2C29400D4C153 /* QuestionTableViewController.swift in Sources */,
 				778311B81F2B81D200657895 /* AppDelegate.swift in Sources */,
+				77AD0ED61FCFC4F300F9963E /* StringExtension.swift in Sources */,
 				7726DB291F34BE4600FEF380 /* Format.swift in Sources */,
 				77ED56421F303D13009FB039 /* AnswerSheetListViewController.swift in Sources */,
 				778594561FB56CBC0006A1AE /* DebugViewController.swift in Sources */,

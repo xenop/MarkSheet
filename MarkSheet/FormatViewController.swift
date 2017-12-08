@@ -24,8 +24,8 @@ class FormatViewController: UITableViewController, EAIntroDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         let rightBarButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.add,
-                                        target: self,
-                                        action: #selector(self.didPushAddButton(sender:)))
+                                             target: self,
+                                             action: #selector(self.didPushAddButton(sender:)))
         navigationItem.rightBarButtonItem = rightBarButton
         loadData()
     }

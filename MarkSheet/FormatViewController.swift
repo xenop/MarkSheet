@@ -76,14 +76,10 @@ class FormatViewController: UITableViewController, EAIntroDelegate {
     
     static func showIntro() {
         let page1:EAIntroPage = EAIntroPage.init(customViewFromNibNamed: "IntroPage")
-        let page2:EAIntroPage = EAIntroPage.init(customViewFromNibNamed: "IntroPage")
-        let page3:EAIntroPage = EAIntroPage.init(customViewFromNibNamed: "IntroPage")
         ((page1.customView) as! IntroPage).initPage1()
-        ((page2.customView) as! IntroPage).initPage2()
-        ((page3.customView) as! IntroPage).initPage3()
         
         let window = UIApplication.shared.keyWindow
-        let intro:EAIntroView = EAIntroView(frame: window!.bounds, andPages:[page1, page2, page3])
+        let intro:EAIntroView = EAIntroView(frame: window!.bounds, andPages:[page1])
         intro.show(in:window, animateDuration:0.0)
     }
     

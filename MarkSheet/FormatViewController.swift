@@ -50,7 +50,7 @@ class FormatViewController: UITableViewController, EAIntroDelegate {
         super.viewDidAppear(animated)
         // introとtipViewのフラグは別々に管理する
         if UserDefaults.standard.bool(forKey: .introDidShow) == false {
-            FormatViewController.showIntro()
+            showIntro()
             UserDefaults.standard.set(true, forKey: .introDidShow)
         }
         //        showTipView()
@@ -74,7 +74,7 @@ class FormatViewController: UITableViewController, EAIntroDelegate {
         popTip.show(text: "popTip_format".localized, direction: .down, maxWidth: 200, in: self.view, from: frame)
     }
     
-    static func showIntro() {
+    func showIntro() {
         let page1:EAIntroPage = EAIntroPage.init(customViewFromNibNamed: "IntroPage")
         ((page1.customView) as! IntroPage).initPage1()
         
@@ -91,7 +91,7 @@ class FormatViewController: UITableViewController, EAIntroDelegate {
         #if DEBUG
             self.performSegue(withIdentifier: "DebugView", sender: self)
         #else
-            FormatViewController.showIntro()
+            showIntro()
         #endif
 
     }

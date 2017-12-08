@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="3qv-BL-kOa">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="3qv-BL-kOa">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -114,7 +114,13 @@
                             <outlet property="delegate" destination="gIN-pb-Ctw" id="hCf-JE-KBj"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="fQZ-eu-Ia8"/>
+                    <navigationItem key="navigationItem" title="Title" id="uYn-nx-aKZ">
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="Light Info" style="plain" id="uXC-RK-7Z2">
+                            <connections>
+                                <action selector="didPushInfoButtonWithSender:" destination="gIN-pb-Ctw" id="P6V-tr-xbH"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <segue destination="Xrc-zI-FA9" kind="show" identifier="DisplayAnswerSheetListView" id="EA9-wk-zVC"/>
                         <segue destination="T8C-Jq-4kA" kind="presentation" identifier="DisplayMakeFormatView" id="PMp-aB-int"/>
@@ -613,6 +619,9 @@
             <point key="canvasLocation" x="-1041" y="-217"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Light Info" width="22" height="22"/>
+    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="uMj-Yu-A9w"/>
     </inferredMetricsTieBreakers>

@@ -10,6 +10,7 @@ import UIKit
 import CoreData
 import Crashlytics
 import AMPopTip
+import AVKit
 
 class FormatViewController: UITableViewController, EAIntroDelegate {
     
@@ -22,12 +23,6 @@ class FormatViewController: UITableViewController, EAIntroDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        #if DEBUG
-            let leftBarButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.action,
-                                                target: self,
-                                                action: #selector(self.didPushDebugButton(sender:)))
-            navigationItem.leftBarButtonItem = leftBarButton
-        #endif
         let rightBarButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.add,
                                         target: self,
                                         action: #selector(self.didPushAddButton(sender:)))
@@ -35,6 +30,22 @@ class FormatViewController: UITableViewController, EAIntroDelegate {
         loadData()
     }
 
+    private func playVideo() {
+        guard let path = Bundle.main.path(forResource: "tutorial", ofType:"m4v") else {
+            debugPrint("video not found")
+            return
+        }
+        let player = AVPlayer(url: URL(fileURLWithPath: path))
+        let playerController = AVPlayerViewController()
+        playerController.view.frame = CGRect (x:0, y:0, width:406/2, height:720/2)
+        playerController.view.center = self.view.center
+        self.addChildViewController(playerController)
+        self.view.addSubview(playerController.view)
+
+        playerController.player = player
+        playerController.didMove(toParentViewController: self)
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         // introとtipViewのフラグは別々に管理する
@@ -43,6 +54,8 @@ class FormatViewController: UITableViewController, EAIntroDelegate {
             UserDefaults.standard.set(true, forKey: .introDidShow)
         }
         //        showTipView()
+        playVideo()
+
     }
     
     func showTipView() {
@@ -78,8 +91,13 @@ class FormatViewController: UITableViewController, EAIntroDelegate {
         self.performSegue(withIdentifier: "DisplayMakeFormatView", sender: self)
     }
     
-    @objc func didPushDebugButton(sender: Any) {
-        self.performSegue(withIdentifier: "DebugView", sender: self)
+    @IBAction func didPushInfoButton(sender: Any) {
+        #if DEBUG
+            self.performSegue(withIdentifier: "DebugView", sender: self)
+        #else
+            FormatViewController.showIntro()
+        #endif
+
     }
     
     func loadData() {
@@ -90,6 +108,13 @@ class FormatViewController: UITableViewController, EAIntroDelegate {
         fetchRequest.sortDescriptors = [sortDescriptor]
         
         formats = try! managedObjectContext!.fetch(fetchRequest)
+//        var temp:[Format] = []
+//        formats?.enumerated().forEach({ (offset: Int, element: Format) in
+//            if !element.name!.hasPrefix("宅建") {
+//                temp.append(element)
+//            }
+//        })
+//        formats = temp
         tableView.reloadData()
     }
     

@@ -12,18 +12,9 @@ class IntroPage: UIView {
     @IBOutlet var titleLabel:UILabel?
     @IBOutlet var descriptionLabel:UILabel?
     
-    func initPage1() {
+    override func awakeFromNib() {
+        super.awakeFromNib()
         titleLabel!.text = NSLocalizedString("intro_page_title_1", comment: "")
         descriptionLabel!.text = NSLocalizedString("intro_page_description_1", comment: "")
-    }
-    
-    func initPage2() {
-        titleLabel!.text = NSLocalizedString("intro_page_title_2", comment: "")
-        descriptionLabel!.text = NSLocalizedString("intro_page_description_2", comment: "")
-    }
-    
-    func initPage3() {
-        titleLabel!.text = NSLocalizedString("intro_page_title_3", comment: "")
-        descriptionLabel!.text = NSLocalizedString("intro_page_description_3", comment: "")
     }
 }

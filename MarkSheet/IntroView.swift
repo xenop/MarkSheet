@@ -8,11 +8,17 @@
 
 import UIKit
 
+protocol IntroViewDelegate {
+    func play(sender: IntroView)
+    func close(sender: IntroView)
+}
+
 class IntroView: UIView {
     @IBOutlet var titleLabel:UILabel?
     @IBOutlet var descriptionLabel:UILabel?
     @IBOutlet var playButton:UIButton?
     @IBOutlet var closeButton:UIButton?
+    var delegate:IntroViewDelegate? = nil
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -23,10 +29,10 @@ class IntroView: UIView {
     }
     
     @IBAction func didPushPlayButton(sender: Any) {
-        print("play")
+        self.delegate?.play(sender: self)
     }
     
     @IBAction func didPushCloseButton(sender: Any) {
-        print("close")
+        self.delegate?.close(sender: self)
     }
 }

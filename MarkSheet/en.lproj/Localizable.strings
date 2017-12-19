@@ -17,5 +17,7 @@
 
 "popTip_format" = "Let's make a format";
 
-"intro_page_title_1" = "Welcome!";
-"intro_page_description_1" = "This App allows you to create answer sheets.";
+"intro_page_title" = "Welcome!";
+"intro_page_description" = "Let's see tutorial";
+"intro_page_play_button" = "Play";
+"intro_page_close_button" = "close";

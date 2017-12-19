@@ -17,5 +17,7 @@
 
 "popTip_format" = "解答を作ってみましょう";
 
-"intro_page_title_1" = "ようこそ！";
-"intro_page_description_1" = "This App allows you to create answer sheets.";
+"intro_page_title" = "ようこそ！";
+"intro_page_description" = "まずは使い方を見てみましょう";
+"intro_page_play_button" = "再生";
+"intro_page_close_button" = "閉じる";

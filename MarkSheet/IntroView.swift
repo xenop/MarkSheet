@@ -1,5 +1,5 @@
 //
-//  IntroPage1.swift
+//  IntroView1.swift
 //  MarkSheet
 //
 //  Created by _ xenop on 2017/11/05.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class IntroPage: UIView {
+class IntroView: UIView {
     @IBOutlet var titleLabel:UILabel?
     @IBOutlet var descriptionLabel:UILabel?
     @IBOutlet var playButton:UIButton?

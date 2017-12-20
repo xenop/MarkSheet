@@ -9,8 +9,8 @@
 import UIKit
 
 class AnswerSheetViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, QuestionCellDelegate {
-    @IBOutlet var rightButtonItem:UIBarButtonItem? = nil
-    @IBOutlet var tableView:UITableView? = nil
+    // MARK: Properties
+    
     var scoreLabel:UILabel? = nil
     var answerSheet:AnswerSheet? = nil {
         didSet {
@@ -23,11 +23,18 @@ class AnswerSheetViewController: UIViewController, UITableViewDataSource, UITabl
     var scoreMode = false
     var enterAnswerMode = false
     
+    // MARK: - IBOutlets
+    
+    @IBOutlet var rightButtonItem:UIBarButtonItem!
+    @IBOutlet var tableView:UITableView!
+
+    // MARK: - View Controller
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         numberOfQuestions = Int(format?.number_of_questions ?? 0)
         numberOfOptions = Int(format?.number_of_options ?? 0)
-        rightButtonItem?.title = "score".localized
+        rightButtonItem.title = "score".localized
         if enterAnswerMode {
             navigationItem.rightBarButtonItem = nil
         } else {
@@ -35,39 +42,8 @@ class AnswerSheetViewController: UIViewController, UITableViewDataSource, UITabl
         }
     }
     
-    @IBAction func pushRightButton(sender: Any) {
-        scoreMode = !scoreMode
-        if scoreMode {
-            rightButtonItem?.title = "answer".localized
-            let answers = format?.answers!
-            let mark = answerSheet?.mark!
-            if answers!.count == mark!.count {
-                var score = 0
-                for i in 0..<answers!.count {
-                    if answers![i] == mark![i] && mark![i] != 0 {
-                        score += 1
-                    }
-                }
-                scoreLabel?.isHidden = false
-                refreshFooterView()
-                scoreLabel!.text = " \(score)/\(answers!.count)"
-            }
-        } else {
-            rightButtonItem?.title = "score".localized
-            scoreLabel?.isHidden = true
-            refreshFooterView()
-        }
-        tableView!.reloadData()
-    }
+    // MARK: - UITableViewDataSource
     
-    func refreshFooterView() {
-        UIView.setAnimationsEnabled(false)
-        tableView!.beginUpdates()
-        tableView!.endUpdates()
-        UIView.setAnimationsEnabled(true)
-    }
-    
-    // MARK: - Table view data source
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return numberOfQuestions
     }
@@ -90,18 +66,7 @@ class AnswerSheetViewController: UIViewController, UITableViewDataSource, UITabl
         return cell
     }
     
-    func questionCellDidMark(cell: QuestionCell) {
-        let indexPath = tableView!.indexPath(for: cell)
-        if let row = indexPath?.row {
-            if enterAnswerMode {
-                format?.answers![row] = cell.mark
-            } else {
-                answerSheet?.mark![row] = cell.mark
-                let context = answerSheet?.managedObjectContext
-                try! context?.save()
-            }
-        }
-    }
+    // MARK: - UITableViewDelegate
     
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
@@ -145,5 +110,56 @@ class AnswerSheetViewController: UIViewController, UITableViewDataSource, UITabl
             scoreLabel!.layer.addSublayer(topBorder)
         }
         return scoreLabel
+    }
+    
+    // MARK: - QuestionCellDelegate
+    
+    func questionCellDidMark(cell: QuestionCell) {
+        let indexPath = tableView!.indexPath(for: cell)
+        if let row = indexPath?.row {
+            if enterAnswerMode {
+                format?.answers![row] = cell.mark
+            } else {
+                answerSheet?.mark![row] = cell.mark
+                let context = answerSheet?.managedObjectContext
+                try! context?.save()
+            }
+        }
+    }
+    
+    // MARK: - IBActions
+    
+    @IBAction func pushRightButton(sender: Any) {
+        scoreMode = !scoreMode
+        if scoreMode {
+            rightButtonItem.title = "answer".localized
+            let answers = format?.answers!
+            let mark = answerSheet?.mark!
+            if answers!.count == mark!.count {
+                var score = 0
+                for i in 0..<answers!.count {
+                    if answers![i] == mark![i] && mark![i] != 0 {
+                        score += 1
+                    }
+                }
+                scoreLabel?.isHidden = false
+                refreshFooterView()
+                scoreLabel!.text = " \(score)/\(answers!.count)"
+            }
+        } else {
+            rightButtonItem.title = "score".localized
+            scoreLabel?.isHidden = true
+            refreshFooterView()
+        }
+        tableView!.reloadData()
+    }
+    
+    // MARK: -
+    
+    func refreshFooterView() {
+        UIView.setAnimationsEnabled(false)
+        tableView!.beginUpdates()
+        tableView!.endUpdates()
+        UIView.setAnimationsEnabled(true)
     }
 }

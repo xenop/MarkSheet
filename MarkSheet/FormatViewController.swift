@@ -57,7 +57,7 @@ class FormatViewController: UITableViewController, IntroViewDelegate {
         }
     }
     
-    // MARK: - TableViewDataSource
+    // MARK: - UITableViewDataSource
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return formats?.count ?? 0
@@ -70,7 +70,7 @@ class FormatViewController: UITableViewController, IntroViewDelegate {
         return cell
     }
     
-    // MARK: - TableViewDelegate
+    // MARK: - UITableViewDelegate
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath)

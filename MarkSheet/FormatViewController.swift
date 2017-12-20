@@ -9,7 +9,6 @@
 import UIKit
 import CoreData
 import Crashlytics
-import AMPopTip
 import AVKit
 
 class FormatViewController: UITableViewController, IntroViewDelegate {
@@ -150,22 +149,6 @@ class FormatViewController: UITableViewController, IntroViewDelegate {
     }
     
     // MARK: -
-    
-    func showTipView() {
-        let popTip = PopTip()
-        popTip.bubbleColor = .orange
-        popTip.offset = 3
-        popTip.bubbleOffset = 1
-        popTip.edgeMargin = 8
-
-        let item = self.navigationItem.rightBarButtonItem
-        let rightView = item?.value(forKey: "view") as! UIView
-        
-        // rightViewをそのまま渡すと、rightButton領域以外でのtapによるdismissが効かなくなるため、self.viewを渡す。
-        // それに伴い、座標も変換している
-        let frame:CGRect = rightView.convert(rightView.frame, to: self.view)
-        popTip.show(text: "popTip_format".localized, direction: .down, maxWidth: 200, in: self.view, from: frame)
-    }
     
     func showIntro() {
         if introView == nil {

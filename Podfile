@@ -9,7 +9,6 @@ target 'MarkSheet' do
   pod 'Fabric'
   pod 'Crashlytics', '~>  3.9'
   
-  pod 'AMPopTip' 
   pod 'EAIntroView'
 
   target 'MarkSheetTests' do

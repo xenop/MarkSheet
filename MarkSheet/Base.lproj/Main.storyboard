@@ -232,9 +232,9 @@
                     </navigationItem>
                     <connections>
                         <outlet property="nameTextField" destination="ISs-HT-ceP" id="wgj-Ys-vlS"/>
-                        <segue destination="eCM-MW-Ju0" kind="show" identifier="EnterAnswerSheetView" id="uMj-Yu-A9w"/>
                         <segue destination="Whv-GU-Jqg" kind="show" identifier="ShowOption" id="hvf-IA-epA"/>
                         <segue destination="j8p-9Y-pW2" kind="show" identifier="ShowQuestion" id="379-fC-h5f"/>
+                        <segue destination="cVO-Wy-pXg" kind="show" identifier="EnterAnswerSheetView" id="u9Q-pT-7Mp"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IOw-37-nVg" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -484,7 +484,7 @@
                     <navigationItem key="navigationItem" id="K3C-1j-lU1"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
-                        <segue destination="eCM-MW-Ju0" kind="show" identifier="DisplayAnswerSheetView" id="56d-Wg-DYy"/>
+                        <segue destination="cVO-Wy-pXg" kind="show" identifier="DisplayAnswerSheetView" id="SWk-2j-Vdg"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fgZ-Wf-YRP" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -492,96 +492,112 @@
             <point key="canvasLocation" x="644" y="-217"/>
         </scene>
         <!--解答用紙-->
-        <scene sceneID="s7f-A7-KU6">
+        <scene sceneID="NAz-KG-Jwn">
             <objects>
-                <tableViewController title="解答用紙" id="eCM-MW-Ju0" customClass="AnswerSheetViewController" customModule="MarkSheet" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="44" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="KY1-sQ-hXt">
+                <viewController title="解答用紙" id="cVO-Wy-pXg" customClass="AnswerSheetViewController" customModule="MarkSheet" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="b9L-95-qTj"/>
+                        <viewControllerLayoutGuide type="bottom" id="mIa-yD-GAd"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Sll-GN-SAi">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="QuestionCell" id="TnS-pZ-82n" customClass="QuestionCell" customModule="MarkSheet" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="TnS-pZ-82n" id="mjG-W6-o8S">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="4Wf-iQ-mdj">
-                                            <rect key="frame" x="40" y="0.0" width="323" height="44"/>
-                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="TYk-8O-zlp">
-                                                <size key="itemSize" width="44" height="44"/>
-                                                <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                                <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                                <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                            </collectionViewFlowLayout>
-                                            <cells>
-                                                <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="OptionCollectionViewCell" id="5xd-4h-xjw" customClass="OptionCollectionViewCell" customModule="MarkSheet" customModuleProvider="target">
-                                                    <rect key="frame" x="0.0" y="0.0" width="44" height="44"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                                        <rect key="frame" x="0.0" y="0.0" width="44" height="44"/>
-                                                        <autoresizingMask key="autoresizingMask"/>
-                                                        <subviews>
-                                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O6C-Ot-rRa" customClass="BorderLabel" customModule="MarkSheet" customModuleProvider="target">
-                                                                <rect key="frame" x="4" y="4" width="36" height="36"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="width" secondItem="O6C-Ot-rRa" secondAttribute="height" multiplier="1:1" id="66Z-LW-tJ8"/>
-                                                                </constraints>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                <nil key="textColor"/>
-                                                                <nil key="highlightedColor"/>
-                                                            </label>
-                                                        </subviews>
-                                                    </view>
-                                                    <constraints>
-                                                        <constraint firstItem="O6C-Ot-rRa" firstAttribute="centerX" secondItem="5xd-4h-xjw" secondAttribute="centerX" id="Aej-Pv-tkw"/>
-                                                        <constraint firstAttribute="bottom" secondItem="O6C-Ot-rRa" secondAttribute="bottom" constant="4" id="GUB-ue-GcI"/>
-                                                        <constraint firstItem="O6C-Ot-rRa" firstAttribute="top" secondItem="5xd-4h-xjw" secondAttribute="top" constant="4" id="pne-ey-FPr"/>
-                                                    </constraints>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="44" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="w7p-Ol-yJU">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" red="0.97647058823529409" green="0.97647058823529409" blue="0.97647058823529409" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="QuestionCell" id="vGE-YB-qvM" customClass="QuestionCell" customModule="MarkSheet" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="vGE-YB-qvM" id="yJ9-ne-kUu">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Ycf-rn-SA9">
+                                                    <rect key="frame" x="40" y="0.0" width="323" height="44"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="XSC-bs-1ei">
+                                                        <size key="itemSize" width="44" height="44"/>
+                                                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                    </collectionViewFlowLayout>
+                                                    <cells>
+                                                        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="OptionCollectionViewCell" id="0vN-Xg-kTk" customClass="OptionCollectionViewCell" customModule="MarkSheet" customModuleProvider="target">
+                                                            <rect key="frame" x="0.0" y="0.0" width="44" height="44"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                                                <rect key="frame" x="0.0" y="0.0" width="44" height="44"/>
+                                                                <autoresizingMask key="autoresizingMask"/>
+                                                                <subviews>
+                                                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GDq-zO-rL0" customClass="BorderLabel" customModule="MarkSheet" customModuleProvider="target">
+                                                                        <rect key="frame" x="4" y="4" width="36" height="36"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="width" secondItem="GDq-zO-rL0" secondAttribute="height" multiplier="1:1" id="y3K-Fy-1aV"/>
+                                                                        </constraints>
+                                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                        <nil key="textColor"/>
+                                                                        <nil key="highlightedColor"/>
+                                                                    </label>
+                                                                </subviews>
+                                                            </view>
+                                                            <constraints>
+                                                                <constraint firstAttribute="bottom" secondItem="GDq-zO-rL0" secondAttribute="bottom" constant="4" id="JSn-3d-TE0"/>
+                                                                <constraint firstItem="GDq-zO-rL0" firstAttribute="top" secondItem="0vN-Xg-kTk" secondAttribute="top" constant="4" id="aIe-6L-X0g"/>
+                                                                <constraint firstItem="GDq-zO-rL0" firstAttribute="centerX" secondItem="0vN-Xg-kTk" secondAttribute="centerX" id="ehT-HV-aLE"/>
+                                                            </constraints>
+                                                            <connections>
+                                                                <outlet property="label" destination="GDq-zO-rL0" id="aqA-24-WNP"/>
+                                                            </connections>
+                                                        </collectionViewCell>
+                                                    </cells>
                                                     <connections>
-                                                        <outlet property="label" destination="O6C-Ot-rRa" id="gWI-bm-eiH"/>
+                                                        <outlet property="dataSource" destination="vGE-YB-qvM" id="EF6-rP-gTm"/>
+                                                        <outlet property="delegate" destination="vGE-YB-qvM" id="ftL-4d-ZYE"/>
                                                     </connections>
-                                                </collectionViewCell>
-                                            </cells>
-                                            <connections>
-                                                <outlet property="dataSource" destination="TnS-pZ-82n" id="Vf8-xa-BmP"/>
-                                                <outlet property="delegate" destination="TnS-pZ-82n" id="79C-Vw-wvo"/>
-                                            </connections>
-                                        </collectionView>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstAttribute="trailing" secondItem="4Wf-iQ-mdj" secondAttribute="trailing" constant="12" id="UY5-aO-6iH"/>
-                                        <constraint firstItem="4Wf-iQ-mdj" firstAttribute="leading" secondItem="mjG-W6-o8S" secondAttribute="leading" constant="40" id="f8E-QV-7Pr"/>
-                                        <constraint firstAttribute="bottom" secondItem="4Wf-iQ-mdj" secondAttribute="bottom" id="vGa-Cq-Sml"/>
-                                        <constraint firstItem="4Wf-iQ-mdj" firstAttribute="top" secondItem="mjG-W6-o8S" secondAttribute="top" id="zLI-8W-0Rn"/>
-                                    </constraints>
-                                </tableViewCellContentView>
+                                                </collectionView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Ycf-rn-SA9" firstAttribute="top" secondItem="yJ9-ne-kUu" secondAttribute="top" id="4em-Be-O6R"/>
+                                                <constraint firstAttribute="trailing" secondItem="Ycf-rn-SA9" secondAttribute="trailing" constant="12" id="8ay-CA-Qf5"/>
+                                                <constraint firstAttribute="bottom" secondItem="Ycf-rn-SA9" secondAttribute="bottom" id="EW8-Zc-cab"/>
+                                                <constraint firstItem="Ycf-rn-SA9" firstAttribute="leading" secondItem="yJ9-ne-kUu" secondAttribute="leading" constant="40" id="X7F-60-5cY"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="collectionView" destination="Ycf-rn-SA9" id="UAa-RO-Mpx"/>
+                                            <outlet property="collectionViewLeadingConstraint" destination="X7F-60-5cY" id="aUS-Ow-vyE"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
                                 <connections>
-                                    <outlet property="collectionView" destination="4Wf-iQ-mdj" id="lED-su-0Y2"/>
-                                    <outlet property="collectionViewLeadingConstraint" destination="f8E-QV-7Pr" id="5SX-Qr-QvC"/>
+                                    <outlet property="dataSource" destination="cVO-Wy-pXg" id="tbH-z5-QD0"/>
+                                    <outlet property="delegate" destination="cVO-Wy-pXg" id="kuA-cK-31f"/>
                                 </connections>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="eCM-MW-Ju0" id="tuG-18-o76"/>
-                            <outlet property="delegate" destination="eCM-MW-Ju0" id="62d-aH-S0r"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="Title" id="1AU-Ns-3bw">
-                        <barButtonItem key="rightBarButtonItem" title="Item" id="Aod-H2-aan">
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.97647058823529409" green="0.97647058823529409" blue="0.97647058823529409" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="w7p-Ol-yJU" firstAttribute="leading" secondItem="Sll-GN-SAi" secondAttribute="leading" id="A1V-Ol-dm4"/>
+                            <constraint firstItem="mIa-yD-GAd" firstAttribute="top" secondItem="w7p-Ol-yJU" secondAttribute="bottom" id="RBz-G1-cz6"/>
+                            <constraint firstItem="w7p-Ol-yJU" firstAttribute="top" secondItem="Sll-GN-SAi" secondAttribute="top" id="jh7-go-vMv"/>
+                            <constraint firstAttribute="trailing" secondItem="w7p-Ol-yJU" secondAttribute="trailing" id="rYc-kK-SEI"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Title" id="aiX-Rr-lMo">
+                        <barButtonItem key="rightBarButtonItem" title="Item" id="UDc-Fp-mj1">
                             <connections>
-                                <action selector="pushRightButtonWithSender:" destination="eCM-MW-Ju0" id="IE1-mz-u6u"/>
+                                <action selector="pushRightButtonWithSender:" destination="cVO-Wy-pXg" id="gru-Bw-ipL"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
-                        <outlet property="rightButtonItem" destination="Aod-H2-aan" id="BTU-Og-TVU"/>
+                        <outlet property="rightButtonItem" destination="UDc-Fp-mj1" id="PcB-QM-FGj"/>
+                        <outlet property="tableView" destination="w7p-Ol-yJU" id="3NF-6K-Xls"/>
                     </connections>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="985-WY-yc3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VLH-8F-Axn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1414" y="-217"/>
         </scene>
@@ -606,6 +622,6 @@
         <image name="Light Info" width="22" height="22"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="uMj-Yu-A9w"/>
+        <segue reference="SWk-2j-Vdg"/>
     </inferredMetricsTieBreakers>
 </document>

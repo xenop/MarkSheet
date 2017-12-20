@@ -8,8 +8,9 @@
 
 import UIKit
 
-class AnswerSheetViewController: UITableViewController, QuestionCellDelegate {
+class AnswerSheetViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, QuestionCellDelegate {
     @IBOutlet var rightButtonItem:UIBarButtonItem? = nil
+    @IBOutlet var tableView:UITableView? = nil
     var scoreLabel:UILabel? = nil
     var answerSheet:AnswerSheet? = nil {
         didSet {
@@ -56,22 +57,22 @@ class AnswerSheetViewController: UITableViewController, QuestionCellDelegate {
             scoreLabel?.isHidden = true
             refreshFooterView()
         }
-        tableView.reloadData()
+        tableView!.reloadData()
     }
     
     func refreshFooterView() {
         UIView.setAnimationsEnabled(false)
-        tableView.beginUpdates()
-        tableView.endUpdates()
+        tableView!.beginUpdates()
+        tableView!.endUpdates()
         UIView.setAnimationsEnabled(true)
     }
     
     // MARK: - Table view data source
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return numberOfQuestions
     }
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell:QuestionCell = tableView.dequeueReusableCell(withIdentifier: "QuestionCell", for: indexPath) as! QuestionCell
         cell.scoreMode = scoreMode
         cell.numberOfOption = numberOfOptions
@@ -90,7 +91,7 @@ class AnswerSheetViewController: UITableViewController, QuestionCellDelegate {
     }
     
     func questionCellDidMark(cell: QuestionCell) {
-        let indexPath = tableView.indexPath(for: cell)
+        let indexPath = tableView!.indexPath(for: cell)
         if let row = indexPath?.row {
             if enterAnswerMode {
                 format?.answers![row] = cell.mark
@@ -102,11 +103,11 @@ class AnswerSheetViewController: UITableViewController, QuestionCellDelegate {
         }
     }
     
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
     }
     
-    override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         // just show answer
         var title:String!
         if let answer = format?.answers![indexPath.row] {
@@ -128,11 +129,11 @@ class AnswerSheetViewController: UITableViewController, QuestionCellDelegate {
         return [noAction]
     }
     
-    override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return scoreMode ? 49 : 0
     }
     
-    override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         if scoreLabel == nil {
             scoreLabel = UILabel()
             scoreLabel!.backgroundColor = UIColor(white: 0.976, alpha: 1)

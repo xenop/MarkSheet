@@ -104,13 +104,6 @@ class FormatViewController: UITableViewController, EAIntroDelegate {
         fetchRequest.sortDescriptors = [sortDescriptor]
         
         formats = try! managedObjectContext!.fetch(fetchRequest)
-//        var temp:[Format] = []
-//        formats?.enumerated().forEach({ (offset: Int, element: Format) in
-//            if !element.name!.hasPrefix("宅建") {
-//                temp.append(element)
-//            }
-//        })
-//        formats = temp
         tableView.reloadData()
     }
     

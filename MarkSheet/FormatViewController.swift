@@ -93,7 +93,6 @@ class FormatViewController: UITableViewController, EAIntroDelegate {
         #else
             showIntro()
         #endif
-
     }
     
     func loadData() {

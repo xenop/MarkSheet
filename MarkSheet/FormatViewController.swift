@@ -12,14 +12,12 @@ import Crashlytics
 import AMPopTip
 import AVKit
 
-class FormatViewController: UITableViewController, EAIntroDelegate {
-    
-    var introView:EAIntroView? = nil
-    
+class FormatViewController: UITableViewController, IntroViewDelegate {
     var managedObjectContext:NSManagedObjectContext?
     var formats:[Format]? = nil
     var selectedFormat:Format? = nil
     var isEditMode:Bool = false
+    var introView:IntroView? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -75,12 +73,36 @@ class FormatViewController: UITableViewController, EAIntroDelegate {
     }
     
     func showIntro() {
-        let page1:EAIntroPage = EAIntroPage.init(customViewFromNibNamed: "IntroPage")
-        ((page1.customView) as! IntroPage).initPage1()
+        if introView == nil {
+            introView = UINib(nibName: "IntroView", bundle: nil).instantiate(withOwner: nil, options: nil)[0] as? IntroView
+            let window = UIApplication.shared.keyWindow
+            introView!.frame = window!.bounds
+            introView!.delegate = self
+        }
         
-        let window = UIApplication.shared.keyWindow
-        let intro:EAIntroView = EAIntroView(frame: window!.bounds, andPages:[page1])
-        intro.show(in:window, animateDuration:0.0)
+        self.view.backgroundColor = introView!.backgroundColor
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
+        self.view.addSubview(introView!)
+    }
+    
+    // MARK: - IntroViewDelegate
+    
+    func close(sender: IntroView) {
+        self.view.backgroundColor = .white
+        self.navigationController?.setNavigationBarHidden(false, animated: false)
+        introView?.removeFromSuperview()
+    }
+    
+    func play(sender: IntroView) {
+        guard let path = Bundle.main.path(forResource: "tutorial", ofType:"m4v") else {
+            return
+        }
+        
+        let playerController = AVPlayerViewController()
+        playerController.player = AVPlayer(url: URL(fileURLWithPath: path))
+        self.present(playerController, animated: true, completion: {
+            playerController.player!.play()
+        })
     }
     
     @objc func didPushAddButton(sender: Any) {

@@ -28,32 +28,12 @@ class FormatViewController: UITableViewController, IntroViewDelegate {
         loadData()
     }
 
-    private func playVideo() {
-        guard let path = Bundle.main.path(forResource: "tutorial", ofType:"m4v") else {
-            debugPrint("video not found")
-            return
-        }
-        let player = AVPlayer(url: URL(fileURLWithPath: path))
-        let playerController = AVPlayerViewController()
-        playerController.view.frame = CGRect (x:0, y:0, width:406/2, height:720/2)
-        playerController.view.center = self.view.center
-        self.addChildViewController(playerController)
-        self.view.addSubview(playerController.view)
-
-        playerController.player = player
-        playerController.didMove(toParentViewController: self)
-    }
-    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        // introとtipViewのフラグは別々に管理する
         if UserDefaults.standard.bool(forKey: .introDidShow) == false {
             showIntro()
             UserDefaults.standard.set(true, forKey: .introDidShow)
         }
-        //        showTipView()
-        playVideo()
-
     }
     
     func showTipView() {

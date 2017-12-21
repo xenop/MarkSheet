@@ -21,7 +21,11 @@ class AnswerSheetViewController: UIViewController, UITableViewDataSource, UITabl
     var numberOfQuestions:Int = 0
     var numberOfOptions:Int = 0
     var scoreMode = false
-    var enterAnswerMode = false
+    var enterAnswerMode = false {
+        didSet {
+            title = ""
+        }
+    }
     
     // MARK: - IBOutlets
     

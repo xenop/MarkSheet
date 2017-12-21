@@ -11,7 +11,8 @@ import Foundation
 extension String {
     var localized: String {
         if let _ = UserDefaults.standard.string(forKey: "i18n_language") {} else {
-            UserDefaults.standard.set("ja", forKey: "i18n_language")
+            let pre = Locale.preferredLanguages[0]
+            UserDefaults.standard.set(pre, forKey: "i18n_language")
         }
         
         let lang = UserDefaults.standard.string(forKey: "i18n_language")

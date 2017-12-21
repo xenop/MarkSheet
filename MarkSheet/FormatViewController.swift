@@ -22,7 +22,7 @@ class FormatViewController: UIViewController, UITableViewDataSource, UITableView
     
     // MARK: - IBOutlets
     
-    @IBOutlet var tableView:UITableView!
+    @IBOutlet weak var tableView:UITableView!
     
     // MARK: - View Controller
     

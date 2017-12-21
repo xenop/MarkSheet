@@ -25,8 +25,8 @@ class AnswerSheetViewController: UIViewController, UITableViewDataSource, UITabl
     
     // MARK: - IBOutlets
     
-    @IBOutlet var rightButtonItem:UIBarButtonItem!
-    @IBOutlet var tableView:UITableView!
+    @IBOutlet weak var rightButtonItem:UIBarButtonItem!
+    @IBOutlet weak var tableView:UITableView!
 
     // MARK: - View Controller
     

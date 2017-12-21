@@ -33,7 +33,7 @@ class AnswerSheetListViewController: UIViewController, UITableViewDataSource, UI
     
     // MARK: - IBOutlets
     
-    @IBOutlet var tableView:UITableView!
+    @IBOutlet weak var tableView:UITableView!
     
     // MARK: - View Controller
     

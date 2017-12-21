@@ -22,9 +22,9 @@ class IntroView: UIView {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        titleLabel.text = NSLocalizedString("intro_page_title", comment: "")
-        descriptionLabel.text = NSLocalizedString("intro_page_description", comment: "")
-        closeButton.setTitle(NSLocalizedString("intro_page_close_button", comment: ""), for: .normal)
+        titleLabel.text = "intro_page_title".localized
+        descriptionLabel.text = "intro_page_description".localized
+        closeButton.setTitle("intro_page_close_button".localized, for: .normal)
     }
     
     @IBAction func didPushPlayButton(sender: Any) {

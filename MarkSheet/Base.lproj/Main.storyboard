@@ -10,10 +10,26 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--ルート-->
+        <scene sceneID="L7X-ms-MV3">
+            <objects>
+                <navigationController id="3qv-BL-kOa" userLabel="ルート" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="R91-rW-KOM">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="ZJE-bi-4lV" kind="relationship" relationship="rootViewController" id="lGj-g9-DMX"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HHa-hf-jK2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1041" y="-217"/>
+        </scene>
         <!--書式一覧-->
         <scene sceneID="Qlf-Ei-4vq">
             <objects>
-                <viewController title="書式一覧" id="ZJE-bi-4lV" customClass="FormatViewController" customModule="MarkSheet" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="ZJE-bi-4lV" userLabel="書式一覧" customClass="FormatViewController" customModule="MarkSheet" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="VWH-LJ-PRV"/>
                         <viewControllerLayoutGuide type="bottom" id="jUo-Hj-SKa"/>
@@ -67,69 +83,179 @@
             </objects>
             <point key="canvasLocation" x="-98" y="-217"/>
         </scene>
-        <!--デバッグナビゲーション-->
-        <scene sceneID="z5z-ol-bgz">
+        <!--解答用紙一覧-->
+        <scene sceneID="s89-qU-MOo">
             <objects>
-                <navigationController title="デバッグナビゲーション" id="0Ho-Ju-xm1" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ayN-P3-Vjt">
+                <viewController title="解答用紙一覧" id="GDL-Fr-MVp" userLabel="解答用紙一覧" customClass="AnswerSheetListViewController" customModule="MarkSheet" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="wkq-JV-nd9"/>
+                        <viewControllerLayoutGuide type="bottom" id="va1-rx-Mxm"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="MN3-4g-G9I">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="xXY-rZ-Bbb">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="AnswerSheetCell" id="r7y-yM-dDt">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="r7y-yM-dDt" id="BHu-xE-JFF">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="GDL-Fr-MVp" id="j1s-9C-pIB"/>
+                                    <outlet property="delegate" destination="GDL-Fr-MVp" id="B6j-4w-jFu"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.97647058823529409" green="0.97647058823529409" blue="0.97647058823529409" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="xXY-rZ-Bbb" firstAttribute="leading" secondItem="MN3-4g-G9I" secondAttribute="leading" id="Nua-L5-Ppf"/>
+                            <constraint firstItem="xXY-rZ-Bbb" firstAttribute="top" secondItem="MN3-4g-G9I" secondAttribute="top" id="PiS-Bm-rgb"/>
+                            <constraint firstAttribute="trailing" secondItem="xXY-rZ-Bbb" secondAttribute="trailing" id="j63-h8-eDx"/>
+                            <constraint firstItem="va1-rx-Mxm" firstAttribute="top" secondItem="xXY-rZ-Bbb" secondAttribute="bottom" id="wwQ-T5-V9p"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="xXY-rZ-Bbb" id="0ac-6A-cWZ"/>
+                        <segue destination="cVO-Wy-pXg" kind="show" identifier="DisplayAnswerSheetView" id="Cnh-JV-Vzh"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sOR-Ji-6Hx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="644" y="-217"/>
+        </scene>
+        <!--解答用紙-->
+        <scene sceneID="NAz-KG-Jwn">
+            <objects>
+                <viewController id="cVO-Wy-pXg" userLabel="解答用紙" customClass="AnswerSheetViewController" customModule="MarkSheet" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="b9L-95-qTj"/>
+                        <viewControllerLayoutGuide type="bottom" id="mIa-yD-GAd"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Sll-GN-SAi">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="44" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="w7p-Ol-yJU">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" red="0.97647058823529409" green="0.97647058823529409" blue="0.97647058823529409" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="QuestionCell" id="vGE-YB-qvM" customClass="QuestionCell" customModule="MarkSheet" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="vGE-YB-qvM" id="yJ9-ne-kUu">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Ycf-rn-SA9">
+                                                    <rect key="frame" x="40" y="0.0" width="323" height="44"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="XSC-bs-1ei">
+                                                        <size key="itemSize" width="44" height="44"/>
+                                                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                    </collectionViewFlowLayout>
+                                                    <cells>
+                                                        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="OptionCollectionViewCell" id="0vN-Xg-kTk" customClass="OptionCollectionViewCell" customModule="MarkSheet" customModuleProvider="target">
+                                                            <rect key="frame" x="0.0" y="0.0" width="44" height="44"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                                                <rect key="frame" x="0.0" y="0.0" width="44" height="44"/>
+                                                                <autoresizingMask key="autoresizingMask"/>
+                                                                <subviews>
+                                                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GDq-zO-rL0" customClass="BorderLabel" customModule="MarkSheet" customModuleProvider="target">
+                                                                        <rect key="frame" x="4" y="4" width="36" height="36"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="width" secondItem="GDq-zO-rL0" secondAttribute="height" multiplier="1:1" id="y3K-Fy-1aV"/>
+                                                                        </constraints>
+                                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                        <nil key="textColor"/>
+                                                                        <nil key="highlightedColor"/>
+                                                                    </label>
+                                                                </subviews>
+                                                            </view>
+                                                            <constraints>
+                                                                <constraint firstAttribute="bottom" secondItem="GDq-zO-rL0" secondAttribute="bottom" constant="4" id="JSn-3d-TE0"/>
+                                                                <constraint firstItem="GDq-zO-rL0" firstAttribute="top" secondItem="0vN-Xg-kTk" secondAttribute="top" constant="4" id="aIe-6L-X0g"/>
+                                                                <constraint firstItem="GDq-zO-rL0" firstAttribute="centerX" secondItem="0vN-Xg-kTk" secondAttribute="centerX" id="ehT-HV-aLE"/>
+                                                            </constraints>
+                                                            <connections>
+                                                                <outlet property="label" destination="GDq-zO-rL0" id="aqA-24-WNP"/>
+                                                            </connections>
+                                                        </collectionViewCell>
+                                                    </cells>
+                                                    <connections>
+                                                        <outlet property="dataSource" destination="vGE-YB-qvM" id="EF6-rP-gTm"/>
+                                                        <outlet property="delegate" destination="vGE-YB-qvM" id="ftL-4d-ZYE"/>
+                                                    </connections>
+                                                </collectionView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Ycf-rn-SA9" firstAttribute="top" secondItem="yJ9-ne-kUu" secondAttribute="top" id="4em-Be-O6R"/>
+                                                <constraint firstAttribute="trailing" secondItem="Ycf-rn-SA9" secondAttribute="trailing" constant="12" id="8ay-CA-Qf5"/>
+                                                <constraint firstAttribute="bottom" secondItem="Ycf-rn-SA9" secondAttribute="bottom" id="EW8-Zc-cab"/>
+                                                <constraint firstItem="Ycf-rn-SA9" firstAttribute="leading" secondItem="yJ9-ne-kUu" secondAttribute="leading" constant="40" id="X7F-60-5cY"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="collectionView" destination="Ycf-rn-SA9" id="UAa-RO-Mpx"/>
+                                            <outlet property="collectionViewLeadingConstraint" destination="X7F-60-5cY" id="aUS-Ow-vyE"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="cVO-Wy-pXg" id="tbH-z5-QD0"/>
+                                    <outlet property="delegate" destination="cVO-Wy-pXg" id="kuA-cK-31f"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.97647058823529409" green="0.97647058823529409" blue="0.97647058823529409" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="w7p-Ol-yJU" firstAttribute="leading" secondItem="Sll-GN-SAi" secondAttribute="leading" id="A1V-Ol-dm4"/>
+                            <constraint firstItem="mIa-yD-GAd" firstAttribute="top" secondItem="w7p-Ol-yJU" secondAttribute="bottom" id="RBz-G1-cz6"/>
+                            <constraint firstItem="w7p-Ol-yJU" firstAttribute="top" secondItem="Sll-GN-SAi" secondAttribute="top" id="jh7-go-vMv"/>
+                            <constraint firstAttribute="trailing" secondItem="w7p-Ol-yJU" secondAttribute="trailing" id="rYc-kK-SEI"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Title" id="aiX-Rr-lMo">
+                        <barButtonItem key="rightBarButtonItem" title="Item" id="UDc-Fp-mj1">
+                            <connections>
+                                <action selector="pushRightButtonWithSender:" destination="cVO-Wy-pXg" id="gru-Bw-ipL"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="rightButtonItem" destination="UDc-Fp-mj1" id="PcB-QM-FGj"/>
+                        <outlet property="tableView" destination="w7p-Ol-yJU" id="3NF-6K-Xls"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VLH-8F-Axn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1414" y="-217"/>
+        </scene>
+        <!--新規フォーマットナビゲーション-->
+        <scene sceneID="rhC-bV-YWT">
+            <objects>
+                <navigationController title="新規フォーマットナビゲーション" id="T8C-Jq-4kA" userLabel="新規フォーマットナビゲーション" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="eUL-D1-PnG">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="G4C-X6-FmR" kind="relationship" relationship="rootViewController" id="eX2-DI-LdE"/>
+                        <segue destination="Us2-tK-Z8z" kind="relationship" relationship="rootViewController" id="zg3-rC-TA3"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="lH0-2x-rAY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HtU-mM-3mP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="644" y="-908"/>
-        </scene>
-        <!--デバッグ-->
-        <scene sceneID="EFz-g1-0lT">
-            <objects>
-                <tableViewController id="G4C-X6-FmR" userLabel="デバッグ" customClass="DebugViewController" customModule="MarkSheet" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="1B5-ww-y92">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <sections>
-                            <tableViewSection id="Mjs-FX-DDH">
-                                <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="HN3-3n-90g" style="IBUITableViewCellStyleDefault" id="85Q-Nh-let">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="85Q-Nh-let" id="qem-S6-bOc">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="toggle language" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="HN3-3n-90g">
-                                                    <rect key="frame" x="16" y="0.0" width="343" height="43.5"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </cells>
-                            </tableViewSection>
-                        </sections>
-                        <connections>
-                            <outlet property="dataSource" destination="G4C-X6-FmR" id="Cyf-VQ-4cx"/>
-                            <outlet property="delegate" destination="G4C-X6-FmR" id="GJa-Tx-tkf"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" id="aoF-BH-cxK">
-                        <barButtonItem key="leftBarButtonItem" title="Close" id="aIH-cn-4KH">
-                            <connections>
-                                <action selector="closeWithSender:" destination="G4C-X6-FmR" id="1JZ-4N-sVA"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="9i0-Xu-Exc" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1414" y="-908"/>
+            <point key="canvasLocation" x="-98" y="487"/>
         </scene>
         <!--新規フォーマット-->
         <scene sceneID="6so-ja-VYq">
@@ -258,10 +384,10 @@
             </objects>
             <point key="canvasLocation" x="644" y="487"/>
         </scene>
-        <!--Option Table View Controller-->
+        <!--選択肢数設定-->
         <scene sceneID="eHr-q0-dAI">
             <objects>
-                <tableViewController id="Whv-GU-Jqg" customClass="OptionTableViewController" customModule="MarkSheet" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="Whv-GU-Jqg" userLabel="選択肢数設定" customClass="OptionTableViewController" customModule="MarkSheet" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="2fp-B9-4pQ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -367,10 +493,10 @@
             </objects>
             <point key="canvasLocation" x="1414" y="486"/>
         </scene>
-        <!--Question Table View Controller-->
+        <!--問題数設定-->
         <scene sceneID="xuv-gr-b2Q">
             <objects>
-                <tableViewController id="j8p-9Y-pW2" customClass="QuestionTableViewController" customModule="MarkSheet" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="j8p-9Y-pW2" userLabel="問題数設定" customClass="QuestionTableViewController" customModule="MarkSheet" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="qLL-9c-q8s">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -459,201 +585,75 @@
             </objects>
             <point key="canvasLocation" x="1414" y="1259"/>
         </scene>
-        <!--ポップアップ-->
-        <scene sceneID="rhC-bV-YWT">
+        <!--デバッグナビゲーション-->
+        <scene sceneID="z5z-ol-bgz">
             <objects>
-                <navigationController id="T8C-Jq-4kA" userLabel="ポップアップ" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="eUL-D1-PnG">
+                <navigationController title="デバッグナビゲーション" id="0Ho-Ju-xm1" userLabel="デバッグナビゲーション" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ayN-P3-Vjt">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="Us2-tK-Z8z" kind="relationship" relationship="rootViewController" id="zg3-rC-TA3"/>
+                        <segue destination="G4C-X6-FmR" kind="relationship" relationship="rootViewController" id="eX2-DI-LdE"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="HtU-mM-3mP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lH0-2x-rAY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-98" y="487"/>
+            <point key="canvasLocation" x="644" y="-908"/>
         </scene>
-        <!--解答用紙-->
-        <scene sceneID="NAz-KG-Jwn">
+        <!--デバッグ-->
+        <scene sceneID="EFz-g1-0lT">
             <objects>
-                <viewController title="解答用紙" id="cVO-Wy-pXg" customClass="AnswerSheetViewController" customModule="MarkSheet" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="b9L-95-qTj"/>
-                        <viewControllerLayoutGuide type="bottom" id="mIa-yD-GAd"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Sll-GN-SAi">
+                <tableViewController id="G4C-X6-FmR" userLabel="デバッグ" customClass="DebugViewController" customModule="MarkSheet" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="1B5-ww-y92">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="44" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="w7p-Ol-yJU">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <color key="backgroundColor" red="0.97647058823529409" green="0.97647058823529409" blue="0.97647058823529409" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="QuestionCell" id="vGE-YB-qvM" customClass="QuestionCell" customModule="MarkSheet" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <sections>
+                            <tableViewSection id="Mjs-FX-DDH">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="HN3-3n-90g" style="IBUITableViewCellStyleDefault" id="85Q-Nh-let">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="vGE-YB-qvM" id="yJ9-ne-kUu">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="85Q-Nh-let" id="qem-S6-bOc">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Ycf-rn-SA9">
-                                                    <rect key="frame" x="40" y="0.0" width="323" height="44"/>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="XSC-bs-1ei">
-                                                        <size key="itemSize" width="44" height="44"/>
-                                                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                                    </collectionViewFlowLayout>
-                                                    <cells>
-                                                        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="OptionCollectionViewCell" id="0vN-Xg-kTk" customClass="OptionCollectionViewCell" customModule="MarkSheet" customModuleProvider="target">
-                                                            <rect key="frame" x="0.0" y="0.0" width="44" height="44"/>
-                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                                                <rect key="frame" x="0.0" y="0.0" width="44" height="44"/>
-                                                                <autoresizingMask key="autoresizingMask"/>
-                                                                <subviews>
-                                                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GDq-zO-rL0" customClass="BorderLabel" customModule="MarkSheet" customModuleProvider="target">
-                                                                        <rect key="frame" x="4" y="4" width="36" height="36"/>
-                                                                        <constraints>
-                                                                            <constraint firstAttribute="width" secondItem="GDq-zO-rL0" secondAttribute="height" multiplier="1:1" id="y3K-Fy-1aV"/>
-                                                                        </constraints>
-                                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                        <nil key="textColor"/>
-                                                                        <nil key="highlightedColor"/>
-                                                                    </label>
-                                                                </subviews>
-                                                            </view>
-                                                            <constraints>
-                                                                <constraint firstAttribute="bottom" secondItem="GDq-zO-rL0" secondAttribute="bottom" constant="4" id="JSn-3d-TE0"/>
-                                                                <constraint firstItem="GDq-zO-rL0" firstAttribute="top" secondItem="0vN-Xg-kTk" secondAttribute="top" constant="4" id="aIe-6L-X0g"/>
-                                                                <constraint firstItem="GDq-zO-rL0" firstAttribute="centerX" secondItem="0vN-Xg-kTk" secondAttribute="centerX" id="ehT-HV-aLE"/>
-                                                            </constraints>
-                                                            <connections>
-                                                                <outlet property="label" destination="GDq-zO-rL0" id="aqA-24-WNP"/>
-                                                            </connections>
-                                                        </collectionViewCell>
-                                                    </cells>
-                                                    <connections>
-                                                        <outlet property="dataSource" destination="vGE-YB-qvM" id="EF6-rP-gTm"/>
-                                                        <outlet property="delegate" destination="vGE-YB-qvM" id="ftL-4d-ZYE"/>
-                                                    </connections>
-                                                </collectionView>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="toggle language" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="HN3-3n-90g">
+                                                    <rect key="frame" x="16" y="0.0" width="343" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
-                                            <constraints>
-                                                <constraint firstItem="Ycf-rn-SA9" firstAttribute="top" secondItem="yJ9-ne-kUu" secondAttribute="top" id="4em-Be-O6R"/>
-                                                <constraint firstAttribute="trailing" secondItem="Ycf-rn-SA9" secondAttribute="trailing" constant="12" id="8ay-CA-Qf5"/>
-                                                <constraint firstAttribute="bottom" secondItem="Ycf-rn-SA9" secondAttribute="bottom" id="EW8-Zc-cab"/>
-                                                <constraint firstItem="Ycf-rn-SA9" firstAttribute="leading" secondItem="yJ9-ne-kUu" secondAttribute="leading" constant="40" id="X7F-60-5cY"/>
-                                            </constraints>
                                         </tableViewCellContentView>
-                                        <connections>
-                                            <outlet property="collectionView" destination="Ycf-rn-SA9" id="UAa-RO-Mpx"/>
-                                            <outlet property="collectionViewLeadingConstraint" destination="X7F-60-5cY" id="aUS-Ow-vyE"/>
-                                        </connections>
                                     </tableViewCell>
-                                </prototypes>
-                                <connections>
-                                    <outlet property="dataSource" destination="cVO-Wy-pXg" id="tbH-z5-QD0"/>
-                                    <outlet property="delegate" destination="cVO-Wy-pXg" id="kuA-cK-31f"/>
-                                </connections>
-                            </tableView>
-                        </subviews>
-                        <color key="backgroundColor" red="0.97647058823529409" green="0.97647058823529409" blue="0.97647058823529409" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="w7p-Ol-yJU" firstAttribute="leading" secondItem="Sll-GN-SAi" secondAttribute="leading" id="A1V-Ol-dm4"/>
-                            <constraint firstItem="mIa-yD-GAd" firstAttribute="top" secondItem="w7p-Ol-yJU" secondAttribute="bottom" id="RBz-G1-cz6"/>
-                            <constraint firstItem="w7p-Ol-yJU" firstAttribute="top" secondItem="Sll-GN-SAi" secondAttribute="top" id="jh7-go-vMv"/>
-                            <constraint firstAttribute="trailing" secondItem="w7p-Ol-yJU" secondAttribute="trailing" id="rYc-kK-SEI"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" title="Title" id="aiX-Rr-lMo">
-                        <barButtonItem key="rightBarButtonItem" title="Item" id="UDc-Fp-mj1">
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="G4C-X6-FmR" id="Cyf-VQ-4cx"/>
+                            <outlet property="delegate" destination="G4C-X6-FmR" id="GJa-Tx-tkf"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="aoF-BH-cxK">
+                        <barButtonItem key="leftBarButtonItem" title="Close" id="aIH-cn-4KH">
                             <connections>
-                                <action selector="pushRightButtonWithSender:" destination="cVO-Wy-pXg" id="gru-Bw-ipL"/>
+                                <action selector="closeWithSender:" destination="G4C-X6-FmR" id="1JZ-4N-sVA"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                    <connections>
-                        <outlet property="rightButtonItem" destination="UDc-Fp-mj1" id="PcB-QM-FGj"/>
-                        <outlet property="tableView" destination="w7p-Ol-yJU" id="3NF-6K-Xls"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="VLH-8F-Axn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9i0-Xu-Exc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1414" y="-217"/>
-        </scene>
-        <!--解答用紙一覧-->
-        <scene sceneID="s89-qU-MOo">
-            <objects>
-                <viewController title="解答用紙一覧" id="GDL-Fr-MVp" customClass="AnswerSheetListViewController" customModule="MarkSheet" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="wkq-JV-nd9"/>
-                        <viewControllerLayoutGuide type="bottom" id="va1-rx-Mxm"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="MN3-4g-G9I">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="xXY-rZ-Bbb">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="AnswerSheetCell" id="r7y-yM-dDt">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="r7y-yM-dDt" id="BHu-xE-JFF">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </prototypes>
-                                <connections>
-                                    <outlet property="dataSource" destination="GDL-Fr-MVp" id="j1s-9C-pIB"/>
-                                    <outlet property="delegate" destination="GDL-Fr-MVp" id="B6j-4w-jFu"/>
-                                </connections>
-                            </tableView>
-                        </subviews>
-                        <color key="backgroundColor" red="0.97647058823529409" green="0.97647058823529409" blue="0.97647058823529409" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="xXY-rZ-Bbb" firstAttribute="leading" secondItem="MN3-4g-G9I" secondAttribute="leading" id="Nua-L5-Ppf"/>
-                            <constraint firstItem="xXY-rZ-Bbb" firstAttribute="top" secondItem="MN3-4g-G9I" secondAttribute="top" id="PiS-Bm-rgb"/>
-                            <constraint firstAttribute="trailing" secondItem="xXY-rZ-Bbb" secondAttribute="trailing" id="j63-h8-eDx"/>
-                            <constraint firstItem="va1-rx-Mxm" firstAttribute="top" secondItem="xXY-rZ-Bbb" secondAttribute="bottom" id="wwQ-T5-V9p"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="tableView" destination="xXY-rZ-Bbb" id="0ac-6A-cWZ"/>
-                        <segue destination="cVO-Wy-pXg" kind="show" identifier="DisplayAnswerSheetView" id="Cnh-JV-Vzh"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="sOR-Ji-6Hx" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="644" y="-217"/>
-        </scene>
-        <!--ルート-->
-        <scene sceneID="L7X-ms-MV3">
-            <objects>
-                <navigationController id="3qv-BL-kOa" userLabel="ルート" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="R91-rW-KOM">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="ZJE-bi-4lV" kind="relationship" relationship="rootViewController" id="lGj-g9-DMX"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="HHa-hf-jK2" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1041" y="-217"/>
+            <point key="canvasLocation" x="1414" y="-908"/>
         </scene>
     </scenes>
     <resources>
         <image name="Light Info" width="22" height="22"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="u9Q-pT-7Mp"/>
+        <segue reference="Cnh-JV-Vzh"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -11,7 +11,7 @@ import CoreData
 import Crashlytics
 import AVKit
 
-class FormatViewController: UITableViewController, IntroViewDelegate {
+class FormatViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, IntroViewDelegate {
     // MARK: Properties
     
     var managedObjectContext:NSManagedObjectContext?
@@ -19,6 +19,10 @@ class FormatViewController: UITableViewController, IntroViewDelegate {
     var selectedFormat:Format? = nil
     var isEditMode:Bool = false
     var introView:IntroView? = nil
+    
+    // MARK: - IBOutlets
+    
+    @IBOutlet var tableView:UITableView!
     
     // MARK: - View Controller
     
@@ -59,11 +63,11 @@ class FormatViewController: UITableViewController, IntroViewDelegate {
     
     // MARK: - UITableViewDataSource
     
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return formats?.count ?? 0
     }
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         let format = formats![indexPath.row]
         cell.textLabel?.text = format.name
@@ -72,7 +76,7 @@ class FormatViewController: UITableViewController, IntroViewDelegate {
     
     // MARK: - UITableViewDelegate
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath)
         cell?.setSelected(false, animated: false)
         
@@ -80,11 +84,11 @@ class FormatViewController: UITableViewController, IntroViewDelegate {
         self.performSegue(withIdentifier: "DisplayAnswerSheetListView", sender: self)
     }
     
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
     }
     
-    override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         let deleteAction = UITableViewRowAction(style: .normal, title: "delete".localized) { (rowAction, indexPath) in
             let alert = UIAlertController(title:"", message: "confirm delete".localized,
                                           preferredStyle: UIAlertControllerStyle.alert)

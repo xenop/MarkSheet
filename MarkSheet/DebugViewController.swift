@@ -6,6 +6,7 @@
 //  Copyright © 2017年 xenop. All rights reserved.
 //
 
+import UIKit
 import Foundation
 
 class DebugViewController: UITableViewController {

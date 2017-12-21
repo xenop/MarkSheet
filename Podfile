@@ -9,8 +9,6 @@ target 'MarkSheet' do
   pod 'Fabric'
   pod 'Crashlytics', '~>  3.9'
   
-  pod 'EAIntroView'
-
   target 'MarkSheetTests' do
     inherit! :search_paths
     # Pods for testing

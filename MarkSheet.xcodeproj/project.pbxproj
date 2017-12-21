@@ -67,7 +67,6 @@
 		77630F811FE904B400ED7255 /* tutorial.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = tutorial.m4v; sourceTree = "<group>"; };
 		77630FC21FEB733500ED7255 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		77630FC41FEB868900ED7255 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Main.strings; sourceTree = "<group>"; };
-		776A7B2A1FA84E89004A0618 /* Bridging.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Bridging.h; sourceTree = "<group>"; };
 		776B145C1FA2118C00D4C153 /* OptionTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionTableViewController.swift; sourceTree = "<group>"; };
 		776B145E1FA2C29400D4C153 /* QuestionTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionTableViewController.swift; sourceTree = "<group>"; };
 		776B14651FA48A9600D4C153 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -175,7 +174,6 @@
 				7753CA641FB4045900C46E97 /* UserDefaultExtension.swift */,
 				77AD0ED51FCFC4F300F9963E /* StringExtension.swift */,
 				778594551FB56CBC0006A1AE /* DebugViewController.swift */,
-				776A7B2A1FA84E89004A0618 /* Bridging.h */,
 				775C1FA01FAEFD270056999B /* IntroView.swift */,
 				778311B71F2B81D200657895 /* AppDelegate.swift */,
 				778311B91F2B81D200657895 /* FormatViewController.swift */,
@@ -745,7 +743,6 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "ffc755c3-4f8d-4452-a521-0e389573c1bd";
 				PROVISIONING_PROFILE_SPECIFIER = "com.appspot.hihittter.MarkSheet Development";
-				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/$(PRODUCT_NAME)/Bridging.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "Pods/**";
@@ -767,7 +764,6 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "ab59ff92-f643-4ec3-8601-f71012a1ec4a";
 				PROVISIONING_PROFILE_SPECIFIER = "com.appspot.hihittter.MarkSheet AppStore";
-				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/$(PRODUCT_NAME)/Bridging.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "Pods/**";

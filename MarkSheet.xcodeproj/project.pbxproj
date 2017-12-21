@@ -316,7 +316,7 @@
 			};
 			buildConfigurationList = 778311AF1F2B81D100657895 /* Build configuration list for PBXProject "MarkSheet" */;
 			compatibilityVersion = "Xcode 8.0";
-			developmentRegion = en;
+			developmentRegion = ja;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,

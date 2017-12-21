@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class AnswerSheetListViewController: UITableViewController {
+class AnswerSheetListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     var format:Format? = nil {
         didSet {
@@ -29,6 +29,9 @@ class AnswerSheetListViewController: UITableViewController {
         }
     }
     var selectedAnswerSheet:AnswerSheet? = nil
+    
+    // MARK: - IBOutlets
+    @IBOutlet var tableView:UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,18 +64,18 @@ class AnswerSheetListViewController: UITableViewController {
         return formatter.string(from: now)
     }
     
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return answerSheetList.count
     }
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "AnswerSheetCell", for: indexPath)
         let answerSheet = answerSheetList[indexPath.row]
         cell.textLabel?.text = answerSheet.name
         return cell
     }
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath)
         cell?.setSelected(false, animated: false)
         
@@ -80,11 +83,11 @@ class AnswerSheetListViewController: UITableViewController {
         self.performSegue(withIdentifier: "DisplayAnswerSheetView", sender: self)
     }
 
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
     }
 
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             let answerSheet:AnswerSheet? = answerSheetList[indexPath.row]
             let context = answerSheet?.managedObjectContext
@@ -93,21 +96,6 @@ class AnswerSheetListViewController: UITableViewController {
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
     }
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let destinationVC = segue.destination as! AnswerSheetViewController

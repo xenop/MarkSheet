@@ -1,0 +1,60 @@
+
+/* Class = "UINavigationController"; title = "デバッグナビゲーション"; ObjectID = "0Ho-Ju-xm1"; */
+"0Ho-Ju-xm1.title" = "Debug Navigation";
+
+/* Class = "UILabel"; text = "100"; ObjectID = "13x-wr-O07"; */
+"13x-wr-O07.text" = "100";
+
+/* Class = "UILabel"; text = "2"; ObjectID = "1Gv-Rz-6xD"; */
+"1Gv-Rz-6xD.text" = "2";
+
+/* Class = "UILabel"; text = "選択肢の数"; ObjectID = "A5h-G5-jG0"; */
+"A5h-G5-jG0.text" = "Number of options";
+
+/* Class = "UILabel"; text = "50"; ObjectID = "CpE-ds-r6W"; */
+"CpE-ds-r6W.text" = "50";
+
+/* Class = "UILabel"; text = "toggle language"; ObjectID = "HN3-3n-90g"; */
+"HN3-3n-90g.text" = "toggle language";
+
+/* Class = "UITextField"; placeholder = "タイトル"; ObjectID = "ISs-HT-ceP"; */
+"ISs-HT-ceP.placeholder" = "title";
+
+/* Class = "UILabel"; text = "5"; ObjectID = "Nd7-R0-c7U"; */
+"Nd7-R0-c7U.text" = "5";
+
+/* Class = "UILabel"; text = "6"; ObjectID = "Qpm-P2-GCH"; */
+"Qpm-P2-GCH.text" = "6";
+
+/* Class = "UILabel"; text = "150"; ObjectID = "R2P-SO-VB2"; */
+"R2P-SO-VB2.text" = "150";
+
+/* Class = "UIBarButtonItem"; title = "Item"; ObjectID = "UDc-Fp-mj1"; */
+"UDc-Fp-mj1.title" = "Item";
+
+/* Class = "UILabel"; text = "4"; ObjectID = "V7U-mH-X5T"; */
+"V7U-mH-X5T.text" = "4";
+
+/* Class = "UILabel"; text = "200"; ObjectID = "Vjy-Fa-W1f"; */
+"Vjy-Fa-W1f.text" = "200";
+
+/* Class = "UIBarButtonItem"; title = "Close"; ObjectID = "aIH-cn-4KH"; */
+"aIH-cn-4KH.title" = "Close";
+
+/* Class = "UINavigationItem"; title = "Title"; ObjectID = "aiX-Rr-lMo"; */
+"aiX-Rr-lMo.title" = "Title";
+
+/* Class = "UILabel"; text = "4"; ObjectID = "gBz-FK-4da"; */
+"gBz-FK-4da.text" = "4";
+
+/* Class = "UILabel"; text = "問題の数"; ObjectID = "ksg-X0-UFg"; */
+"ksg-X0-UFg.text" = "Number of questions";
+
+/* Class = "UILabel"; text = "解答を入力する"; ObjectID = "rDk-sq-ASS"; */
+"rDk-sq-ASS.text" = "Enter answer";
+
+/* Class = "UILabel"; text = "50"; ObjectID = "rGB-Oe-p7j"; */
+"rGB-Oe-p7j.text" = "50";
+
+/* Class = "UILabel"; text = "3"; ObjectID = "sOF-pS-1jN"; */
+"sOF-pS-1jN.text" = "3";

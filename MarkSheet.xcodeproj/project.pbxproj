@@ -65,6 +65,7 @@
 		775C1F9E1FAEF2E50056999B /* IntroView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IntroView.xib; sourceTree = "<group>"; };
 		775C1FA01FAEFD270056999B /* IntroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroView.swift; sourceTree = "<group>"; };
 		77630F811FE904B400ED7255 /* tutorial.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = tutorial.m4v; sourceTree = "<group>"; };
+		77630FC21FEB733500ED7255 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		776A7B2A1FA84E89004A0618 /* Bridging.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Bridging.h; sourceTree = "<group>"; };
 		776B145C1FA2118C00D4C153 /* OptionTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionTableViewController.swift; sourceTree = "<group>"; };
 		776B145E1FA2C29400D4C153 /* QuestionTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionTableViewController.swift; sourceTree = "<group>"; };
@@ -600,6 +601,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				778311BC1F2B81D200657895 /* Base */,
+				77630FC21FEB733500ED7255 /* en */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";

@@ -10,7 +10,8 @@ import UIKit
 import CoreData
 
 class AnswerSheetListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
-
+    // MARK: Properties
+    
     var format:Format? = nil {
         didSet {
             title = format?.name
@@ -31,7 +32,10 @@ class AnswerSheetListViewController: UIViewController, UITableViewDataSource, UI
     var selectedAnswerSheet:AnswerSheet? = nil
     
     // MARK: - IBOutlets
+    
     @IBOutlet var tableView:UITableView!
+    
+    // MARK: - View Controller
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,29 +45,14 @@ class AnswerSheetListViewController: UIViewController, UITableViewDataSource, UI
         navigationItem.rightBarButtonItem = barButton
     }
 
-    @objc func pushButton(sender: Any) {
-        let managedObjectContext:NSManagedObjectContext = (format?.managedObjectContext!)!
-        let answerSheetManagedObject: AnyObject =
-            NSEntityDescription.insertNewObject(forEntityName: "AnswerSheet", into: managedObjectContext)
-        let answerSheet = answerSheetManagedObject as! AnswerSheet
-        answerSheet.setDefaultName()
-        let number_of_questions = Int(format?.number_of_questions ?? 0)
-        answerSheet.mark = Array(0..<number_of_questions).map { $0 * 0 }
-        format?.addToAnswer_sheet(answerSheet)
-        
-        try! managedObjectContext.save()
-        tableView.reloadData()
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destinationVC = segue.destination as! AnswerSheetViewController
+        destinationVC.format = format
+        destinationVC.answerSheet = selectedAnswerSheet
     }
-    
-    // MARK: - Table view data source
 
-    func dateString() -> String {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy/MM/dd HH:mm:ss"
-        let now = Date(timeIntervalSinceNow: 0)
-        return formatter.string(from: now)
-    }
-    
+    // MARK: - TableViewDataSource
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return answerSheetList.count
     }
@@ -74,6 +63,8 @@ class AnswerSheetListViewController: UIViewController, UITableViewDataSource, UI
         cell.textLabel?.text = answerSheet.name
         return cell
     }
+    
+    // MARK: - TableViewDelegate
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath)
@@ -96,10 +87,20 @@ class AnswerSheetListViewController: UIViewController, UITableViewDataSource, UI
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
     }
-
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let destinationVC = segue.destination as! AnswerSheetViewController
-        destinationVC.format = format
-        destinationVC.answerSheet = selectedAnswerSheet
+    
+    // MARK: -
+    
+    @objc func pushButton(sender: Any) {
+        let managedObjectContext:NSManagedObjectContext = (format?.managedObjectContext!)!
+        let answerSheetManagedObject: AnyObject =
+            NSEntityDescription.insertNewObject(forEntityName: "AnswerSheet", into: managedObjectContext)
+        let answerSheet = answerSheetManagedObject as! AnswerSheet
+        answerSheet.setDefaultName()
+        let number_of_questions = Int(format?.number_of_questions ?? 0)
+        answerSheet.mark = Array(0..<number_of_questions).map { $0 * 0 }
+        format?.addToAnswer_sheet(answerSheet)
+        
+        try! managedObjectContext.save()
+        tableView.reloadData()
     }
 }

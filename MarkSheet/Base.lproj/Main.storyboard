@@ -86,7 +86,7 @@
         <!--解答用紙一覧-->
         <scene sceneID="s89-qU-MOo">
             <objects>
-                <viewController title="解答用紙一覧" id="GDL-Fr-MVp" userLabel="解答用紙一覧" customClass="AnswerSheetListViewController" customModule="MarkSheet" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="GDL-Fr-MVp" userLabel="解答用紙一覧" customClass="AnswerSheetListViewController" customModule="MarkSheet" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="wkq-JV-nd9"/>
                         <viewControllerLayoutGuide type="bottom" id="va1-rx-Mxm"/>
@@ -654,6 +654,6 @@
         <image name="Light Info" width="22" height="22"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Cnh-JV-Vzh"/>
+        <segue reference="u9Q-pT-7Mp"/>
     </inferredMetricsTieBreakers>
 </document>

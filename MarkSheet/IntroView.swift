@@ -24,7 +24,6 @@ class IntroView: UIView {
         super.awakeFromNib()
         titleLabel.text = NSLocalizedString("intro_page_title", comment: "")
         descriptionLabel.text = NSLocalizedString("intro_page_description", comment: "")
-        playButton.setTitle(NSLocalizedString("intro_page_play_button", comment: ""), for: .normal)
         closeButton.setTitle(NSLocalizedString("intro_page_close_button", comment: ""), for: .normal)
     }
     

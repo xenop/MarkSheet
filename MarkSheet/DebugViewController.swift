@@ -6,6 +6,7 @@
 //  Copyright © 2017年 xenop. All rights reserved.
 //
 
+import UIKit
 import Foundation
 
 class DebugViewController: UITableViewController {
@@ -16,8 +17,6 @@ class DebugViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.row == 0 {
-//            FormatViewController.showIntro() // TODO:instanceから呼べるようにするか削除
-        } else if indexPath.row == 1 {
             var lang = UserDefaults.standard.string(forKey: "i18n_language")
             if lang == nil || lang == "ja" {
                 lang = "en"

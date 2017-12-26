@@ -11,7 +11,7 @@ import CoreData
 
 class MakeFormatViewController: UITableViewController, UITextFieldDelegate {
 
-    @IBOutlet var nameTextField:UITextField?
+    @IBOutlet weak var nameTextField:UITextField!
     
     var managedObjectContext:NSManagedObjectContext?
     var format:Format? = nil
@@ -50,11 +50,11 @@ class MakeFormatViewController: UITableViewController, UITextFieldDelegate {
     }
     
     @IBAction func save(sender: Any) {
-        if nameTextField?.text?.count == 0 {
+        if nameTextField.text?.count == 0 {
             showAlert(message: "name is empty".localized)
             return
         }
-        nameTextField?.resignFirstResponder()
+        nameTextField.resignFirstResponder()
         saveModel()
         dismiss(animated: true, completion: nil)
     }
@@ -113,7 +113,7 @@ class MakeFormatViewController: UITableViewController, UITextFieldDelegate {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        nameTextField?.resignFirstResponder()
+        nameTextField.resignFirstResponder()
         if segue.identifier == "ShowOption" {
             let vc = segue.destination as! OptionTableViewController
             vc.format = format
@@ -129,7 +129,7 @@ class MakeFormatViewController: UITableViewController, UITextFieldDelegate {
     }
     
     public func textFieldDidEndEditing(_ textField: UITextField) {
-        format?.name = nameTextField?.text
+        format?.name = nameTextField.text
     }
     
     func saveModel() {

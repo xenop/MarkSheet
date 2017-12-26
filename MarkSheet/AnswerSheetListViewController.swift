@@ -9,8 +9,9 @@
 import UIKit
 import CoreData
 
-class AnswerSheetListViewController: UITableViewController {
-
+class AnswerSheetListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    // MARK: Properties
+    
     var format:Format? = nil {
         didSet {
             title = format?.name
@@ -30,6 +31,12 @@ class AnswerSheetListViewController: UITableViewController {
     }
     var selectedAnswerSheet:AnswerSheet? = nil
     
+    // MARK: - IBOutlets
+    
+    @IBOutlet weak var tableView:UITableView!
+    
+    // MARK: - View Controller
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         let barButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.add,
@@ -38,6 +45,51 @@ class AnswerSheetListViewController: UITableViewController {
         navigationItem.rightBarButtonItem = barButton
     }
 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destinationVC = segue.destination as! AnswerSheetViewController
+        destinationVC.format = format
+        destinationVC.answerSheet = selectedAnswerSheet
+    }
+
+    // MARK: - TableViewDataSource
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return answerSheetList.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "AnswerSheetCell", for: indexPath)
+        let answerSheet = answerSheetList[indexPath.row]
+        cell.textLabel?.text = answerSheet.name
+        return cell
+    }
+    
+    // MARK: - TableViewDelegate
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let cell = tableView.cellForRow(at: indexPath)
+        cell?.setSelected(false, animated: false)
+        
+        selectedAnswerSheet = answerSheetList[indexPath.row]
+        self.performSegue(withIdentifier: "DisplayAnswerSheetView", sender: self)
+    }
+
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            let answerSheet:AnswerSheet? = answerSheetList[indexPath.row]
+            let context = answerSheet?.managedObjectContext
+            context?.delete(answerSheet!)
+            try! context?.save()
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
+    }
+    
+    // MARK: -
+    
     @objc func pushButton(sender: Any) {
         let managedObjectContext:NSManagedObjectContext = (format?.managedObjectContext!)!
         let answerSheetManagedObject: AnyObject =
@@ -50,68 +102,5 @@ class AnswerSheetListViewController: UITableViewController {
         
         try! managedObjectContext.save()
         tableView.reloadData()
-    }
-    
-    // MARK: - Table view data source
-
-    func dateString() -> String {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy/MM/dd HH:mm:ss"
-        let now = Date(timeIntervalSinceNow: 0)
-        return formatter.string(from: now)
-    }
-    
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return answerSheetList.count
-    }
-    
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "AnswerSheetCell", for: indexPath)
-        let answerSheet = answerSheetList[indexPath.row]
-        cell.textLabel?.text = answerSheet.name
-        return cell
-    }
-    
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let cell = tableView.cellForRow(at: indexPath)
-        cell?.setSelected(false, animated: false)
-        
-        selectedAnswerSheet = answerSheetList[indexPath.row]
-        self.performSegue(withIdentifier: "DisplayAnswerSheetView", sender: self)
-    }
-
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            let answerSheet:AnswerSheet? = answerSheetList[indexPath.row]
-            let context = answerSheet?.managedObjectContext
-            context?.delete(answerSheet!)
-            try! context?.save()
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        }
-    }
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let destinationVC = segue.destination as! AnswerSheetViewController
-        destinationVC.format = format
-        destinationVC.answerSheet = selectedAnswerSheet
     }
 }

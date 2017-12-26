@@ -10,8 +10,9 @@
 		7726DB291F34BE4600FEF380 /* Format.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7726DB281F34BE4600FEF380 /* Format.swift */; };
 		7728F69E1F344106006DB104 /* AnswerSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7728F69D1F344106006DB104 /* AnswerSheet.swift */; };
 		7753CA651FB4045A00C46E97 /* UserDefaultExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7753CA641FB4045900C46E97 /* UserDefaultExtension.swift */; };
-		775C1F9F1FAEF2E50056999B /* IntroPage.xib in Resources */ = {isa = PBXBuildFile; fileRef = 775C1F9E1FAEF2E50056999B /* IntroPage.xib */; };
-		775C1FA11FAEFD270056999B /* IntroPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775C1FA01FAEFD270056999B /* IntroPage.swift */; };
+		775C1F9F1FAEF2E50056999B /* IntroView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 775C1F9E1FAEF2E50056999B /* IntroView.xib */; };
+		775C1FA11FAEFD270056999B /* IntroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775C1FA01FAEFD270056999B /* IntroView.swift */; };
+		77630F821FE908AF00ED7255 /* tutorial.m4v in Resources */ = {isa = PBXBuildFile; fileRef = 77630F811FE904B400ED7255 /* tutorial.m4v */; };
 		776B145D1FA2118C00D4C153 /* OptionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 776B145C1FA2118C00D4C153 /* OptionTableViewController.swift */; };
 		776B145F1FA2C29400D4C153 /* QuestionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 776B145E1FA2C29400D4C153 /* QuestionTableViewController.swift */; };
 		776B14641FA48A9600D4C153 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 776B14661FA48A9600D4C153 /* Localizable.strings */; };
@@ -61,9 +62,11 @@
 		7726DB281F34BE4600FEF380 /* Format.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Format.swift; sourceTree = "<group>"; };
 		7728F69D1F344106006DB104 /* AnswerSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerSheet.swift; sourceTree = "<group>"; };
 		7753CA641FB4045900C46E97 /* UserDefaultExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserDefaultExtension.swift; path = /Users/nejisiki2047/Documents/iPhone_Cocoa_Project/MarkSheet/MarkSheet/UserDefaultExtension.swift; sourceTree = "<absolute>"; };
-		775C1F9E1FAEF2E50056999B /* IntroPage.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IntroPage.xib; sourceTree = "<group>"; };
-		775C1FA01FAEFD270056999B /* IntroPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroPage.swift; sourceTree = "<group>"; };
-		776A7B2A1FA84E89004A0618 /* Bridging.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Bridging.h; sourceTree = "<group>"; };
+		775C1F9E1FAEF2E50056999B /* IntroView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IntroView.xib; sourceTree = "<group>"; };
+		775C1FA01FAEFD270056999B /* IntroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroView.swift; sourceTree = "<group>"; };
+		77630F811FE904B400ED7255 /* tutorial.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = tutorial.m4v; sourceTree = "<group>"; };
+		77630FC21FEB733500ED7255 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
+		77630FC41FEB868900ED7255 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Main.strings; sourceTree = "<group>"; };
 		776B145C1FA2118C00D4C153 /* OptionTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionTableViewController.swift; sourceTree = "<group>"; };
 		776B145E1FA2C29400D4C153 /* QuestionTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionTableViewController.swift; sourceTree = "<group>"; };
 		776B14651FA48A9600D4C153 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -161,17 +164,17 @@
 			isa = PBXGroup;
 			children = (
 				778311BB1F2B81D200657895 /* Main.storyboard */,
-				775C1F9E1FAEF2E50056999B /* IntroPage.xib */,
+				775C1F9E1FAEF2E50056999B /* IntroView.xib */,
 				776B14661FA48A9600D4C153 /* Localizable.strings */,
 				778311C31F2B81D200657895 /* LaunchScreen.storyboard */,
+				77630F811FE904B400ED7255 /* tutorial.m4v */,
 				778311BE1F2B81D200657895 /* MarkSheet.xcdatamodeld */,
 				778311C61F2B81D200657895 /* Info.plist */,
 				778311C11F2B81D200657895 /* Assets.xcassets */,
 				7753CA641FB4045900C46E97 /* UserDefaultExtension.swift */,
 				77AD0ED51FCFC4F300F9963E /* StringExtension.swift */,
 				778594551FB56CBC0006A1AE /* DebugViewController.swift */,
-				776A7B2A1FA84E89004A0618 /* Bridging.h */,
-				775C1FA01FAEFD270056999B /* IntroPage.swift */,
+				775C1FA01FAEFD270056999B /* IntroView.swift */,
 				778311B71F2B81D200657895 /* AppDelegate.swift */,
 				778311B91F2B81D200657895 /* FormatViewController.swift */,
 				77ED56411F303D13009FB039 /* AnswerSheetListViewController.swift */,
@@ -313,7 +316,7 @@
 			};
 			buildConfigurationList = 778311AF1F2B81D100657895 /* Build configuration list for PBXProject "MarkSheet" */;
 			compatibilityVersion = "Xcode 8.0";
-			developmentRegion = en;
+			developmentRegion = ja;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
@@ -337,11 +340,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				77630F821FE908AF00ED7255 /* tutorial.m4v in Resources */,
 				778311C51F2B81D200657895 /* LaunchScreen.storyboard in Resources */,
 				776B14641FA48A9600D4C153 /* Localizable.strings in Resources */,
 				778311C21F2B81D200657895 /* Assets.xcassets in Resources */,
 				778311BD1F2B81D200657895 /* Main.storyboard in Resources */,
-				775C1F9F1FAEF2E50056999B /* IntroPage.xib in Resources */,
+				775C1F9F1FAEF2E50056999B /* IntroView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -399,13 +403,11 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-MarkSheet/Pods-MarkSheet-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/AMPopTip/AMPopTip.framework",
 				"${BUILT_PRODUCTS_DIR}/EAIntroView/EAIntroView.framework",
 				"${BUILT_PRODUCTS_DIR}/EARestrictedScrollView/EARestrictedScrollView.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AMPopTip.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/EAIntroView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/EARestrictedScrollView.framework",
 			);
@@ -545,7 +547,7 @@
 				7726DB291F34BE4600FEF380 /* Format.swift in Sources */,
 				77ED56421F303D13009FB039 /* AnswerSheetListViewController.swift in Sources */,
 				778594561FB56CBC0006A1AE /* DebugViewController.swift in Sources */,
-				775C1FA11FAEFD270056999B /* IntroPage.swift in Sources */,
+				775C1FA11FAEFD270056999B /* IntroView.swift in Sources */,
 				778311C01F2B81D200657895 /* MarkSheet.xcdatamodeld in Sources */,
 				778D69111F4325FD003401F7 /* BorderLabel.swift in Sources */,
 				776B145D1FA2118C00D4C153 /* OptionTableViewController.swift in Sources */,
@@ -598,6 +600,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				778311BC1F2B81D200657895 /* Base */,
+				77630FC21FEB733500ED7255 /* en */,
+				77630FC41FEB868900ED7255 /* ja */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -739,7 +743,6 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "ffc755c3-4f8d-4452-a521-0e389573c1bd";
 				PROVISIONING_PROFILE_SPECIFIER = "com.appspot.hihittter.MarkSheet Development";
-				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/$(PRODUCT_NAME)/Bridging.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "Pods/**";
@@ -761,7 +764,6 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "ab59ff92-f643-4ec3-8601-f71012a1ec4a";
 				PROVISIONING_PROFILE_SPECIFIER = "com.appspot.hihittter.MarkSheet AppStore";
-				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/$(PRODUCT_NAME)/Bridging.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "Pods/**";

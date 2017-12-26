@@ -14,8 +14,8 @@ protocol QuestionCellDelegate {
 
 class QuestionCell: UITableViewCell, UICollectionViewDelegate, UICollectionViewDataSource {
     
-    @IBOutlet var collectionView:UICollectionView?
-    @IBOutlet var collectionViewLeadingConstraint:NSLayoutConstraint?
+    @IBOutlet weak var collectionView:UICollectionView!
+    @IBOutlet weak var collectionViewLeadingConstraint:NSLayoutConstraint!
     var numberOfOption:Int = 0
     var mark:Int = 0
     var answer:Int = 0
@@ -24,12 +24,12 @@ class QuestionCell: UITableViewCell, UICollectionViewDelegate, UICollectionViewD
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        collectionView?.allowsMultipleSelection = false
+        collectionView.allowsMultipleSelection = false
     }
 
     override func prepareForReuse() {
         super.prepareForReuse()
-        collectionView?.reloadData()
+        collectionView.reloadData()
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -81,6 +81,6 @@ class QuestionCell: UITableViewCell, UICollectionViewDelegate, UICollectionViewD
     }
     
     func setLeading(constant: CGFloat) {
-        collectionViewLeadingConstraint?.constant = constant
+        collectionViewLeadingConstraint.constant = constant
     }
 }

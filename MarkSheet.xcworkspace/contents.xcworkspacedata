@@ -2,9 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:/Users/nejisiki2047/Documents/iPhone_Cocoa_Project/MarkSheet/MarkSheet/UserDefaultExtension.swift">
-   </FileRef>
-   <FileRef
       location = "group:MarkSheet.xcodeproj">
    </FileRef>
    <FileRef

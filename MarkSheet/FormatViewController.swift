@@ -28,7 +28,7 @@ class FormatViewController: UIViewController, UITableViewDataSource, UITableView
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let rightBarButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.add,
+        let rightBarButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.add,
                                              target: self,
                                              action: #selector(self.didPushAddButton(sender:)))
         navigationItem.rightBarButtonItem = rightBarButton
@@ -91,8 +91,8 @@ class FormatViewController: UIViewController, UITableViewDataSource, UITableView
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         let deleteAction = UITableViewRowAction(style: .normal, title: "delete".localized) { (rowAction, indexPath) in
             let alert = UIAlertController(title:"", message: "confirm delete".localized,
-                                          preferredStyle: UIAlertControllerStyle.alert)
-            let delete = UIAlertAction(title: "delete".localized, style: UIAlertActionStyle.default, handler: {
+                                          preferredStyle: UIAlertController.Style.alert)
+            let delete = UIAlertAction(title: "delete".localized, style: UIAlertAction.Style.default, handler: {
                 (action: UIAlertAction!) in
                 let format:Format? = self.formats?[indexPath.row]
                 let context = format?.managedObjectContext
@@ -101,7 +101,7 @@ class FormatViewController: UIViewController, UITableViewDataSource, UITableView
                 try! context?.save()
                 tableView.deleteRows(at: [indexPath], with: .fade)
             })
-            let cancel = UIAlertAction(title: "cancel".localized, style: UIAlertActionStyle.cancel, handler: {
+            let cancel = UIAlertAction(title: "cancel".localized, style: UIAlertAction.Style.cancel, handler: {
                 (action: UIAlertAction!) in
             })
             

@@ -103,8 +103,8 @@ class MakeFormatViewController: UITableViewController, UITextFieldDelegate {
     }
     
     func showAlert(message: String) {
-        let alert = UIAlertController(title:"", message: message, preferredStyle: UIAlertControllerStyle.alert)
-        let cancel = UIAlertAction(title: "OK", style: UIAlertActionStyle.cancel, handler: {
+        let alert = UIAlertController(title:"", message: message, preferredStyle: UIAlertController.Style.alert)
+        let cancel = UIAlertAction(title: "OK", style: UIAlertAction.Style.cancel, handler: {
             (action: UIAlertAction!) in
         })
         

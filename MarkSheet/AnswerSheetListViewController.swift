@@ -39,7 +39,7 @@ class AnswerSheetListViewController: UIViewController, UITableViewDataSource, UI
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let barButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.add,
+        let barButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.add,
                                         target: self,
                                         action: #selector(self.pushButton(sender:)))
         navigationItem.rightBarButtonItem = barButton
@@ -78,7 +78,7 @@ class AnswerSheetListViewController: UIViewController, UITableViewDataSource, UI
         return true
     }
 
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             let answerSheet:AnswerSheet? = answerSheetList[indexPath.row]
             let context = answerSheet?.managedObjectContext

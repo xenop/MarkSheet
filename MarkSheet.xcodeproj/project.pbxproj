@@ -163,30 +163,15 @@
 		778311B61F2B81D200657895 /* MarkSheet */ = {
 			isa = PBXGroup;
 			children = (
-				778311BB1F2B81D200657895 /* Main.storyboard */,
-				775C1F9E1FAEF2E50056999B /* IntroView.xib */,
-				776B14661FA48A9600D4C153 /* Localizable.strings */,
-				778311C31F2B81D200657895 /* LaunchScreen.storyboard */,
-				77630F811FE904B400ED7255 /* tutorial.m4v */,
+				77D02C402519E5C3001BB0BE /* Extension */,
+				77D02C452519E628001BB0BE /* Model */,
+				77D02C472519E69A001BB0BE /* Resources */,
+				77D02C442519E5E9001BB0BE /* UI */,
+				77D02C462519E645001BB0BE /* View */,
+				77D02C392519E58D001BB0BE /* ViewController */,
+				778311B71F2B81D200657895 /* AppDelegate.swift */,
 				778311BE1F2B81D200657895 /* MarkSheet.xcdatamodeld */,
 				778311C61F2B81D200657895 /* Info.plist */,
-				778311C11F2B81D200657895 /* Assets.xcassets */,
-				7753CA641FB4045900C46E97 /* UserDefaultExtension.swift */,
-				77AD0ED51FCFC4F300F9963E /* StringExtension.swift */,
-				778594551FB56CBC0006A1AE /* DebugViewController.swift */,
-				775C1FA01FAEFD270056999B /* IntroView.swift */,
-				778311B71F2B81D200657895 /* AppDelegate.swift */,
-				778311B91F2B81D200657895 /* FormatViewController.swift */,
-				77ED56411F303D13009FB039 /* AnswerSheetListViewController.swift */,
-				77ED56431F30B94F009FB039 /* AnswerSheetViewController.swift */,
-				77ED56451F30BF83009FB039 /* QuestionCell.swift */,
-				77ED56471F30E5FC009FB039 /* OptionCollectionViewCell.swift */,
-				77A39E981F3B46BB001CEA76 /* MakeFormatViewController.swift */,
-				776B145C1FA2118C00D4C153 /* OptionTableViewController.swift */,
-				776B145E1FA2C29400D4C153 /* QuestionTableViewController.swift */,
-				778D69101F4325FD003401F7 /* BorderLabel.swift */,
-				7728F69D1F344106006DB104 /* AnswerSheet.swift */,
-				7726DB281F34BE4600FEF380 /* Format.swift */,
 			);
 			path = MarkSheet;
 			sourceTree = "<group>";
@@ -207,6 +192,69 @@
 				778311DC1F2B81D200657895 /* Info.plist */,
 			);
 			path = MarkSheetUITests;
+			sourceTree = "<group>";
+		};
+		77D02C392519E58D001BB0BE /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				77ED56411F303D13009FB039 /* AnswerSheetListViewController.swift */,
+				77ED56431F30B94F009FB039 /* AnswerSheetViewController.swift */,
+				778594551FB56CBC0006A1AE /* DebugViewController.swift */,
+				778311B91F2B81D200657895 /* FormatViewController.swift */,
+				77A39E981F3B46BB001CEA76 /* MakeFormatViewController.swift */,
+				776B145C1FA2118C00D4C153 /* OptionTableViewController.swift */,
+				776B145E1FA2C29400D4C153 /* QuestionTableViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		77D02C402519E5C3001BB0BE /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				77AD0ED51FCFC4F300F9963E /* StringExtension.swift */,
+				7753CA641FB4045900C46E97 /* UserDefaultExtension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		77D02C442519E5E9001BB0BE /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				775C1F9E1FAEF2E50056999B /* IntroView.xib */,
+				778311C31F2B81D200657895 /* LaunchScreen.storyboard */,
+				778311BB1F2B81D200657895 /* Main.storyboard */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		77D02C452519E628001BB0BE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				7728F69D1F344106006DB104 /* AnswerSheet.swift */,
+				7726DB281F34BE4600FEF380 /* Format.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		77D02C462519E645001BB0BE /* View */ = {
+			isa = PBXGroup;
+			children = (
+				778D69101F4325FD003401F7 /* BorderLabel.swift */,
+				775C1FA01FAEFD270056999B /* IntroView.swift */,
+				77ED56471F30E5FC009FB039 /* OptionCollectionViewCell.swift */,
+				77ED56451F30BF83009FB039 /* QuestionCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		77D02C472519E69A001BB0BE /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				778311C11F2B81D200657895 /* Assets.xcassets */,
+				776B14661FA48A9600D4C153 /* Localizable.strings */,
+				77630F811FE904B400ED7255 /* tutorial.m4v */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		FD966DDA819A35BF3D912E35 /* Pods */ = {

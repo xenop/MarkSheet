@@ -8,7 +8,8 @@ target 'MarkSheet' do
   # Pods for MarkSheet
   pod 'Firebase/Crashlytics'
   pod 'Firebase/Analytics'
-
+  pod 'SwiftLint'
+  
   target 'MarkSheetTests' do
     inherit! :search_paths
     # Pods for testing

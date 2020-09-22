@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol IntroViewDelegate {
+protocol IntroViewDelegate: AnyObject {
     func play(sender: IntroView)
     func close(sender: IntroView)
 }

@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol QuestionCellDelegate {
+protocol QuestionCellDelegate: AnyObject {
     func questionCellDidMark(cell: QuestionCell)
 }
 

@@ -9,7 +9,7 @@
 import UIKit
 
 class BorderLabel: UILabel {
-    
+
     override func awakeFromNib() {
         super.awakeFromNib()
         layer.borderWidth = 1

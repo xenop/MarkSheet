@@ -12,23 +12,23 @@ protocol KeyNamespaceable {
 }
 
 extension KeyNamespaceable {
-    
+
     func namespaced<T: RawRepresentable>(_ key: T) -> String {
         return "\(Self.self).\(key.rawValue)"
     }
 }
 
-protocol StringDefaultSettable : KeyNamespaceable {
-    associatedtype StringKey : RawRepresentable
+protocol StringDefaultSettable: KeyNamespaceable {
+    associatedtype StringKey: RawRepresentable
 }
 
 extension StringDefaultSettable where StringKey.RawValue == String {
-    
+
     func set(_ value: Bool, forKey key: StringKey) {
         let key = namespaced(key)
         UserDefaults.standard.set(value, forKey: key)
     }
-    
+
     @discardableResult
     func bool(forKey key: StringKey) -> Bool {
         let key = namespaced(key)
@@ -36,8 +36,8 @@ extension StringDefaultSettable where StringKey.RawValue == String {
     }
 }
 
-extension UserDefaults : StringDefaultSettable {
-    enum StringKey : String {
+extension UserDefaults: StringDefaultSettable {
+    enum StringKey: String {
         case introDidShow
     }
 }

@@ -10,11 +10,11 @@ import UIKit
 import Foundation
 
 class DebugViewController: UITableViewController {
-    
+
     @IBAction func close(sender: Any) {
         dismiss(animated: true, completion: nil)
     }
-    
+
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.row == 0 {
             var lang = UserDefaults.standard.string(forKey: "i18n_language")

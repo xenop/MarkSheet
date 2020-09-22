@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 import Foundation
-    
+
 @objc(Format)
 public class Format: NSManagedObject {
     @NSManaged public var answers: [Int]?
@@ -19,19 +19,19 @@ public class Format: NSManagedObject {
     @NSManaged public var number_of_questions: Int16
     @NSManaged public var sort: Int16
     @NSManaged public var answer_sheet: NSSet?
-    
+
 }
 
 extension Format {
     @objc(addAnswer_sheetObject:)
     @NSManaged public func addToAnswer_sheet(_ value: AnswerSheet)
-    
+
     @objc(removeAnswer_sheetObject:)
     @NSManaged public func removeFromAnswer_sheet(_ value: AnswerSheet)
-    
+
     @objc(addAnswer_sheet:)
     @NSManaged public func addToAnswer_sheet(_ values: NSSet)
-    
+
     @objc(removeAnswer_sheet:)
     @NSManaged public func removeFromAnswer_sheet(_ values: NSSet)
 }

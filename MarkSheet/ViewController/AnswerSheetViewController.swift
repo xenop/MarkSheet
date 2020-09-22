@@ -10,30 +10,30 @@ import UIKit
 
 class AnswerSheetViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, QuestionCellDelegate {
     // MARK: Properties
-    
-    var scoreLabel:UILabel? = nil
-    var answerSheet:AnswerSheet? = nil {
+
+    var scoreLabel: UILabel?
+    var answerSheet: AnswerSheet? = nil {
         didSet {
             title = answerSheet?.name
         }
     }
-    var format:Format? = nil
-    var numberOfQuestions:Int = 0
-    var numberOfOptions:Int = 0
+    var format: Format?
+    var numberOfQuestions: Int = 0
+    var numberOfOptions: Int = 0
     var scoreMode = false
     var enterAnswerMode = false {
         didSet {
             title = ""
         }
     }
-    
+
     // MARK: - IBOutlets
-    
-    @IBOutlet weak var rightButtonItem:UIBarButtonItem!
-    @IBOutlet weak var tableView:UITableView!
+
+    @IBOutlet weak var rightButtonItem: UIBarButtonItem!
+    @IBOutlet weak var tableView: UITableView!
 
     // MARK: - View Controller
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         numberOfQuestions = Int(format?.number_of_questions ?? 0)
@@ -45,21 +45,21 @@ class AnswerSheetViewController: UIViewController, UITableViewDataSource, UITabl
             navigationItem.rightBarButtonItem = rightButtonItem
         }
     }
-    
+
     // MARK: - UITableViewDataSource
-    
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return numberOfQuestions
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell:QuestionCell = tableView.dequeueReusableCell(withIdentifier: "QuestionCell", for: indexPath) as! QuestionCell
+        let cell: QuestionCell = tableView.dequeueReusableCell(withIdentifier: "QuestionCell", for: indexPath) as! QuestionCell
         cell.scoreMode = scoreMode
         cell.numberOfOption = numberOfOptions
         cell.setLeading(constant: 24 + tableView.separatorInset.left)
         cell.textLabel?.text = "\(indexPath.row + 1)"
         cell.textLabel?.font = UIFont.systemFont(ofSize: 12)
-        
+
         if enterAnswerMode {
             cell.mark = (format?.answers![indexPath.row])!
         } else {
@@ -69,16 +69,16 @@ class AnswerSheetViewController: UIViewController, UITableViewDataSource, UITabl
         cell.delegate = self
         return cell
     }
-    
+
     // MARK: - UITableViewDelegate
-    
+
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
     }
-    
+
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         // just show answer
-        var title:String!
+        var title: String!
         if let answer = format?.answers![indexPath.row] {
             if answer == 0 {
                 title = "undefined"
@@ -88,26 +88,26 @@ class AnswerSheetViewController: UIViewController, UITableViewDataSource, UITabl
         } else {
             title = "undefined"
         }
-        
-        let noAction = UITableViewRowAction(style: .normal, title: title) { (rowAction, indexPath) in
+
+        let noAction = UITableViewRowAction(style: .normal, title: title) { (_, _) in
             // do nothing
         }
-        
+
         noAction.backgroundColor = .red
-        
+
         return [noAction]
     }
-    
+
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return scoreMode ? 49 : 0
     }
-    
+
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         if scoreLabel == nil {
             scoreLabel = UILabel()
             scoreLabel!.backgroundColor = UIColor(white: 0.976, alpha: 1)
             scoreLabel!.textAlignment = .center
-            
+
             let topBorder = CALayer()
             topBorder.frame = CGRect(x: 0, y: 0, width: tableView.frame.width, height: 1.0)
             topBorder.backgroundColor = UIColor.lightGray.cgColor
@@ -115,9 +115,9 @@ class AnswerSheetViewController: UIViewController, UITableViewDataSource, UITabl
         }
         return scoreLabel
     }
-    
+
     // MARK: - QuestionCellDelegate
-    
+
     func questionCellDidMark(cell: QuestionCell) {
         let indexPath = tableView!.indexPath(for: cell)
         if let row = indexPath?.row {
@@ -130,9 +130,9 @@ class AnswerSheetViewController: UIViewController, UITableViewDataSource, UITabl
             }
         }
     }
-    
+
     // MARK: - IBActions
-    
+
     @IBAction func pushRightButton(sender: Any) {
         scoreMode = !scoreMode
         if scoreMode {
@@ -157,9 +157,9 @@ class AnswerSheetViewController: UIViewController, UITableViewDataSource, UITabl
         }
         tableView!.reloadData()
     }
-    
+
     // MARK: -
-    
+
     func refreshFooterView() {
         UIView.setAnimationsEnabled(false)
         tableView!.beginUpdates()

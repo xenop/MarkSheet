@@ -43,18 +43,20 @@ class FormatViewController: UIViewController, UITableViewDataSource, UITableView
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "DisplayAnswerSheetListView" {
-            let destinationVC = segue.destination as! AnswerSheetListViewController
-            destinationVC.format = selectedFormat
-        } else if segue.identifier == "DisplayMakeFormatView" {
-            let nc = segue.destination as! UINavigationController
-            let destinationVC = nc.topViewController as! MakeFormatViewController
+        if segue.identifier == "DisplayAnswerSheetListView",
+           let vc = segue.destination as? AnswerSheetListViewController {
+            vc.format = selectedFormat
+        } else if segue.identifier == "DisplayMakeFormatView",
+                  let nc = segue.destination as? UINavigationController,
+                  let vc = nc.topViewController as? MakeFormatViewController {
             if isEditMode {
-                destinationVC.editFormat = selectedFormat
+                vc.editFormat = selectedFormat
                 isEditMode = false
             }
-            destinationVC.managedObjectContext = managedObjectContext!
-            destinationVC.completionHandler = {
+            if let managedObjectContext = managedObjectContext {
+                vc.managedObjectContext = managedObjectContext
+            }
+            vc.completionHandler = {
                 self.loadData()
             }
         }

@@ -46,9 +46,10 @@ class AnswerSheetListViewController: UIViewController, UITableViewDataSource, UI
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let destinationVC = segue.destination as! AnswerSheetViewController
-        destinationVC.format = format
-        destinationVC.answerSheet = selectedAnswerSheet
+        if let vc = segue.destination as? AnswerSheetViewController {
+            vc.format = format
+            vc.answerSheet = selectedAnswerSheet
+        }
     }
 
     // MARK: - TableViewDataSource
@@ -91,14 +92,17 @@ class AnswerSheetListViewController: UIViewController, UITableViewDataSource, UI
     // MARK: -
 
     @objc func pushButton(sender: Any) {
-        let managedObjectContext: NSManagedObjectContext = (format?.managedObjectContext!)!
-        let answerSheetManagedObject: AnyObject =
-            NSEntityDescription.insertNewObject(forEntityName: "AnswerSheet", into: managedObjectContext)
-        let answerSheet = answerSheetManagedObject as! AnswerSheet
+        guard let format = format,
+              let managedObjectContext = format.managedObjectContext,
+              let answerSheet =
+                  NSEntityDescription.insertNewObject(forEntityName: "AnswerSheet", into: managedObjectContext) as? AnswerSheet else {
+            return
+        }
+        
         answerSheet.setDefaultName()
-        let number_of_questions = Int(format?.number_of_questions ?? 0)
+        let number_of_questions = Int(format.number_of_questions)
         answerSheet.mark = Array(0..<number_of_questions).map { $0 * 0 }
-        format?.addToAnswer_sheet(answerSheet)
+        format.addToAnswer_sheet(answerSheet)
 
         try! managedObjectContext.save()
         tableView.reloadData()

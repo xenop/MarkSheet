@@ -18,9 +18,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         FirebaseApp.configure()
 
-        let navController: UINavigationController =  self.window!.rootViewController as! UINavigationController
-        let formatVC: FormatViewController = navController.topViewController as! FormatViewController
-        formatVC.managedObjectContext = self.managedObjectContext
+        if let nav = window?.rootViewController as? UINavigationController,
+           let vc = nav.topViewController as? FormatViewController {
+            vc.managedObjectContext = self.managedObjectContext
+        }
+        
         return true
     }
 

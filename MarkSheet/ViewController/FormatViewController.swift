@@ -8,7 +8,6 @@
 
 import UIKit
 import CoreData
-import Crashlytics
 import AVKit
 
 class FormatViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, IntroViewDelegate {

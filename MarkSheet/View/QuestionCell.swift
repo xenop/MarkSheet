@@ -13,15 +13,15 @@ protocol QuestionCellDelegate {
 }
 
 class QuestionCell: UITableViewCell, UICollectionViewDelegate, UICollectionViewDataSource {
-    
-    @IBOutlet weak var collectionView:UICollectionView!
-    @IBOutlet weak var collectionViewLeadingConstraint:NSLayoutConstraint!
-    var numberOfOption:Int = 0
-    var mark:Int = 0
-    var answer:Int = 0
+
+    @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var collectionViewLeadingConstraint: NSLayoutConstraint!
+    var numberOfOption: Int = 0
+    var mark: Int = 0
+    var answer: Int = 0
     var scoreMode = false
-    var delegate:QuestionCellDelegate? = nil
-    
+    weak var delegate: QuestionCellDelegate?
+
     override func awakeFromNib() {
         super.awakeFromNib()
         collectionView.allowsMultipleSelection = false
@@ -31,13 +31,13 @@ class QuestionCell: UITableViewCell, UICollectionViewDelegate, UICollectionViewD
         super.prepareForReuse()
         collectionView.reloadData()
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return numberOfOption
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell:OptionCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "OptionCollectionViewCell", for: indexPath) as! OptionCollectionViewCell
+        let cell: OptionCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "OptionCollectionViewCell", for: indexPath) as! OptionCollectionViewCell
         cell.label?.text = "\(indexPath.row + 1)"
         if scoreMode {
             if mark == indexPath.row + 1 {
@@ -60,7 +60,7 @@ class QuestionCell: UITableViewCell, UICollectionViewDelegate, UICollectionViewD
         }
         return cell
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if scoreMode {
             return
@@ -69,7 +69,7 @@ class QuestionCell: UITableViewCell, UICollectionViewDelegate, UICollectionViewD
             cell.isSelected = false
             (cell as! OptionCollectionViewCell).markState = .noMark
         }
-        let cell:OptionCollectionViewCell = collectionView.cellForItem(at: indexPath) as! OptionCollectionViewCell
+        let cell: OptionCollectionViewCell = collectionView.cellForItem(at: indexPath) as! OptionCollectionViewCell
         if mark == indexPath.row + 1 {
            mark = 0
             cell.markState = .noMark
@@ -79,7 +79,7 @@ class QuestionCell: UITableViewCell, UICollectionViewDelegate, UICollectionViewD
         }
         delegate?.questionCellDidMark(cell: self)
     }
-    
+
     func setLeading(constant: CGFloat) {
         collectionViewLeadingConstraint.constant = constant
     }

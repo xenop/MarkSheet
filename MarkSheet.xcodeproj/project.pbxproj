@@ -28,6 +28,7 @@
 		778D69111F4325FD003401F7 /* BorderLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 778D69101F4325FD003401F7 /* BorderLabel.swift */; };
 		77A39E991F3B46BB001CEA76 /* MakeFormatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A39E981F3B46BB001CEA76 /* MakeFormatViewController.swift */; };
 		77AD0ED61FCFC4F300F9963E /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77AD0ED51FCFC4F300F9963E /* StringExtension.swift */; };
+		77D02C4C2519E73E001BB0BE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 77D02C4B2519E73E001BB0BE /* GoogleService-Info.plist */; };
 		77ED56421F303D13009FB039 /* AnswerSheetListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77ED56411F303D13009FB039 /* AnswerSheetListViewController.swift */; };
 		77ED56441F30B94F009FB039 /* AnswerSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77ED56431F30B94F009FB039 /* AnswerSheetViewController.swift */; };
 		77ED56461F30BF84009FB039 /* QuestionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77ED56451F30BF83009FB039 /* QuestionCell.swift */; };
@@ -89,6 +90,7 @@
 		778D69101F4325FD003401F7 /* BorderLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorderLabel.swift; sourceTree = "<group>"; };
 		77A39E981F3B46BB001CEA76 /* MakeFormatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeFormatViewController.swift; sourceTree = "<group>"; };
 		77AD0ED51FCFC4F300F9963E /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
+		77D02C4B2519E73E001BB0BE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		77ED56411F303D13009FB039 /* AnswerSheetListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerSheetListViewController.swift; sourceTree = "<group>"; };
 		77ED56431F30B94F009FB039 /* AnswerSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerSheetViewController.swift; sourceTree = "<group>"; };
 		77ED56451F30BF83009FB039 /* QuestionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionCell.swift; sourceTree = "<group>"; };
@@ -163,30 +165,16 @@
 		778311B61F2B81D200657895 /* MarkSheet */ = {
 			isa = PBXGroup;
 			children = (
-				778311BB1F2B81D200657895 /* Main.storyboard */,
-				775C1F9E1FAEF2E50056999B /* IntroView.xib */,
-				776B14661FA48A9600D4C153 /* Localizable.strings */,
-				778311C31F2B81D200657895 /* LaunchScreen.storyboard */,
-				77630F811FE904B400ED7255 /* tutorial.m4v */,
+				77D02C402519E5C3001BB0BE /* Extension */,
+				77D02C452519E628001BB0BE /* Model */,
+				77D02C472519E69A001BB0BE /* Resources */,
+				77D02C442519E5E9001BB0BE /* UI */,
+				77D02C462519E645001BB0BE /* View */,
+				77D02C392519E58D001BB0BE /* ViewController */,
+				778311B71F2B81D200657895 /* AppDelegate.swift */,
+				77D02C4B2519E73E001BB0BE /* GoogleService-Info.plist */,
 				778311BE1F2B81D200657895 /* MarkSheet.xcdatamodeld */,
 				778311C61F2B81D200657895 /* Info.plist */,
-				778311C11F2B81D200657895 /* Assets.xcassets */,
-				7753CA641FB4045900C46E97 /* UserDefaultExtension.swift */,
-				77AD0ED51FCFC4F300F9963E /* StringExtension.swift */,
-				778594551FB56CBC0006A1AE /* DebugViewController.swift */,
-				775C1FA01FAEFD270056999B /* IntroView.swift */,
-				778311B71F2B81D200657895 /* AppDelegate.swift */,
-				778311B91F2B81D200657895 /* FormatViewController.swift */,
-				77ED56411F303D13009FB039 /* AnswerSheetListViewController.swift */,
-				77ED56431F30B94F009FB039 /* AnswerSheetViewController.swift */,
-				77ED56451F30BF83009FB039 /* QuestionCell.swift */,
-				77ED56471F30E5FC009FB039 /* OptionCollectionViewCell.swift */,
-				77A39E981F3B46BB001CEA76 /* MakeFormatViewController.swift */,
-				776B145C1FA2118C00D4C153 /* OptionTableViewController.swift */,
-				776B145E1FA2C29400D4C153 /* QuestionTableViewController.swift */,
-				778D69101F4325FD003401F7 /* BorderLabel.swift */,
-				7728F69D1F344106006DB104 /* AnswerSheet.swift */,
-				7726DB281F34BE4600FEF380 /* Format.swift */,
 			);
 			path = MarkSheet;
 			sourceTree = "<group>";
@@ -207,6 +195,69 @@
 				778311DC1F2B81D200657895 /* Info.plist */,
 			);
 			path = MarkSheetUITests;
+			sourceTree = "<group>";
+		};
+		77D02C392519E58D001BB0BE /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				77ED56411F303D13009FB039 /* AnswerSheetListViewController.swift */,
+				77ED56431F30B94F009FB039 /* AnswerSheetViewController.swift */,
+				778594551FB56CBC0006A1AE /* DebugViewController.swift */,
+				778311B91F2B81D200657895 /* FormatViewController.swift */,
+				77A39E981F3B46BB001CEA76 /* MakeFormatViewController.swift */,
+				776B145C1FA2118C00D4C153 /* OptionTableViewController.swift */,
+				776B145E1FA2C29400D4C153 /* QuestionTableViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		77D02C402519E5C3001BB0BE /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				77AD0ED51FCFC4F300F9963E /* StringExtension.swift */,
+				7753CA641FB4045900C46E97 /* UserDefaultExtension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		77D02C442519E5E9001BB0BE /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				775C1F9E1FAEF2E50056999B /* IntroView.xib */,
+				778311C31F2B81D200657895 /* LaunchScreen.storyboard */,
+				778311BB1F2B81D200657895 /* Main.storyboard */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		77D02C452519E628001BB0BE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				7728F69D1F344106006DB104 /* AnswerSheet.swift */,
+				7726DB281F34BE4600FEF380 /* Format.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		77D02C462519E645001BB0BE /* View */ = {
+			isa = PBXGroup;
+			children = (
+				778D69101F4325FD003401F7 /* BorderLabel.swift */,
+				775C1FA01FAEFD270056999B /* IntroView.swift */,
+				77ED56471F30E5FC009FB039 /* OptionCollectionViewCell.swift */,
+				77ED56451F30BF83009FB039 /* QuestionCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		77D02C472519E69A001BB0BE /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				778311C11F2B81D200657895 /* Assets.xcassets */,
+				776B14661FA48A9600D4C153 /* Localizable.strings */,
+				77630F811FE904B400ED7255 /* tutorial.m4v */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		FD966DDA819A35BF3D912E35 /* Pods */ = {
@@ -234,7 +285,6 @@
 				778311B11F2B81D100657895 /* Frameworks */,
 				778311B21F2B81D100657895 /* Resources */,
 				626546E2DACF66B9F393FE78 /* [CP] Embed Pods Frameworks */,
-				B5FAA2BEF07D7FF967D9F94E /* [CP] Copy Pods Resources */,
 				776B14681FA7153600D4C153 /* ShellScript */,
 			);
 			buildRules = (
@@ -254,8 +304,6 @@
 				778311C71F2B81D200657895 /* Sources */,
 				778311C81F2B81D200657895 /* Frameworks */,
 				778311C91F2B81D200657895 /* Resources */,
-				D4B6F9540DDFAF087A08F6B1 /* [CP] Embed Pods Frameworks */,
-				3651EA846D57CAA5EADFE475 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -275,8 +323,6 @@
 				778311D21F2B81D200657895 /* Sources */,
 				778311D31F2B81D200657895 /* Frameworks */,
 				778311D41F2B81D200657895 /* Resources */,
-				302C3CC9BDFA1F549D071A64 /* [CP] Embed Pods Frameworks */,
-				A288C1DE366EF1731C80F107 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -295,7 +341,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0900;
-				LastUpgradeCheck = 1150;
+				LastUpgradeCheck = 1200;
 				ORGANIZATIONNAME = xenop;
 				TargetAttributes = {
 					778311B31F2B81D100657895 = {
@@ -349,6 +395,7 @@
 				778311C21F2B81D200657895 /* Assets.xcassets in Resources */,
 				778311BD1F2B81D200657895 /* Main.storyboard in Resources */,
 				775C1F9F1FAEF2E50056999B /* IntroView.xib in Resources */,
+				77D02C4C2519E73E001BB0BE /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -369,54 +416,26 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		302C3CC9BDFA1F549D071A64 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MarkSheetUITests/Pods-MarkSheetUITests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		3651EA846D57CAA5EADFE475 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MarkSheetTests/Pods-MarkSheetTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		626546E2DACF66B9F393FE78 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-MarkSheet/Pods-MarkSheet-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/EAIntroView/EAIntroView.framework",
-				"${BUILT_PRODUCTS_DIR}/EARestrictedScrollView/EARestrictedScrollView.framework",
+				"${PODS_ROOT}/Target Support Files/Pods-MarkSheet/Pods-MarkSheet-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/PromisesObjC/FBLPromises.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/EAIntroView.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/EARestrictedScrollView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBLPromises.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MarkSheet/Pods-MarkSheet-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MarkSheet/Pods-MarkSheet-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		6ADA528C5CEE3E8CB071D24D /* [CP] Check Pods Manifest.lock */ = {
@@ -466,52 +485,8 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Fabric/run\" 055ff12857ca416ee60a591a3854e4eff9b8cd52 9a84e0c5c30f21cb85714f0fc1b85726d06038e605ebb191cc7e4d210a41cacb";
-		};
-		A288C1DE366EF1731C80F107 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MarkSheetUITests/Pods-MarkSheetUITests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		B5FAA2BEF07D7FF967D9F94E /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MarkSheet/Pods-MarkSheet-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		D4B6F9540DDFAF087A08F6B1 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MarkSheetTests/Pods-MarkSheetTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
+			shellScript = "    
+";
 		};
 		D4FE31BF1ADBE9E7D601406B /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -646,6 +621,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -707,6 +683,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -742,12 +719,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = BN5E8JHZAG;
 				INFOPLIST_FILE = MarkSheet/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MARKETING_VERSION = 1.01;
+				MARKETING_VERSION = 1.02;
 				PRODUCT_BUNDLE_IDENTIFIER = com.appspot.hihittter.MarkSheet;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "ffc755c3-4f8d-4452-a521-0e389573c1bd";
@@ -765,12 +742,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = BN5E8JHZAG;
 				INFOPLIST_FILE = MarkSheet/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MARKETING_VERSION = 1.01;
+				MARKETING_VERSION = 1.02;
 				PRODUCT_BUNDLE_IDENTIFIER = com.appspot.hihittter.MarkSheet;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "ab59ff92-f643-4ec3-8601-f71012a1ec4a";

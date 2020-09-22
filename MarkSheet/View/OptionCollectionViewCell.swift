@@ -16,10 +16,10 @@ enum MarkState {
 }
 
 class OptionCollectionViewCell: UICollectionViewCell {
-    @IBOutlet weak var label:BorderLabel!
-    var markState:MarkState = MarkState.noMark {
+    @IBOutlet weak var label: BorderLabel!
+    var markState: MarkState = MarkState.noMark {
         didSet {
-            switch(markState) {
+            switch markState {
             case .noMark:
                 label.backgroundColor = UIColor.clear
                 label.textColor = UIColor.black
@@ -42,7 +42,7 @@ class OptionCollectionViewCell: UICollectionViewCell {
             }
         }
     }
-    
+
     override func prepareForReuse() {
         isSelected = false
     }

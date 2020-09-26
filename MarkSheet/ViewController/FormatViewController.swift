@@ -126,7 +126,7 @@ class FormatViewController: UIViewController, UITableViewDataSource, UITableView
     // MARK: - IntroViewDelegate
 
     func close(sender: IntroView) {
-        self.view.backgroundColor = .white
+        self.view.backgroundColor = .systemBackground
         self.navigationController?.setNavigationBarHidden(false, animated: false)
         introView?.removeFromSuperview()
     }

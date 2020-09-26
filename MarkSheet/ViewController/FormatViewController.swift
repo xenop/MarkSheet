@@ -158,7 +158,7 @@ class FormatViewController: UIViewController, UITableViewDataSource, UITableView
     func showIntro() {
         if introView == nil {
             introView = UINib(nibName: "IntroView", bundle: nil).instantiate(withOwner: nil, options: nil)[0] as? IntroView
-            let window = UIApplication.shared.keyWindow
+            let window = UIApplication.shared.windows.filter {$0.isKeyWindow}.first
             introView!.frame = window!.bounds
             introView!.delegate = self
         }

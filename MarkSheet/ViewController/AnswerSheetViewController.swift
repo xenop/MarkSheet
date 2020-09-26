@@ -104,7 +104,8 @@ class AnswerSheetViewController: UIViewController, UITableViewDataSource, UITabl
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         if scoreLabel == nil {
             scoreLabel = UILabel()
-            scoreLabel!.backgroundColor = UIColor(white: 0.976, alpha: 1)
+            scoreLabel!.textColor = UIColor.label
+            scoreLabel!.backgroundColor = UIColor.systemBackground
             scoreLabel!.textAlignment = .center
 
             let topBorder = CALayer()

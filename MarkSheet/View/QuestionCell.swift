@@ -71,7 +71,7 @@ class QuestionCell: UITableViewCell, UICollectionViewDelegate, UICollectionViewD
         }
         let cell: OptionCollectionViewCell = collectionView.cellForItem(at: indexPath) as! OptionCollectionViewCell
         if mark == indexPath.row + 1 {
-           mark = 0
+            mark = 0
             cell.markState = .noMark
         } else {
             mark = indexPath.row + 1

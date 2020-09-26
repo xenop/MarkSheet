@@ -89,8 +89,8 @@ class FormatViewController: UIViewController, UITableViewDataSource, UITableView
         return true
     }
 
-    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-        let deleteAction = UITableViewRowAction(style: .normal, title: "delete".localized) { (_, indexPath) in
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let deleteAction = UIContextualAction(style: .normal, title: "delete".localized) { (contextualAction, view, boolValue) in
             let alert = UIAlertController(title: "", message: "confirm delete".localized,
                                           preferredStyle: UIAlertController.Style.alert)
             let delete = UIAlertAction(title: "delete".localized, style: UIAlertAction.Style.default, handler: {
@@ -112,15 +112,15 @@ class FormatViewController: UIViewController, UITableViewDataSource, UITableView
             self.present(alert, animated: true, completion: nil)
         }
 
-        let editAction = UITableViewRowAction(style: .normal, title: "edit".localized) { (_, indexPath) in
+        let editAction = UIContextualAction(style: .normal, title: "edit".localized) { (contextualAction, view, boolValue) in
             self.selectedFormat = self.formats![indexPath.row]
             self.isEditMode = true
             self.performSegue(withIdentifier: "DisplayMakeFormatView", sender: self)
         }
         editAction.backgroundColor = .gray
         deleteAction.backgroundColor = .red
-
-        return [deleteAction, editAction]
+        
+        return UISwipeActionsConfiguration(actions: [deleteAction, editAction])
     }
 
     // MARK: - IntroViewDelegate
@@ -158,7 +158,7 @@ class FormatViewController: UIViewController, UITableViewDataSource, UITableView
     func showIntro() {
         if introView == nil {
             introView = UINib(nibName: "IntroView", bundle: nil).instantiate(withOwner: nil, options: nil)[0] as? IntroView
-            let window = UIApplication.shared.keyWindow
+            let window = UIApplication.shared.windows.filter {$0.isKeyWindow}.first
             introView!.frame = window!.bounds
             introView!.delegate = self
         }

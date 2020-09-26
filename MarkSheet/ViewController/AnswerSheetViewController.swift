@@ -76,8 +76,8 @@ class AnswerSheetViewController: UIViewController, UITableViewDataSource, UITabl
         return true
     }
 
-    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-        // just show answer
+    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         var title: String!
         if let answer = format?.answers![indexPath.row] {
             if answer == 0 {
@@ -89,13 +89,12 @@ class AnswerSheetViewController: UIViewController, UITableViewDataSource, UITabl
             title = "undefined"
         }
 
-        let noAction = UITableViewRowAction(style: .normal, title: title) { (_, _) in
+        let contextItem = UIContextualAction(style: .normal, title: title) { (_, _, _) in
             // do nothing
         }
-
-        noAction.backgroundColor = .red
-
-        return [noAction]
+        contextItem.backgroundColor = .red
+        
+        return UISwipeActionsConfiguration(actions: [contextItem])
     }
 
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
